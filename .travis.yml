@@ -1,5 +1,7 @@
 language: node
 
+before-script: yarn install
+
 script: yarn build
 
 deploy:
