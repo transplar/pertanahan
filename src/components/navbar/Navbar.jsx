@@ -19,7 +19,7 @@ class NavbarApp extends Component {
   render() {
     return (
       <Navbar color="dark" dark>
-        <NavbarBrand>Pertanahan</NavbarBrand>
+        <NavbarBrand href="/">Pertanahan</NavbarBrand>
         <NavbarToggler></NavbarToggler>
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav>
