@@ -10,7 +10,7 @@ import NavbarApp from '../navbar/Navbar'
 class Homepage extends Component {
   render() {
     return (
-      <Container fluid>
+      <Container fluid className="p-0">
         <NavbarApp />
         <Container>
           <Row>
