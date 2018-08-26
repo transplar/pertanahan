@@ -13,7 +13,7 @@ class Homepage extends Component {
     return (
       <Container fluid className='p-0'>
         <NavbarApp />
-        <Container>
+        <Container className='py-4'>
           <Row>
             <Col>
               <Button color='danger'>Danger!</Button>
