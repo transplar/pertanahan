@@ -5,7 +5,7 @@ import {
   Container,
   Row
 } from 'reactstrap'
-import NavbarApp from '../navbar/Navbar'
+import NavbarApp from '../components/navbar/Navbar'
 
 class Homepage extends Component {
   render () {
