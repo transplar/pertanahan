@@ -12,17 +12,26 @@ import {
 class NavbarApp extends Component {
   constructor(props) {
     super(props)
+
+    this.toggle = this.toggle.bind(this)
     this.state = {
       isOpen: false
     }
   }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
   render() {
     return (
-      <Navbar color="dark" dark>
+      <Navbar color="dark" dark expand='md'>
         <NavbarBrand href="/">Pertanahan</NavbarBrand>
-        <NavbarToggler></NavbarToggler>
+        <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav>
+          <Nav navbar>
             <NavItem>
               <NavLink href="/">Home</NavLink>
             </NavItem>
