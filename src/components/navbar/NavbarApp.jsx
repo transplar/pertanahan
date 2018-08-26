@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {
   Collapse,
+  Container,
   Nav,
   NavItem,
   NavLink,
@@ -27,17 +28,21 @@ class NavbarApp extends Component {
 
   render () {
     return (
-      <Navbar color='dark' dark expand='md'>
-        <NavbarBrand href='/'>Pertanahan</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav navbar>
-            <NavItem>
-              <NavLink href='/tentang'>Tentang</NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+      <Container fluid className='p-0 bg-dark'>
+        <Container>
+          <Navbar color='dark' dark expand='md'>
+            <NavbarBrand href='/'>Pertanahan</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink href='/tentang'>Tentang</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </Container>
+      </Container>
     )
   }
 }
