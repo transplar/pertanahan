@@ -6,11 +6,11 @@ import {
   NavLink,
   Navbar,
   NavbarBrand,
-  NavbarToggler,
+  NavbarToggler
 } from 'reactstrap'
 
 class NavbarApp extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.toggle = this.toggle.bind(this)
@@ -19,21 +19,21 @@ class NavbarApp extends Component {
     }
   }
 
-  toggle() {
+  toggle () {
     this.setState({
       isOpen: !this.state.isOpen
     })
   }
 
-  render() {
+  render () {
     return (
-      <Navbar color="dark" dark expand='md'>
-        <NavbarBrand href="/">Pertanahan</NavbarBrand>
+      <Navbar color='dark' dark expand='md'>
+        <NavbarBrand href='/'>Pertanahan</NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink href='/tentang'>Tentang</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

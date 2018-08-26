@@ -3,14 +3,14 @@ import {
   Button,
   Col,
   Container,
-  Row,
+  Row
 } from 'reactstrap'
 import NavbarApp from '../navbar/Navbar'
 
 class Homepage extends Component {
-  render() {
+  render () {
     return (
-      <Container fluid className="p-0">
+      <Container fluid className='p-0'>
         <NavbarApp />
         <Container>
           <Row>
