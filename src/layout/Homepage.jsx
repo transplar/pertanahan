@@ -6,6 +6,7 @@ import {
   Row
 } from 'reactstrap'
 import NavbarApp from '../components/navbar/NavbarApp'
+import Footer from '../components/Footer'
 
 class Homepage extends Component {
   render () {
@@ -19,6 +20,7 @@ class Homepage extends Component {
             </Col>
           </Row>
         </Container>
+        <Footer />
       </Container>
     )
   }
