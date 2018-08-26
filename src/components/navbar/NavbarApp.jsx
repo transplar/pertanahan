@@ -36,6 +36,15 @@ class NavbarApp extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav navbar>
                 <NavItem>
+                  <NavLink href='/landasan'>Landasan Hukum</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href='/peta'>Peta</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href='/layanan'>Layanan Publik</NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink href='/tentang'>Tentang</NavLink>
                 </NavItem>
               </Nav>
