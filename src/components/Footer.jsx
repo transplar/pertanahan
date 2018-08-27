@@ -5,7 +5,7 @@ import {
 } from 'reactstrap'
 
 const Footer = () => (
-  <footer className='bg-dark text-light'>
+  <footer className='bg-dark text-light mt-4'>
     <Container>
       <Col className='py-3 text-center'>
         Copyright © 2018
