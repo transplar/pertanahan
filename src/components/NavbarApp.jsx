@@ -4,11 +4,10 @@ import {
   Container,
   Nav,
   NavItem,
-  NavLink,
   Navbar,
-  NavbarBrand,
   NavbarToggler
 } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
 class NavbarApp extends Component {
   constructor (props) {
@@ -31,21 +30,22 @@ class NavbarApp extends Component {
       <header className='bg-dark'>
         <Container>
           <Navbar color='dark' dark expand='md'>
-            <NavbarBrand href='/'>Pertanahan</NavbarBrand>
+            {/* <NavbarBrand href='/'>Pertanahan</NavbarBrand> */}
+            <Link to='/' className='navbar-brand'>Pertanahan</Link>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href='/landasan'>Landasan Hukum</NavLink>
+                  <Link to='/landasan' className='nav-link'>Landasan Hukum</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='/peta'>Peta</NavLink>
+                  <Link to='/peta' className='nav-link'>Peta</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='/layanan'>Layanan Publik</NavLink>
+                  <Link to='/layanan' className='nav-link'>Layanan Publik</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href='/tentang'>Tentang</NavLink>
+                  <Link to='/tentang' className='nav-link'>Tentang</Link>
                 </NavItem>
               </Nav>
             </Collapse>
