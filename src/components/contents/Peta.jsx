@@ -14,7 +14,7 @@ export default class Peta extends Component {
   render () {
     const position = [this.state.lat, this.state.lng]
     return (
-      <Container>
+      <Container className='mt-3'>
         <Map center={position} zoom={this.state.zoom} id='map'>
           <TileLayer
             attribution="<a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
