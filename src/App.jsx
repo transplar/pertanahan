@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Footer from './components/Footer'
 import NavbarApp from './components/NavbarApp'
 import Homepage from './components/contents/Homepage'
-import { HashRouter as Router } from 'react-router-dom'
+import Peta from './components/contents/Peta'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   render () {
@@ -11,7 +12,8 @@ class App extends Component {
       <Router>
         <div className='App'>
           <NavbarApp />
-          <Homepage />
+          <Route exact path='/' component={Homepage} />
+          <Route path='/peta' component={Peta} />
           <Footer />
         </div>
       </Router>
