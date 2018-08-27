@@ -28,7 +28,7 @@ class NavbarApp extends Component {
 
   render () {
     return (
-      <Container fluid className='p-0 bg-dark'>
+      <header className='bg-dark'>
         <Container>
           <Navbar color='dark' dark expand='md'>
             <NavbarBrand href='/'>Pertanahan</NavbarBrand>
@@ -51,7 +51,7 @@ class NavbarApp extends Component {
             </Collapse>
           </Navbar>
         </Container>
-      </Container>
+      </header>
     )
   }
 }
