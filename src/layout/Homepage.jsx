@@ -5,14 +5,11 @@ import {
   Container,
   Row
 } from 'reactstrap'
-import NavbarApp from '../components/NavbarApp'
-import Footer from '../components/Footer'
 
 class Homepage extends Component {
   render () {
     return (
-      <Container fluid className='p-0'>
-        <NavbarApp />
+      <main className='p-0'>
         <Container className='py-4'>
           <Row>
             <Col>
@@ -20,8 +17,7 @@ class Homepage extends Component {
             </Col>
           </Row>
         </Container>
-        <Footer />
-      </Container>
+      </main>
     )
   }
 }
