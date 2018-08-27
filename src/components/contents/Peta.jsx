@@ -6,9 +6,9 @@ import './Peta.css'
 
 export default class Peta extends Component {
   state = {
-    lat: 0,
-    lng: 0,
-    zoom: 5
+    lat: -6.9338801,
+    lng: 107.6616703,
+    zoom: 17
   }
 
   render () {
