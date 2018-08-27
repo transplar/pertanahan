@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import Homepage from './layout/Homepage'
+import Homepage from './components/contents/Homepage'
 import { HashRouter as Router } from 'react-router-dom'
 
 class App extends Component {
