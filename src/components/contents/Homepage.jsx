@@ -15,13 +15,13 @@ class Homepage extends Component {
           <Row>
             {
               BidangData.map((card, i) => (
-                <Col sm='6'>
+                <Col sm='6' className='d-flex p-2'>
                   <Bidang
                     title={card.title}
                     subtitle={card.subtitle}
                     text={card.text}
                     button={card.button}
-                    className='mb-4'
+                    className='flex-grow-1'
                     key={i} />
                 </Col>
               ))
