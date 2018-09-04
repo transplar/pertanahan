@@ -2,6 +2,7 @@
   "name": "pertanahan",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://transplar.github.io/pertanahan",
   "dependencies": {
     "bootstrap": "4",
     "react": "^16.4.2",
