@@ -4,7 +4,7 @@ import {
   Container,
   Row
 } from 'reactstrap'
-import { Bidang } from '../cards/Bidang'
+import { Bidang } from '../cards/Bidang.jsx'
 import BidangData from '../cards/bidang.json'
 
 class Homepage extends Component {
