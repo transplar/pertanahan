@@ -18,6 +18,8 @@ export default class Header extends React.Component {
             <Pencarian />
             <AuthenticationLink />
           </div>
+        </Container>
+        <Container>
           <hr className='bg-main-color' style={{height: '1px'}}/>
         </Container>
       </header>
