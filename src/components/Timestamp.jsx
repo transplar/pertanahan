@@ -39,7 +39,7 @@ export default class Timestamp extends React.Component {
 
     return (
       <div className='d-flex align-items-center'>
-        <span>{date}</span>
+        <span className='flex-grow-1'>{date}</span>
         <span className='bg-success px-2 py-0 ml-2 rounded text-white h4'>{time}</span>
       </div>
     )
