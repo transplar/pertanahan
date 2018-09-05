@@ -10,12 +10,14 @@ export default class Header extends React.Component {
   render () {
     return (
       <header>
-        <Container>
+        <Container className='d-flex align-items-center my-3'>
           <Logo />
           <NamaDinas />
-          <Timestamp />
-          <Pencarian />
-          <AuthenticationLink />
+          <div className='text-right ml-3 flex-grow-1'>
+            <Timestamp />
+            <Pencarian />
+            <AuthenticationLink />
+          </div>
           <hr className='bg-main-color' style={{height: '1px'}}/>
         </Container>
       </header>
