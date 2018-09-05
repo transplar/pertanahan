@@ -5,9 +5,9 @@ export default class AuthenticationLink extends React.Component {
   render () {
     return (
       <div>
-        <Link to='/signup'>Buat Akun</Link>
+        <Link to='/signup' className='main-color font-weight-bold'>Buat Akun</Link>
         <span className='border-left border-secondary mx-2'></span>
-        <Link to='/signin'>Masuk</Link>
+        <Link to='/signin' className='main-color font-weight-bold'>Masuk</Link>
       </div>
     )
   }
