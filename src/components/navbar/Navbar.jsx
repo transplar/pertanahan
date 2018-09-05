@@ -8,7 +8,7 @@ import {
   NavbarToggler,
 } from 'reactstrap'
 
-class NavbarApp extends Component {
+export default class NavbarApp extends Component {
   constructor(props) {
     super(props)
 
@@ -43,5 +43,3 @@ class NavbarApp extends Component {
     )
   }
 }
-
-export default NavbarApp
