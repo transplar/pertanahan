@@ -76,6 +76,7 @@ export default class MainSlide extends React.Component {
         next={this.next}
         previous={this.previous}
         ride='carousel'
+        className='my-3'
         >
         <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
         {slides}
