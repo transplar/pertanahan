@@ -6,10 +6,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+hr {
+  height: 1px;
+  background-color: var(--main-color);
+}
+
 .main-color {
   color: var(--main-color);
 }
 
 .bg-main-color {
   background-color: var(--main-color);
+}
+
+.placeholder-white::-moz-placeholder {
+  color: #dddddd;
 }
