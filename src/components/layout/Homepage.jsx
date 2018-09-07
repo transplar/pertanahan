@@ -4,6 +4,7 @@ import { Timeline } from 'react-twitter-widgets'
 import NavbarApp from '../NavbarApp'
 import MainSlide from '../MainSlide'
 import StatistikWidget from '../StatistikWidget'
+import BukuTamuWidget from '../BukuTamuWidget';
 
 class Homepage extends Component {
   render() {
@@ -26,6 +27,13 @@ class Homepage extends Component {
                 }}/>
               </div>
               <StatistikWidget />
+          </Col>
+        </Row>
+        <hr />
+        <Row>
+          <div className='clearfix'></div>
+          <Col md='8'>
+            <BukuTamuWidget />
           </Col>
         </Row>
       </Container>
