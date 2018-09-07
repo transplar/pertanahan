@@ -11,7 +11,7 @@ class App extends Component {
       <Router>
         <div className='App'>
           <Route exact path='/' component={Homepage} />
-          <Route path='/signin' component={LoginPage} />
+          <Route path='/:auth(signin|signup)' component={LoginPage} />
         </div>
       </Router>
     )
