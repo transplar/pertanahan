@@ -5,6 +5,7 @@ import NavbarApp from '../NavbarApp'
 import MainSlide from '../MainSlide'
 import StatistikWidget from '../StatistikWidget'
 import BukuTamuWidget from '../BukuTamuWidget';
+import ExternalWebLink from '../ExternalWebLink'
 
 class Homepage extends Component {
   render() {
@@ -34,6 +35,9 @@ class Homepage extends Component {
           <div className='clearfix'></div>
           <Col md='8'>
             <BukuTamuWidget />
+          </Col>
+          <Col md='4'>
+            <ExternalWebLink />
           </Col>
         </Row>
       </Container>
