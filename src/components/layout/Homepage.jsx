@@ -6,6 +6,7 @@ import MainSlide from '../MainSlide'
 import StatistikWidget from '../StatistikWidget'
 import BukuTamuWidget from '../BukuTamuWidget';
 import ExternalWebLink from '../ExternalWebLink'
+import BeritaList from '../BeritaList';
 
 class Homepage extends Component {
   render() {
@@ -14,7 +15,9 @@ class Homepage extends Component {
         <MainSlide />
         <NavbarApp />
         <Row>
-          <Col md='8'></Col>
+          <Col md='8' className='mt-3'>
+            <BeritaList />
+          </Col>
           <Col>
             <div className='border border-success p-1 mt-3'>
               <div className='text-center text-white bg-main-color py-2'>TWITTER</div>
