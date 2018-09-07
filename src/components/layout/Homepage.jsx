@@ -3,6 +3,7 @@ import { Container, Col, Row } from 'reactstrap'
 import { Timeline } from 'react-twitter-widgets'
 import NavbarApp from '../NavbarApp'
 import MainSlide from '../MainSlide'
+import StatistikWidget from '../StatistikWidget'
 
 class Homepage extends Component {
   render() {
@@ -24,6 +25,7 @@ class Homepage extends Component {
                   height: '400'
                 }}/>
               </div>
+              <StatistikWidget />
           </Col>
         </Row>
       </Container>
