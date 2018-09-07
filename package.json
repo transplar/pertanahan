@@ -2,7 +2,7 @@
   "name": "pertanahan",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://transplar.github.io/pertanahan",
+  "homepage": "./",
   "dependencies": {
     "bootstrap": "4",
     "lorem-ipsum": "^1.0.6",
