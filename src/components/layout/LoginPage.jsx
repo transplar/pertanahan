@@ -25,6 +25,10 @@ export default class LoginPage extends React.Component {
         <Input type='checkbox' /> {' '}Remember me
       </Label>
 
+    let toggleLogin = <div className='my-3'>
+      {(!login) ? <Link to='/signin'>Masuk</Link> : <Link to='signup'>Daftar User Baru</Link>} | <Link to='/'>Lupa Password</Link>
+    </div>
+
     return (
       <Container className='d-flex flex-column align-items-center'>
         <Form className='mt-md-5 mt-2'>
@@ -40,6 +44,7 @@ export default class LoginPage extends React.Component {
           <div className='checbox mb-3'>
             <Button block color='primary'>{title}</Button>
           </div>
+          {toggleLogin}
         </Form>
         <footer>
           &copy; 2018, <Link to='/'>Kembali ke Beranda</Link>
