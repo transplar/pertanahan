@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { Timeline } from 'react-twitter-widgets'
 import Header from '../Header'
 import Footer from '../Footer'
 import NavbarApp from '../NavbarApp'
 import MainSlide from '../MainSlide'
-import StatistikWidget from '../StatistikWidget'
-import BukuTamuWidget from '../BukuTamuWidget';
+import BukuTamuWidget from '../BukuTamuWidget'
 import ExternalWebLink from '../ExternalWebLink'
-import BeritaList from '../BeritaList';
+import BeritaList from '../BeritaList'
+import SideBar from '../SideBar';
 
 export default class Homepage extends Component {
   render() {
@@ -22,24 +21,10 @@ export default class Homepage extends Component {
             <Col md='8' className='mt-3'>
               <BeritaList />
             </Col>
-            <Col>
-              <div className='border border-success p-1 mt-3'>
-                <div className='text-center text-white bg-main-color py-2'>TWITTER</div>
-                <Timeline
-                  dataSource={{
-                    sourceType: 'profile',
-                    screenName: 'jawabarat'
-                  }}
-                  options={{
-                    height: '400'
-                  }}/>
-                </div>
-                <StatistikWidget />
-            </Col>
+            <SideBar />
           </Row>
           <hr />
           <Row>
-            <div className='clearfix'></div>
             <Col md='8'>
               <BukuTamuWidget />
             </Col>
