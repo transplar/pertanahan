@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container } from 'reactstrap'
 import Logo from './Logo'
 import NamaDinas from './NamaDinas'
 import Timestamp from './Timestamp'
@@ -10,7 +9,7 @@ export default class Header extends React.Component {
   render () {
     return (
       <header>
-        <Container className='d-flex align-items-center my-3'>
+        <div className='d-flex align-items-center my-3'>
           <Logo />
           <NamaDinas />
           <div className='text-right ml-3 flex-grow-1'>
@@ -18,10 +17,8 @@ export default class Header extends React.Component {
             <Pencarian />
             <AuthenticationLink />
           </div>
-        </Container>
-        <Container>
-          <hr className='bg-main-color' style={{height: '1px'}}/>
-        </Container>
+        </div>
+        <hr />
       </header>
     )
   }
