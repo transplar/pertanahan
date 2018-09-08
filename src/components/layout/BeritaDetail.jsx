@@ -9,17 +9,15 @@ import SideBar from '../SideBar'
 export default class BeritaDetail extends React.Component {
   render () {
     return (
-      <div>
+      <Container>
         <Header />
-        <Container>
-          <NavbarApp />
-          <Row>
-            <Berita match={this.props.match}/>
-            <SideBar />
-          </Row>
-        </Container>
+        <NavbarApp />
+        <Row>
+          <Berita match={this.props.match}/>
+          <SideBar />
+        </Row>
         <Footer />
-      </div>
+      </Container>
     )
   }
 }
