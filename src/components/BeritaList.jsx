@@ -19,7 +19,9 @@ export default class BeritaList extends React.Component {
     const beritaComponent = berita.map((berita, index) => {
       return (
         <div key={index} className='border border-secondary rounded p-2 mb-2'>
-          <h5>{berita.title}</h5>
+          <h5>
+            <Link to={'/berita/' + index} className='text-success'>{berita.title}</Link>
+          </h5>
           <small>{berita.date.toLocaleString()}</small>
           {berita.content}
           <Link to={'/berita/' + index} className='float-right mr-5'>Selengkapnya ...</Link>
