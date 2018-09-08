@@ -12,29 +12,27 @@ import SideBar from '../SideBar';
 export default class Homepage extends Component {
   render() {
     return (
-      <div>
+      <Container>
         <Header />
-        <Container>
-          <MainSlide />
-          <NavbarApp />
-          <Row>
-            <Col md='8' className='mt-3'>
-              <BeritaList />
-            </Col>
-            <SideBar />
-          </Row>
-          <hr />
-          <Row>
-            <Col md='8'>
-              <BukuTamuWidget />
-            </Col>
-            <Col md='4'>
-              <ExternalWebLink />
-            </Col>
-          </Row>
-        </Container>
+        <MainSlide />
+        <NavbarApp />
+        <Row>
+          <Col md='8' className='mt-3'>
+            <BeritaList />
+          </Col>
+          <SideBar />
+        </Row>
+        <hr />
+        <Row>
+          <Col md='8'>
+            <BukuTamuWidget />
+          </Col>
+          <Col md='4'>
+            <ExternalWebLink />
+          </Col>
+        </Row>
         <Footer />
-      </div>
+      </Container>
     )
   }
 }
