@@ -37,6 +37,9 @@ export default class NavbarApp extends Component {
             <NavItem>
               <Link to="/information" className='nav-link text-white text-uppercase'>Informasi</Link>
             </NavItem>
+            <NavItem>
+              <Link to="/maps" className='nav-link text-white text-uppercase'>Peta</Link>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
