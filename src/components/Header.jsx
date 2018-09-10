@@ -9,7 +9,7 @@ export default class Header extends React.Component {
   render () {
     return (
       <header>
-        <div className='d-flex align-items-center my-3'>
+        <div className='d-flex flex-wrap align-items-center my-3'>
           <Logo />
           <NamaDinas />
           <div className='text-right ml-3 flex-grow-1'>
