@@ -10,9 +10,9 @@ import bidangData from '../data/bidang.json'
 
 export default class InformationList extends React.Component {
   render () {
-    const cards = bidangData.map((bidang) => {
+    const cards = bidangData.map((bidang, index) => {
       return (
-        <Col sm='6' md='4' className='p-2 my-2'>
+        <Col sm='6' md='4' className='p-2 my-2' key={index}>
           <Card className='d-flex flex-column' style={{ height: '100%' }}>
             <CardContent className='flex-grow-1'>
               <Typography variant='title' style={{fontWeight: '400'}}>
