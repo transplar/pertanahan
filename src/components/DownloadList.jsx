@@ -11,14 +11,43 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import FolderIcon from '@material-ui/icons/Folder'
 import FolderOpenIcon from '@material-ui/icons/FolderOpen'
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile'
+import downloadFileList from '../data/download.json'
 
 export default class NestedList extends React.Component {
+  constructor (props) {
+    super (props)
+
+    this.toggleLaporan = this.toggleLaporan.bind(this)
+  }
+
   state = {
     laporan: false,
   }
 
-  toggleLaporan = () => {
-    this.setState(state => ({ laporan: !this.state.laporan }))
+  generateCollapsedList (list, state) {
+    const listItem = list.map(item => (
+      <div>
+        <ListItem button>
+          <ListItemIcon>
+            <InsertDriveFileIcon />
+          </ListItemIcon>
+          <ListItemText inset primary={item} />
+        </ListItem>
+        <Divider inset />
+      </div>
+    ))
+
+    return (
+      <Collapse in={state} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding style={{ paddingLeft: '2rem' }}>
+          {listItem}
+        </List>
+      </Collapse>
+    )
+  }
+
+  toggleLaporan () {
+    this.setState({ laporan: !this.state.laporan })
   }
 
   render () {
@@ -49,17 +78,7 @@ export default class NestedList extends React.Component {
             {this.state.laporan ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Divider inset />
-          <Collapse in={this.state.laporan} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding style={{paddingLeft: '2rem'}}>
-              <ListItem button>
-                <ListItemIcon>
-                  <InsertDriveFileIcon />
-                </ListItemIcon>
-                <ListItemText inset primary="Laporan Tahun 2017" />
-              </ListItem>
-              <Divider inset />
-            </List>
-          </Collapse>
+          {this.generateCollapsedList(downloadFileList.laporan, this.state.laporan)}
         </List>
       </div>
     )
