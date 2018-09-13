@@ -10,6 +10,10 @@ import StepperProcedure from './StepperProcedure'
 import bidangData from '../data/bidang.json'
 
 export default class InformationList extends React.Component {
+  state = {
+    procedure: false
+  }
+
   render () {
     const cards = bidangData.map((bidang, index) => {
       return (
