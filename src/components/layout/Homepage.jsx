@@ -14,8 +14,8 @@ export default class Homepage extends Component {
     return (
       <Container>
         <Header />
-        <MainSlide />
         <NavbarApp />
+        <MainSlide />
         <Row>
           <Col md='8' className='mt-3'>
             <BeritaList />
