@@ -10,8 +10,18 @@ import StepperProcedure from './StepperProcedure'
 import bidangData from '../data/bidang.json'
 
 export default class InformationList extends React.Component {
-  state = {
-    procedure: false
+  constructor (props) {
+    super(props)
+
+    this.back = this.back.bind(this)
+    this.state = {
+      procedure: false,
+      bidang: false
+    }
+  }
+
+  back () {
+    this.setState({bidang: false})
   }
 
   render () {
@@ -28,18 +38,25 @@ export default class InformationList extends React.Component {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button variant='raised' color='primary'><BookIcon />Prosedur</Button>
+              <Button
+                variant='raised'
+                color='primary'
+                disabled={!bidang.steps ? true : false}
+                onClick={() => {this.setState({bidang: bidang})}}>
+                <BookIcon />
+                Prosedur
+              </Button>
             </CardActions>
           </Card>
         </Col>
       )
     })
 
-    const stepperProcedure = <StepperProcedure />
+    const stepperProcedure = <StepperProcedure back={this.back} bidang={this.state.bidang} />
 
     return (
-      <Row>
-        {(!this.state.procedure) ? cards : stepperProcedure}
+      <Row className='mx-0'>
+        {(!this.state.bidang.steps) ? cards : stepperProcedure}
       </Row>
     )
   }
