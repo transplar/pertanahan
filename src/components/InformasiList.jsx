@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import BookIcon from '@material-ui/icons/Book'
+import StepperProcedure from './StepperProcedure'
 import bidangData from '../data/bidang.json'
 
 export default class InformationList extends React.Component {
@@ -30,9 +31,11 @@ export default class InformationList extends React.Component {
       )
     })
 
+    const stepperProcedure = <StepperProcedure />
+
     return (
       <Row>
-        {cards}
+        {(!this.state.procedure) ? cards : stepperProcedure}
       </Row>
     )
   }
