@@ -3,7 +3,45 @@
     "title": "Izin Lokasi",
     "subtitle": "Perizinan terkait status lokasi",
     "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penerimaan permohonan dan pemeriksaan kelengkapan persyaratan",
+        "description": ""
+      },
+      {
+        "title": "Kompilasi bahan koordinasi",
+        "description": ""
+      },
+      {
+        "title": "Pelaksanaan rapat koordinasi",
+        "description": ""
+      },
+      {
+        "title": "Pelaksanaan peninjauan lokasi",
+        "description": ""
+      },
+      {
+        "title": "Penyiapan berita acara koordinasi",
+        "description": "Penyiapan berita acara koordinasi berdasarkan pertimbangan teknis pertanahan dari kantor wilayah Badan Pertanahan Nasional (BPN) provinsi dan pertimbangan teknis lainnya dari instansi terkait"
+      },
+      {
+        "title": "Pembuatan peta lokasi sebagai lampiran surat keputusan izin lokasi yang diterbitkan",
+        "description": ""
+      },
+      {
+        "title": "Penerbitan surat keputusan izin lokasi",
+        "description": ""
+      },
+      {
+        "title": "Pertimbangan dan usulan pencabutan izin dan pembatalan surat keputusan izin lokasi atas usulan kabupaten/kota dengan pertimbangan kepala kantor wilayah BPN provinsi",
+        "description": ""
+      },
+      {
+        "title": "Monitoring dan pembinaan perolehan tanah",
+        "description": ""
+      }
+    ]
   },
   {
     "title": "Pengadaan Tanah Untuk Kepentingan Umum",
