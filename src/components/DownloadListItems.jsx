@@ -29,7 +29,7 @@ export default class DownloadListItems extends React.Component {
 
   render () {
     const listItem = this.props.items.map(item => (
-      <div>
+      <div key={item}>
         <ListItem button>
           <ListItemIcon>
             <InsertDriveFileIcon />
