@@ -2,55 +2,180 @@
   {
     "title": "Izin Lokasi",
     "subtitle": "Perizinan terkait status lokasi",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penerimaan permohonan dan pemeriksaan kelengkapan persyaratan"
+      },
+      {
+        "title": "Kompilasi bahan koordinasi"
+      },
+      {
+        "title": "Pelaksanaan rapat koordinasi"
+      },
+      {
+        "title": "Pelaksanaan peninjauan lokasi"
+      },
+      {
+        "title": "Penyiapan berita acara koordinasi",
+        "description": "Penyiapan berita acara koordinasi berdasarkan pertimbangan teknis pertanahan dari kantor wilayah Badan Pertanahan Nasional (BPN) provinsi dan pertimbangan teknis lainnya dari instansi terkait"
+      },
+      {
+        "title": "Pembuatan peta lokasi sebagai lampiran surat keputusan izin lokasi yang diterbitkan"
+      },
+      {
+        "title": "Penerbitan surat keputusan izin lokasi"
+      },
+      {
+        "title": "Pertimbangan dan usulan pencabutan izin dan pembatalan surat keputusan izin lokasi atas usulan kabupaten/kota dengan pertimbangan kepala kantor wilayah BPN provinsi"
+      },
+      {
+        "title": "Monitoring dan pembinaan perolehan tanah"
+      }
+    ]
   },
   {
     "title": "Pengadaan Tanah Untuk Kepentingan Umum",
-    "subtitle": "",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Pengadaan tanah untuk pembangunan lintas provinsi"
+      },
+      {
+        "title": "Penetapan lokasi"
+      },
+      {
+        "title": "Pembentukan panitia pengadaan tanah sesuai dengan peraturan perundang-undangan"
+      },
+      {
+        "title": "Pelaksanaan penyuluhan"
+      },
+      {
+        "title": "Pelaksanaan inventarisasi"
+      },
+      {
+        "title": "Penerimaan hasil penaksiran nilai tanah dari Lembaga/Tim Penilai Tanah"
+      },
+      {
+        "title": "Pelaksanaan musyawarah"
+      },
+      {
+        "title": "Penetapan bentuk dan besarnya ganti kerugian"
+      },
+      {
+        "title": "Pelaksanaan pemberian ganti kerugian"
+      },
+      {
+        "title": "Penyelesaian sengketa bentuk dan besarnya gati kerugian"
+      },
+      {
+        "title": "Pelaksanaan pelepasan hak dan penyerahan tanah di hadapan kepala kantor pertanahan kabupaten/kota"
+      }
+    ]
   },
   {
     "title": "Penyelesaian Sengketa",
     "subtitle": "Penyelesaian sengketa terkait dengan tanah garapan",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penerimaan dan pengkajian laporan pengaduan sengketa tanah garapan"
+      },
+      {
+        "title": "Penelitian terhadap obyek dan subyek sengketa"
+      },
+      {
+        "title": "Pencegahan meluasnya dampak sengketa tanah garapan"
+      },
+      {
+        "title": "Koordinasi dengan instansi terkait untuk menetapkan langkah-langkah penangannya"
+      },
+      {
+        "title": "Fasilitasi musyawarah antar pihak yang bersengketa untuk mendapatkan kesepakatan para pihak"
+      }
+    ]
   },
   {
     "title": "Penyelesaian Ganti Rugi",
     "subtitle": "Penyelesaian masalah ganti kerugian dan santunan tanah untuk pembangunan",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penyelesaian masalah ganti kerugian dan santunan tanah untuk pembangunan."
+      },
+      {
+        "title": "Pembinaan dan pengawasan pemberian ganti kerugian dan santunan tanah untuk pembangunan."
+      }
+    ]
   },
   {
     "title": "Penetapan Subyek dan Obyek",
-    "subtitle": "",
     "text": "Penetapan subyek dan obyek redistribusi tanah, serta ganti kerugian tanah kelebihan maksimum dan tanah absentee",
-    "button": "Lihat"
+    "button": "Lihat,",
+    "steps": [
+      {
+        "title": "Pembentukan panitia pertimbangan landreform provinsi"
+      },
+      {
+        "title": "Penyelesaian permasalahan penetapan subyek dan obyek tanah kelebihan maksimum dan absente"
+      },
+      {
+        "title": "Pembinaan penetapan subyek dan obyek redistribusi tanah, serta ganti kerugian tanah kelebihan maksimum dan tanah absentee"
+      }
+    ]
   },
   {
     "title": "Penetapan Tanah Ulayat",
-    "subtitle": "",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Pembentukan panitia peneliti lintas kabupaten/kota"
+      },
+      {
+        "title": "Penelitian dan kompilasi hasil penelitian"
+      },
+      {
+        "title": "Pelaksanaan dengar pendapat umum dalam rangka penetapan tanah ulayat"
+      },
+      {
+        "title": "Pengusulan rancangan peraturan daerah provinsi tentang penetapan tanah ulayat"
+      },
+      {
+        "title": "Penanganan masalah tanah ulayat melalui musyawarah dan mufakat"
+      }
+    ]
   },
   {
     "title": "Pemanfaatan dan Penyelesaian Masalah Tanah Kosong",
-    "subtitle": "",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penyelesaian masalah tanah kosong"
+      },
+      {
+        "title": "Pembinaan pemanfaatan dan penyelesaian masalah tanah kosong"
+      }
+    ]
   },
   {
     "title": "Izin Membuka Tanah",
-    "subtitle": "",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Penyelesaian permasalahan pemberian izin membuka tanah"
+      },
+      {
+        "title": "Pengawasan dan pengendalian pemberian izin membuka tanah"
+      }
+    ]
   },
   {
     "title": "Perencanaan Penggunaan Tanah Wilayah Kabupaten/Kota",
-    "subtitle": "",
-    "text": "",
-    "button": "Lihat"
+    "button": "Lihat",
+    "steps": [
+      {
+        "title": "Perencanaan penggunaan tanah lintas kabupaten/kota yang berbatasan"
+      }
+    ]
   }
 ]
