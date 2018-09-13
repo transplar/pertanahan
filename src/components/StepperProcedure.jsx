@@ -47,7 +47,7 @@ export default class StepperProcedure extends React.Component {
     const { activeStep } = this.state
 
     return (
-      <div>
+      <div className='w-100'>
         <AppBar position='static'>
           <Toolbar>
             <IconButton color='inherit' aria-label='Menu' onClick={this.props.back}>
