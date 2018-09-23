@@ -2,6 +2,7 @@ import React from 'react'
 import L from 'leaflet'
 import { Map, GeoJSON, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Container } from 'reactstrap'
+import tableify from 'tableify'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
 import geojsonData from '../data/example.json'
@@ -25,7 +26,7 @@ export default class MainMap extends React.Component {
       click: (event) => {
         let info = this.refs.info.leafletElement
         let map = this.refs.map.leafletElement
-        info.setContent(JSON.stringify(feature.properties))
+        info.setContent(tableify(feature.properties))
         info.setLatLng(event.latlng)
           .openOn(map)
       }
