@@ -33,6 +33,12 @@ export default class MainMap extends React.Component {
     })
   }
 
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.refs.map.leafletElement.closePopup()
+    }, 10)
+  }
+
   render () {
     const position = [this.state.lat, this.state.lng]
 
