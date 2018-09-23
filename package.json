@@ -17,7 +17,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "react-twitter-widgets": "^1.7.1",
-    "reactstrap": "^6.4.0"
+    "reactstrap": "^6.4.0",
+    "tableify": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

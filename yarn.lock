@@ -6910,6 +6910,12 @@ table@^4.0.1:
     slice-ansi "1.0.0"
     string-width "^2.1.1"
 
+tableify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tableify/-/tableify-1.1.0.tgz#5ff11123409abc281d40ecdbd41489d3f3085936"
+  dependencies:
+    optimist "^0.6.1"
+
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"
