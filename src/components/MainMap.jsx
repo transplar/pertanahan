@@ -22,10 +22,12 @@ export default class MainMap extends React.Component {
 
   onEachFeature = (feature, layer) => {
     layer.on({
-      click: () => {
-        let popup = this.refs.popup.leafletElement
-        popup.setContent(feature.properties.description)
-        console.log(popup.getContent())
+      click: (event) => {
+        let info = this.refs.info.leafletElement
+        let map = this.refs.map.leafletElement
+        info.setContent(JSON.stringify(feature.properties))
+        info.setLatLng(event.latlng)
+          .openOn(map)
       }
     })
   }
@@ -35,7 +37,7 @@ export default class MainMap extends React.Component {
 
     return (
       <Container className='mt-3'>
-        <Map center={position} zoom={this.state.zoom}>
+        <Map center={position} zoom={this.state.zoom} ref='map'>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
@@ -43,12 +45,13 @@ export default class MainMap extends React.Component {
             data={geojsonData}
             onEachFeature={this.onEachFeature} />
           <Marker position={position}>
-            <Popup ref='popup'>
+            <Popup>
               <p className='text-center'>
                 Dinas Perumahan Dan Permukiman<br />Provinsi Jawa Barat
               </p>
             </Popup>
           </Marker>
+          <Popup position={position} ref='info'></Popup>
         </Map>
       </Container>
     )
