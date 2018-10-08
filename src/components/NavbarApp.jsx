@@ -61,11 +61,16 @@ export default class NavbarApp extends Component {
   }
 
   render() {
-    const navItems = navigationItems.map(item => (
-      <NavItem className={item.className}>
-        <Link to={item.to} className='nav-link text-white text-uppercase'>{item.text}</Link>
-      </NavItem>
-    ))
+    const navItems = navigationItems.map((item, index, arr) => {
+      let classNames = 'nav-link text-white text-uppercase px-2 border-success border-left'
+        + ((arr.length - 1 === index) ? ' border-right' : '')
+
+      return (
+        <NavItem className={item.className} key={item.to}>
+          <Link to={item.to} className={classNames}>{item.text}</Link>
+        </NavItem>
+      )
+    })
 
     return (
       <Navbar className='bg-main-color font-weight-bold py-0 rounded-bottom' dark expand='md'>
