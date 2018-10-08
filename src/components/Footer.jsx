@@ -3,9 +3,8 @@ import React from 'react'
 export default class Footer extends React.Component {
   render () {
     return(
-      <footer className='mt-4'>
-        <hr />
-        <span className='main-color p-4'>&copy; 2018 DINAS PERUMAHAN DAN PERMUKIMAN</span>
+      <footer className='gradient-background text-center text-white py-3 my-1 rounded'>
+        <span>Sistem Informasi Pertanahan - Dinas Perumahan dan Permukiman Provinsi Jawa Barat &copy; 2018</span>
       </footer>
     )
   }
