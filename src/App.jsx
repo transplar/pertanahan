@@ -20,7 +20,7 @@ class App extends Component {
             <Route path='/:auth(signin|signup)' component={LoginPage} />
             <Route path='/berita/:id(\d+)' component={BeritaDetail} />
             <Route path='/download' component={DownloadPage} />
-            <Route path='/information' component={InformationPage} />
+            <Route path='/pelayanan' component={InformationPage} />
             <Route path='/maps' component={Maps} />
             <Route component={NotFound} />
           </Switch>
