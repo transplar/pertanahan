@@ -27,10 +27,13 @@ export default class NavbarApp extends Component {
   render() {
     return (
       <Navbar className='bg-main-color' dark expand='md'>
-        <Link to='/' className='navbar-brand text-white text-uppercase'>Beranda</Link>
+        <Link to='/' className='navbar-brand text-white text-uppercase d-block d-md-none'>Beranda</Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav navbar>
+            <NavItem className='d-none d-md-block'>
+              <Link to="/" className='nav-link text-white text-uppercase'>Beranda</Link>
+            </NavItem>
             <NavItem>
               <Link to="/download" className='nav-link text-white text-uppercase'>Unduh</Link>
             </NavItem>
