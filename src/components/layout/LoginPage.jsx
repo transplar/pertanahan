@@ -30,8 +30,8 @@ export default class LoginPage extends React.Component {
     </div>
 
     return (
-      <Container className='d-flex flex-column align-items-center'>
-        <Form className='mt-md-5 mt-2'>
+      <Container className='d-flex flex-column align-items-center bg-white my-3 py-2 rounded'>
+        <Form className='mt-md-5'>
           <div className='text-center mb-4'>
             <img src={imageSource} alt='Logo Jawa Barat' height='72' className='mb-4' />
             <h1 className='h3 mb-3 font-weight-normal'>{title}</h1>

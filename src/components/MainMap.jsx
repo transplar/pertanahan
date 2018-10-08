@@ -43,7 +43,7 @@ export default class MainMap extends React.Component {
     const position = [this.state.lat, this.state.lng]
 
     return (
-      <Container className='mt-3'>
+      <Container className='bg-white my-1 py-1 rounded'>
         <Map center={position} zoom={this.state.zoom} ref='map'>
           <TileLayer
             attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

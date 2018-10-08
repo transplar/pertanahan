@@ -55,7 +55,7 @@ export default class InformationList extends React.Component {
     const stepperProcedure = <StepperProcedure back={this.back} bidang={this.state.bidang} />
 
     return (
-      <Row className='mx-0'>
+      <Row className='bg-white mx-0 my-1 rounded'>
         {(!this.state.bidang.steps) ? cards : stepperProcedure}
       </Row>
     )

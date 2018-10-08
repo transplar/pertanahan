@@ -7,7 +7,7 @@ import downloadFileList from '../data/download.json'
 export default class NestedList extends React.Component {
   render () {
     return (
-      <div>
+      <div className='bg-white my-1 rounded'>
         <List
           component="nav"
           subheader={<ListSubheader component="div">Unduh Dokumen</ListSubheader>}>
