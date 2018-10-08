@@ -16,7 +16,6 @@ export default class Header extends React.Component {
             <AuthenticationLink />
           </div>
         </div>
-        <hr />
       </header>
     )
   }
