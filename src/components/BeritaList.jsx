@@ -4,6 +4,10 @@ import Lorem from 'react-lorem-component'
 import { Link } from 'react-router-dom'
 import randomDateFrom from '../utils/random-date-from'
 
+const style = {
+  boxShadow: '0px 1px 3px #251f1e'
+}
+
 let berita = []
 
 for (let i = 0; i < 10; i++) {
@@ -18,7 +22,7 @@ export default class BeritaList extends React.Component {
   render () {
     const beritaComponent = berita.map((berita, index) => {
       return (
-        <div key={index} className='border border-secondary rounded p-2 mb-2'>
+        <div key={index} className='border border-secondary rounded p-2 mb-1' style={style}>
           <h5>
             <Link to={'/berita/' + index} className='text-success'>{berita.title}</Link>
           </h5>
