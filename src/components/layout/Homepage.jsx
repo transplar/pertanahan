@@ -15,9 +15,9 @@ export default class Homepage extends Component {
       <Container>
         <Header />
         <NavbarApp />
-        <MainSlide />
-        <Row>
-          <Col md='8' className='mt-3'>
+        <Row className='bg-white rounded m-0 mt-1'>
+          <Col md='8'>
+            <MainSlide />
             <BeritaList />
           </Col>
           <SideBar />
