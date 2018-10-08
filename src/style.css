@@ -25,6 +25,13 @@ hr {
   background-color: var(--main-color);
 }
 
+.gradient-background {
+  background: linear-gradient(to left, #000, #1e5311, #000);
+  background: -moz-linear-gradient(to left, #000, #1e5311, #000);
+  background: -o-linear-gradient(to left, #000, #1e5311, #000);
+  background: -webkit-linear-gradient(to left, #000, #1e5311, #000);
+}
+
 .placeholder-white::-moz-placeholder {
   color: #dddddd;
 }
