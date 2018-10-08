@@ -26,7 +26,7 @@ export default class NavbarApp extends Component {
 
   render() {
     return (
-      <Navbar className='bg-main-color' dark expand='md'>
+      <Navbar className='bg-main-color font-weight-bold py-0 rounded-bottom' dark expand='md'>
         <Link to='/' className='navbar-brand text-white text-uppercase d-block d-md-none'>Beranda</Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
