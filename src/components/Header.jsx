@@ -1,12 +1,12 @@
 import React from 'react'
-import NamaDinas from './NamaDinas'
+import banner from '../images/main_banner.png'
 
 export default class Header extends React.Component {
   render () {
     return (
       <header>
         <div className='d-flex flex-wrap flex-lg-nowrap align-items-center py-3 rounded-top gradient-background text-white'>
-          <NamaDinas />
+          <img src={banner} alt='Logo Dinas Perumahan Dan Permukiman Provinsi Jawa Barat'/>
         </div>
       </header>
     )
