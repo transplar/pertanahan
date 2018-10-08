@@ -15,16 +15,32 @@ const navigationItems = [
     className: 'd-none d-md-block'
   },
   {
+    to: '/profile',
+    text: 'Profil'
+  },
+  {
+    to: '/pelayanan',
+    text: 'Pelayanan'
+  },
+  {
+    to: '/pengaduan',
+    text: 'Pengaduan'
+  },
+  {
     to: '/download',
     text: 'Unduh'
   },
   {
-    to: '/information',
-    text: 'Informasi'
+    to: '/maps',
+    text: 'Informasi Spasial'
   },
   {
-    to: '/maps',
-    text: 'Peta'
+    to: '/contact',
+    text: 'Kontak'
+  },
+  {
+    to: '/signin',
+    text: 'Login'
   }
 ]
 
