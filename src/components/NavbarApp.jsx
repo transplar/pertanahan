@@ -66,6 +66,34 @@ const navigationItems = [
     text: 'Unduh'
   },
   {
+    to: '/statistic',
+    text: 'Stasittik',
+    submenu: [
+      {
+        to: '/statistic/pengaduan',
+        text: 'Statistik Pengaduan'
+      },
+      {
+        to: '/statistik/laporaan',
+        text: 'Laporan Pengaduan'
+      }
+    ]
+  },
+  {
+    to: '/galery',
+    text: 'Galeri',
+    submenu: [
+      {
+        to: '/galery/photo',
+        text: 'Foto'
+      },
+      {
+        to: '/galery/video',
+        text: 'Video'
+      }
+    ]
+  },
+  {
     to: '/maps',
     text: 'Informasi Spasial'
   },
