@@ -45,7 +45,21 @@ const navigationItems = [
   },
   {
     to: '/pengaduan',
-    text: 'Pengaduan'
+    text: 'Pengaduan',
+    submenu: [
+      {
+        to: '/pengaduan/chat',
+        text: 'Pertanyaan (live Chat)'
+      },
+      {
+        to: '/pengaduan/email',
+        text: 'Kirim Pengaduan'
+      },
+      {
+        to: '/pengaduan/info',
+        text: 'Permohonan Rekomendasi'
+      }
+    ]
   },
   {
     to: '/download',
