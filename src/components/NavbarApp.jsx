@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Collapse,
+  DropdownMenu,
+  DropdownToggle,
   Nav,
   NavItem,
   Navbar,
   NavbarToggler,
+  UncontrolledDropdown
 } from 'reactstrap'
 
 const navigationItems = [
@@ -16,7 +19,25 @@ const navigationItems = [
   },
   {
     to: '/profile',
-    text: 'Profil'
+    text: 'Profil',
+    submenu: [
+      {
+        to: '/profil#visi-misi',
+        text: 'Visi dan Misi'
+      },
+      {
+        to: '/profil#profil',
+        text: 'Profil DISPERKIM'
+      },
+      {
+        to: '/profil#tupoksi',
+        text: 'Tupoksi'
+      },
+      {
+        to: '/profil#dasar-hukum',
+        text: 'Dasar Hukum'
+      }
+    ]
   },
   {
     to: '/pelayanan',
@@ -64,6 +85,21 @@ export default class NavbarApp extends Component {
     const navItems = navigationItems.map((item, index, arr) => {
       let classNames = 'nav-link text-white text-uppercase px-2 border-success border-left'
         + ((arr.length - 1 === index) ? ' border-right' : '')
+
+      if (item.submenu) {
+        const dropdownMenu = <UncontrolledDropdown key={index} nav inNavbar>
+          <DropdownToggle className={classNames} nav caret>
+            {item.text}
+          </DropdownToggle>
+          <DropdownMenu className='border-0'>
+            {item.submenu.map(submenu => (
+              <Link to={submenu.to} key={submenu.text} className='dropdown-item'>{submenu.text}</Link>
+            ))}
+          </DropdownMenu>
+        </UncontrolledDropdown>
+
+        return dropdownMenu
+      }
 
       return (
         <NavItem className={item.className} key={item.to}>
