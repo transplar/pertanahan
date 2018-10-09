@@ -1,0 +1,37 @@
+:root {
+  --main-color: #009543;
+  --body-background-color: #3a3231;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--body-background-color);
+}
+
+hr {
+  height: 1px;
+  background-color: var(--main-color);
+}
+
+.carousel-caption {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.main-color {
+  color: var(--main-color);
+}
+
+.bg-main-color {
+  background-color: var(--main-color);
+}
+
+.gradient-background {
+  background: linear-gradient(to left, #000, #1e5311, #000);
+  background: -moz-linear-gradient(to left, #000, #1e5311, #000);
+  background: -o-linear-gradient(to left, #000, #1e5311, #000);
+  background: -webkit-linear-gradient(to left, #000, #1e5311, #000);
+}
+
+.placeholder-white::-moz-placeholder {
+  color: #dddddd;
+}
