@@ -1,6 +1,8 @@
 language: node
 
-before_script: yarn install
+before_script:
+  - npm -g i yarn
+  - yarn install
 
 script: yarn build
 
