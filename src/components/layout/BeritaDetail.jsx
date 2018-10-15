@@ -12,7 +12,7 @@ export default class BeritaDetail extends React.Component {
       <Container>
         <Header />
         <NavbarApp />
-        <Row>
+        <Row className='bg-white rounded m-0 mt-1'>
           <Berita match={this.props.match}/>
           <SideBar />
         </Row>
