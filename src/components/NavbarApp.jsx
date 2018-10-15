@@ -68,7 +68,7 @@ const navigationItems = [
   },
   {
     to: '/statistic',
-    text: 'Stasittik',
+    text: 'Statistik',
     submenu: [
       {
         to: '/statistic/pengaduan',
