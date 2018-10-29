@@ -3,7 +3,12 @@ language: node_js
 node_js:
   - "8"
 
-script: yarn build
+before_install:
+  - sudo apt-get install -y a2ps
+
+script:
+  - yarn build
+  - ./code2pdf.sh
 
 deploy:
   provider: pages
