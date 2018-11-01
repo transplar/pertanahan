@@ -12,4 +12,4 @@ a2ps --medium=A4 \
 	--font-size=8 \
 	--toc \
 	package.json .travis.yml public/**/* src/**/* \
-	-o - | ps2pdf - pdf/code.pdf
+	-o - | ps2pdf - $OUTPUT_DIR/code.pdf
