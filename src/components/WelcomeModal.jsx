@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import Cookie from 'js-cookie'
 import * as text from '../data/term.md'
 
 export default class WelcomeModal extends React.Component {
@@ -15,6 +16,14 @@ export default class WelcomeModal extends React.Component {
   }
 
   componentWillMount () {
+    if (Cookie.get('agree') === 'yes') {
+      this.setState({
+        modal: false
+      })
+    } else {
+      Cookie.set('agree', 'no', {expires: 1})
+    }
+
     fetch(text)
       .then(response => response.text())
       .then(text => {
@@ -29,6 +38,7 @@ export default class WelcomeModal extends React.Component {
     this.setState({
       modal: !this.state.modal
     })
+    Cookie.set('agree', 'yes', {expires: 7})
   }
 
   render () {
