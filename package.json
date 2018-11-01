@@ -15,7 +15,7 @@
     "react-leaflet": "^2.0.1",
     "react-lorem-component": "^0.13.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
+    "react-scripts": "^2.0",
     "react-twitter-widgets": "^1.7.1",
     "reactstrap": "^6.4.0",
     "tableify": "^1.1.0"
