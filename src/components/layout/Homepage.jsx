@@ -5,12 +5,14 @@ import Footer from '../Footer'
 import NavbarApp from '../NavbarApp'
 import MainSlide from '../MainSlide'
 import BeritaList from '../BeritaList'
-import SideBar from '../SideBar';
+import SideBar from '../SideBar'
+import WelcomeModal from '../WelcomeModal'
 
 export default class Homepage extends Component {
   render() {
     return (
       <Container>
+        <WelcomeModal />
         <Header />
         <NavbarApp />
         <Row className='bg-white rounded m-0 mt-1'>
