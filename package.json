@@ -13,7 +13,6 @@
     "lorem-ipsum": "^1.0.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-leaflet": "^2.0.1",
     "react-lorem-component": "^0.13.0",
     "react-markdown": "^4.0.3",
     "react-router-dom": "^4.3.1",
