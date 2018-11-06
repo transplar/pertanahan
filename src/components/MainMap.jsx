@@ -19,22 +19,25 @@ export default class MainMap extends React.Component {
       attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map)
     wms.simtanah.addTo(map)
+  }
 
+  componentWillMount () {
     let layers = wms.getAvailableLayer()
-
-    this.setState({
-      layers: layers
+    layers.then(res => {
+      this.setState({layers: res})
     })
   }
 
   render () {
     const layer = this.state.layers
-      .map(layer => <span key={layer.name}>{layer.title}</span>)
+      .map(layer => <li key={layer.name}>{layer.title}</li>)
 
     return (
       <Container className='bg-white my-1 py-1 rounded'>
         <div id='leaflet-map'></div>
-        {layer}
+        <ul>
+          {layer}
+        </ul>
       </Container>
     )
   }
