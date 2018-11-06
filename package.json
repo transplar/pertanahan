@@ -6,7 +6,6 @@
   "dependencies": {
     "@material-ui/core": "^3.0.3",
     "@material-ui/icons": "^3.0.1",
-    "Leaflet-WMS": "https://github.com/Flexberry/Leaflet-WMS",
     "bootstrap": "^4",
     "disqus-react": "^1.0.5",
     "js-cookie": "^2.2.0",
