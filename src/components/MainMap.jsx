@@ -1,6 +1,7 @@
 import React from 'react'
 import L from 'leaflet'
 import { Container } from 'reactstrap'
+import LayerList from './LayerList'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
 import * as wms from './maps/wms-layer'
@@ -43,21 +44,10 @@ export default class MainMap extends React.Component {
   }
 
   render () {
-    const layer = this.state.layers
-      .map(layer => {
-        return (
-          <li key={layer.name}>
-            <input type='checkbox' value={layer.name} onChange={this.updateLayer}/>{layer.title}
-          </li>
-        )
-      })
-
     return (
       <Container className='bg-white my-1 py-1 rounded'>
         <div id='leaflet-map'></div>
-        <ul>
-          {layer}
-        </ul>
+        <LayerList layers={this.state.layers} updateLayer={this.updateLayer} />
       </Container>
     )
   }
