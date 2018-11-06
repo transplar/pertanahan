@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Row } from 'reactstrap'
 
 export default class LayerList extends React.Component {
   render () {
@@ -6,12 +7,17 @@ export default class LayerList extends React.Component {
       .map(layer => {
         return (
           <li key={layer.name}>
-            <input type='checkbox' value={layer.name} onChange={this.props.updateLayer}/>{layer.title}
+            <input type='checkbox' value={layer.name} onChange={this.props.onChange}/>{layer.title}
           </li>
         )
       })
+
     return (
-      <ul>{layer}</ul>
+      <Row>
+        <Col md='6'>
+          <ul>{layer}</ul>
+        </Col>
+      </Row>
     )
   }
 }
