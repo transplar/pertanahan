@@ -14,14 +14,15 @@ export default class MainMap extends React.Component {
   }
 
   componentDidMount () {
-    let map = L.map('leaflet-map').setView([this.state.lat, this.state.lng], this.state.zoom)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map)
-    wms.simtanah.addTo(map)
-  }
+    const map = L.map('leaflet-map')
+      .setView([this.state.lat, this.state.lng], this.state.zoom)
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      })
 
-  componentWillMount () {
+    osm.addTo(map)
+    wms.simtanah.addTo(map)
+
     let layers = wms.getAvailableLayer()
     layers.then(res => {
       this.setState({layers: res})
