@@ -6,7 +6,9 @@ const config = {
   service: 'WMS',
   version: '1.3.0'
 }
-const capabilitiesParams = Object.entries(config).map(([key, value]) => `${key}=${value}`).join('&')
+const capabilitiesParams = Object.entries(config)
+  .map(([key, value]) => `${key}=${value}`)
+  .join('&')
 
 const wmsOptions = {
   format: 'image/png',
