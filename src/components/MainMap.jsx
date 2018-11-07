@@ -2,9 +2,9 @@ import React from 'react'
 import L from 'leaflet'
 import { Container } from 'reactstrap'
 import WMS from './maps/WMS'
+import getAvailableLayer from './maps/wms-capabilities'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
-import { getAvailableLayer } from './maps/wms-layer'
 
 export default class MainMap extends React.Component {
   constructor (props) {
