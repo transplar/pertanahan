@@ -1,6 +1,6 @@
 import React from 'react'
+import wms from 'leaflet.wms'
 import LayerList from '../LayerList'
-import wmsSource from './wms-source'
 
 export default class WMS extends React.Component {
   sourceURL = `http://${document.location.hostname}:9090/geoserver/ows?`
@@ -9,6 +9,16 @@ export default class WMS extends React.Component {
     service: 'WMS',
     version: '1.3.0'
   }
+  wmsConfig = {
+    format: 'image/png',
+    tiled: true,
+    transparent: true,
+    version: '1.3.0',
+    info_format: 'text/html',
+    feature_count: 100
+  }
+
+  wmsSource = wms.source(this.sourceURL, this.wmsConfig)
 
   constructor (props) {
     super(props)
@@ -55,14 +65,14 @@ export default class WMS extends React.Component {
     const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
     unselectedLayer.map(input => input.value)
       .forEach(layer => {
-        wmsSource.removeSubLayer(layer)
+        this.wmsSource.removeSubLayer(layer)
       })
 
     // add selected layer to map
     const selectedLayer = [...document.querySelectorAll('input:checked')]
     selectedLayer.map(input => input.value)
       .forEach(layer => {
-        wmsSource.getLayer(layer).addTo(this.props.map)
+        this.wmsSource.getLayer(layer).addTo(this.props.map)
       })
   }
 
