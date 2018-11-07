@@ -1,4 +1,5 @@
 import React from 'react'
+import L from 'leaflet'
 import wms from 'leaflet.wms'
 import LayerList from '../LayerList'
 
@@ -14,26 +15,47 @@ export default class WMS extends React.Component {
     tiled: true,
     transparent: true,
     version: '1.3.0',
-    info_format: 'text/html',
+    info_format: 'text/plain',
     feature_count: 100
   }
-  wmsSource = wms.source(this.sourceURL, this.wmsConfig)
 
   constructor (props) {
     super(props)
 
     this.state = {
-      layers: []
+      layers: [],
+      info: ''
     }
   }
 
   componentDidMount () {
+    this.initWMSSource()
     let layers = this.getAvailableLayer()
     layers.then(res => {
       this.setState({
         layers: res
       })
     })
+  }
+
+  initWMSSource = () => {
+    wms.Source = wms.Source.extend({
+      'showFeatureInfo': (latlng, info) => {
+        this.setState({
+          info: {
+            latlng: latlng,
+            content: info
+          }
+        })
+        let popup = L.popup()
+          .setLatLng(latlng)
+          .setContent(info)
+          .openOn(this.props.map)
+        this.props.map.openPopup(popup)
+      }
+    })
+
+    this.wmsSource = wms.source(this.sourceURL, this.wmsConfig)
   }
 
   getAvailableLayer = () => {
@@ -79,6 +101,7 @@ export default class WMS extends React.Component {
     return (
       <div>
         <LayerList layers={this.state.layers} onChange={this.updateLayer} />
+        <pre>{this.state.info.content}</pre>
       </div>
     )
   }
