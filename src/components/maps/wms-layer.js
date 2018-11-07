@@ -1,8 +1,6 @@
 import L from 'leaflet'
 import wms from 'leaflet.wms'
 
-console.log(wms)
-
 const source = `http://${document.location.hostname}:9090/geoserver/ows?`
 const config = {
   request: 'GetCapabilities',
