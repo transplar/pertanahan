@@ -2,7 +2,6 @@ import React from 'react'
 import L from 'leaflet'
 import { Container } from 'reactstrap'
 import WMS from './maps/WMS'
-import getAvailableLayer from './maps/wms-capabilities'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
 
@@ -14,7 +13,6 @@ export default class MainMap extends React.Component {
       lat: -6.933927,
       lng: 107.662110,
       zoom: 8,
-      layers: [],
       map: null
     }
   }
@@ -28,20 +26,14 @@ export default class MainMap extends React.Component {
 
     osm.addTo(map)
 
-    let layers = getAvailableLayer()
-    layers.then(res => {
-      this.setState({
-        layers: res,
-        map: map
-      })
-    })
+    this.setState({map: map})
   }
 
   render () {
     return (
       <Container className='bg-white my-1 py-1 rounded'>
         <div id='leaflet-map'></div>
-        <WMS map={this.state.map} layers={this.state.layers}/>
+        <WMS map={this.state.map}/>
       </Container>
     )
   }

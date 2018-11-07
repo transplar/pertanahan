@@ -1,12 +1,25 @@
 import React from 'react'
 import LayerList from '../LayerList'
 import * as wms from './wms-layer'
+import getAvailableLayer from './wms-capabilities';
 
 export default class WMS extends React.Component {
   constructor (props) {
     super(props)
 
     this.updateLayer = this.updateLayer.bind(this)
+    this.state = {
+      layers: []
+    }
+  }
+
+  componentDidMount () {
+    let layers = getAvailableLayer()
+    layers.then(res => {
+      this.setState({
+        layers: res
+      })
+    })
   }
 
   updateLayer () {
@@ -28,7 +41,7 @@ export default class WMS extends React.Component {
   render () {
     return (
       <div>
-        <LayerList layers={this.props.layers} onChange={this.updateLayer} />
+        <LayerList layers={this.state.layers} onChange={this.updateLayer} />
       </div>
     )
   }
