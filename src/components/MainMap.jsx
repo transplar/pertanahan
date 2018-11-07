@@ -58,7 +58,7 @@ export default class MainMap extends React.Component {
     return (
       <Container className='bg-white my-1 py-1 rounded'>
         <div id='leaflet-map'></div>
-        <WMS layers={this.state.layers} onChange={this.updateLayer} />
+        <WMS map={this.state.map} layers={this.state.layers} onChange={this.updateLayer} />
       </Container>
     )
   }
