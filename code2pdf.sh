@@ -11,5 +11,6 @@ a2ps --medium=A4 \
 	--line-number=1 \
 	--font-size=11 \
 	--toc \
+	--delegate=no \
 	package.json .travis.yml public/**/* src/**/* \
 	-o - | ps2pdf - $OUTPUT_DIR/code.pdf
