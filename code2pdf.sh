@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 OUTPUT_DIR="pdf"
-SOURCE_LIST=$(find . -type d \( -path ./node_modules -o -path ./.git -o -path ./build -o -path ./pdf \) -prune -o -print | grep -vE ".ico|.lock|.png|.jpg" | xargs)
+EXCLUDED_DIR="-path ./node_modules -o -path ./.git -o -path ./build -o -path ./pdf"
+EXCLUDED_FILE=".ico|.lock|.png|.jpg"
+SOURCE_LIST=$(find . -type d \( $EXCLUDED_DIR \) -prune -o -print | grep -vE $EXCLUDED_FILE | xargs)
 
 mkdir -p $OUTPUT_DIR
 
