@@ -6,7 +6,7 @@ const config = {
   service: 'WMS',
   version: '1.3.0'
 }
-const params = Object.entries(config).map(([key, value]) => `${key}=${value}`).join('&')
+const capabilitiesParams = Object.entries(config).map(([key, value]) => `${key}=${value}`).join('&')
 
 const wmsOptions = {
   format: 'image/png',
@@ -21,7 +21,7 @@ let wmsSource = wms.source(source, wmsOptions)
 
 const getAvailableLayer = () => {
   return new Promise((resolve, reject) => {
-    fetch([source, params].join('&'))
+    fetch([source, capabilitiesParams].join('&'))
       .then(response => response.text())
       .then(text => {
         let xml = new DOMParser().parseFromString(text, 'text/xml')
