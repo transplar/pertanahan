@@ -11,14 +11,13 @@ export default class MainMap extends React.Component {
     super(props)
 
     this.updateLayer = this.updateLayer.bind(this)
-  }
-
-  state = {
-    lat: -6.933927,
-    lng: 107.662110,
-    zoom: 8,
-    layers: [],
-    map: null
+    this.state = {
+      lat: -6.933927,
+      lng: 107.662110,
+      zoom: 8,
+      layers: [],
+      map: null
+    }
   }
 
   componentDidMount () {
