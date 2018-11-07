@@ -28,7 +28,6 @@ export default class MainMap extends React.Component {
       })
 
     osm.addTo(map)
-    wms.simtanah.addTo(map)
 
     let layers = wms.getAvailableLayer()
     layers.then(res => {
