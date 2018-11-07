@@ -13,4 +13,4 @@ const wmsOptions = {
 
 let wmsSource = wms.source(sourceURL, wmsOptions)
 
-export { wmsSource }
+export default wmsSource

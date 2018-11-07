@@ -1,6 +1,6 @@
 import React from 'react'
 import LayerList from '../LayerList'
-import * as wms from './wms-layer'
+import wmsSource from './wms-source'
 import getAvailableLayer from './wms-capabilities';
 
 export default class WMS extends React.Component {
@@ -27,14 +27,14 @@ export default class WMS extends React.Component {
     const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
     unselectedLayer.map(input => input.value)
       .forEach(layer => {
-        wms.wmsSource.removeSubLayer(layer)
+        wmsSource.removeSubLayer(layer)
       })
 
     // add selected layer to map
     const selectedLayer = [...document.querySelectorAll('input:checked')]
     selectedLayer.map(input => input.value)
       .forEach(layer => {
-        wms.wmsSource.getLayer(layer).addTo(this.props.map)
+        wmsSource.getLayer(layer).addTo(this.props.map)
       })
   }
 
