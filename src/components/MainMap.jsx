@@ -4,7 +4,7 @@ import { Container } from 'reactstrap'
 import WMS from './maps/WMS'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
-import * as wms from './maps/wms-layer'
+import { getAvailableLayer } from './maps/wms-layer'
 
 export default class MainMap extends React.Component {
   constructor (props) {
@@ -28,7 +28,7 @@ export default class MainMap extends React.Component {
 
     osm.addTo(map)
 
-    let layers = wms.getAvailableLayer()
+    let layers = getAvailableLayer()
     layers.then(res => {
       this.setState({
         layers: res,
