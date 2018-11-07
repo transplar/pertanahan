@@ -1,4 +1,3 @@
-import L from 'leaflet'
 import wms from 'leaflet.wms'
 
 const source = `http://${document.location.hostname}:9090/geoserver/ows?`
@@ -8,13 +7,6 @@ const config = {
   version: '1.3.0'
 }
 const params = Object.entries(config).map(([key, value]) => `${key}=${value}`).join('&')
-
-let simtanah = L.tileLayer.wms(source, {
-  format: 'image/png',
-  transparent: true,
-  version: '1.3.0',
-  layers: ''
-})
 
 const wmsOptions = {
   format: 'image/png',
@@ -46,4 +38,4 @@ const getAvailableLayer = () => {
   })
 }
 
-export { simtanah, getAvailableLayer, wmsSource }
+export { getAvailableLayer, wmsSource }

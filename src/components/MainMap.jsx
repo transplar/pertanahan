@@ -36,10 +36,7 @@ export default class MainMap extends React.Component {
   }
 
   updateLayer () {
-    const layerList = [...document.querySelectorAll('input:checked')]
-      .map(input => input.value)
-      .join(',')
-    wms.simtanah.setParams({layers: layerList}, false)
+    // TO DO
   }
 
   render () {
