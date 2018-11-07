@@ -1,7 +1,7 @@
 import React from 'react'
 import L from 'leaflet'
 import { Container } from 'reactstrap'
-import LayerList from './LayerList'
+import WMS from './maps/WMS'
 import 'leaflet/dist/leaflet.css'
 import './MainMap.css'
 import * as wms from './maps/wms-layer'
@@ -58,7 +58,7 @@ export default class MainMap extends React.Component {
     return (
       <Container className='bg-white my-1 py-1 rounded'>
         <div id='leaflet-map'></div>
-        <LayerList layers={this.state.layers} onChange={this.updateLayer} />
+        <WMS layers={this.state.layers} onChange={this.updateLayer} />
       </Container>
     )
   }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Col, Row } from 'reactstrap'
 
 export default class LayerList extends React.Component {
   render () {
@@ -13,11 +12,7 @@ export default class LayerList extends React.Component {
       })
 
     return (
-      <Row>
-        <Col md='6'>
-          <ul>{layer}</ul>
-        </Col>
-      </Row>
+      <ul>{layer}</ul>
     )
   }
 }
