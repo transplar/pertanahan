@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 OUTPUT_DIR="pdf"
+SOURCE_LIST=$(find . -type d \( -path ./node_modules -o -path ./.git -o -path ./build -o -path ./pdf \) -prune -o -print | grep -vE ".ico|.lock|.png|.jpg" | xargs)
 
 mkdir -p $OUTPUT_DIR
 
@@ -12,5 +13,5 @@ a2ps --medium=A4 \
 	--font-size=11 \
 	--toc \
 	--delegate=no \
-	package.json .travis.yml public/**/* src/**/* \
+	$SOURCE_LIST \
 	-o - | ps2pdf - $OUTPUT_DIR/code.pdf
