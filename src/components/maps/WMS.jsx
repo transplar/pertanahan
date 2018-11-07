@@ -7,7 +7,6 @@ export default class WMS extends React.Component {
   constructor (props) {
     super(props)
 
-    this.updateLayer = this.updateLayer.bind(this)
     this.state = {
       layers: []
     }
@@ -22,7 +21,7 @@ export default class WMS extends React.Component {
     })
   }
 
-  updateLayer () {
+  updateLayer = () => {
     // remove unchecked layer list
     const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
     unselectedLayer.map(input => input.value)
