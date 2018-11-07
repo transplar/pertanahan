@@ -17,7 +17,8 @@ export default class MainMap extends React.Component {
     lat: -6.933927,
     lng: 107.662110,
     zoom: 8,
-    layers: []
+    layers: [],
+    map: null
   }
 
   componentDidMount () {
@@ -28,19 +29,30 @@ export default class MainMap extends React.Component {
       })
 
     osm.addTo(map)
-    wms.simtanah.addTo(map)
 
     let layers = wms.getAvailableLayer()
     layers.then(res => {
-      this.setState({layers: res})
+      this.setState({
+        layers: res,
+        map: map
+      })
     })
   }
 
   updateLayer () {
-    const layerList = [...document.querySelectorAll('input:checked')]
-      .map(input => input.value)
-      .join(',')
-    wms.simtanah.setParams({layers: layerList}, false)
+    // remove unchecked layer list
+    const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
+    unselectedLayer.map(input => input.value)
+      .forEach(layer => {
+        wms.wmsSource.removeSubLayer(layer)
+      })
+
+    // add selected layer to map
+    const selectedLayer = [...document.querySelectorAll('input:checked')]
+    selectedLayer.map(input => input.value)
+      .forEach(layer => {
+        wms.wmsSource.getLayer(layer).addTo(this.state.map)
+      })
   }
 
   render () {

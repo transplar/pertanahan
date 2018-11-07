@@ -1,4 +1,4 @@
-import L from 'leaflet'
+import wms from 'leaflet.wms'
 
 const source = `http://${document.location.hostname}:9090/geoserver/ows?`
 const config = {
@@ -6,18 +6,24 @@ const config = {
   service: 'WMS',
   version: '1.3.0'
 }
-const params = Object.entries(config).map(([key, value]) => `${key}=${value}`).join('&')
+const capabilitiesParams = Object.entries(config)
+  .map(([key, value]) => `${key}=${value}`)
+  .join('&')
 
-let simtanah = L.tileLayer.wms(source, {
+const wmsOptions = {
   format: 'image/png',
+  tiled: true,
   transparent: true,
   version: '1.3.0',
-  layers: ''
-})
+  info_format: 'text/html',
+  feature_count: 100
+}
+
+let wmsSource = wms.source(source, wmsOptions)
 
 const getAvailableLayer = () => {
   return new Promise((resolve, reject) => {
-    fetch([source, params].join('&'))
+    fetch([source, capabilitiesParams].join('&'))
       .then(response => response.text())
       .then(text => {
         let xml = new DOMParser().parseFromString(text, 'text/xml')
@@ -34,4 +40,4 @@ const getAvailableLayer = () => {
   })
 }
 
-export { simtanah, getAvailableLayer }
+export { getAvailableLayer, wmsSource }
