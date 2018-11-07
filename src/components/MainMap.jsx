@@ -40,9 +40,16 @@ export default class MainMap extends React.Component {
   }
 
   updateLayer () {
-    // TO DO:
-    // - remove unchecked layer
-    [...document.querySelectorAll('input:checked')].map(input => input.value)
+    // remove unchecked layer list
+    const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
+    unselectedLayer.map(input => input.value)
+      .forEach(layer => {
+        wms.wmsSource.removeSubLayer(layer)
+      })
+
+    // add selected layer to map
+    const selectedLayer = [...document.querySelectorAll('input:checked')]
+    selectedLayer.map(input => input.value)
       .forEach(layer => {
         wms.wmsSource.getLayer(layer).addTo(this.state.map)
       })
