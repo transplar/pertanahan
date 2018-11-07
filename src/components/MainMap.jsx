@@ -17,7 +17,8 @@ export default class MainMap extends React.Component {
     lat: -6.933927,
     lng: 107.662110,
     zoom: 8,
-    layers: []
+    layers: [],
+    map: null
   }
 
   componentDidMount () {
@@ -31,12 +32,20 @@ export default class MainMap extends React.Component {
 
     let layers = wms.getAvailableLayer()
     layers.then(res => {
-      this.setState({layers: res})
+      this.setState({
+        layers: res,
+        map: map
+      })
     })
   }
 
   updateLayer () {
-    // TO DO
+    // TO DO:
+    // - remove unchecked layer
+    [...document.querySelectorAll('input:checked')].map(input => input.value)
+      .forEach(layer => {
+        wms.wmsSource.getLayer(layer).addTo(this.state.map)
+      })
   }
 
   render () {
