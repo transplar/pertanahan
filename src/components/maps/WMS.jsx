@@ -1,6 +1,7 @@
 import React from 'react'
 import L from 'leaflet'
 import wms from 'leaflet.wms'
+import { Col, Row } from 'reactstrap'
 import LayerList from '../LayerList'
 
 export default class WMS extends React.Component {
@@ -107,10 +108,14 @@ export default class WMS extends React.Component {
 
   render () {
     return (
-      <div>
-        <LayerList layers={this.state.layers} onChange={this.updateLayer} />
-        <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
-      </div>
+      <Row className='mt-3'>
+        <Col md='6'>
+          <LayerList layers={this.state.layers} onChange={this.updateLayer} />
+        </Col>
+        <Col md='6'>
+          <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
+        </Col>
+      </Row>
     )
   }
 }
