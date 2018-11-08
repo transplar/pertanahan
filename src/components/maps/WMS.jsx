@@ -15,7 +15,7 @@ export default class WMS extends React.Component {
     tiled: true,
     transparent: true,
     version: '1.3.0',
-    info_format: 'text/plain',
+    info_format: 'text/html',
     feature_count: 100
   }
 
@@ -49,7 +49,7 @@ export default class WMS extends React.Component {
         })
         let popup = L.popup()
           .setLatLng(latlng)
-          .setContent(info)
+          .setContent(this.popupSummary(info))
           .openOn(this.props.map)
         this.props.map.openPopup(popup)
       }
@@ -81,6 +81,14 @@ export default class WMS extends React.Component {
     })
   }
 
+  popupSummary = (html) => {
+    html = new DOMParser().parseFromString(html, 'text/html')
+    let layerCount = [...html.querySelectorAll('table')].length
+    let objectCount = [...html.querySelectorAll('table tr')].length
+    let summary = `${layerCount} Layer, ${objectCount} Objek`
+    return summary
+  }
+
   updateLayer = () => {
     // remove unchecked layer list
     const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
@@ -101,7 +109,7 @@ export default class WMS extends React.Component {
     return (
       <div>
         <LayerList layers={this.state.layers} onChange={this.updateLayer} />
-        <pre>{this.state.info.content}</pre>
+        <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
       </div>
     )
   }
