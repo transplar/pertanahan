@@ -114,7 +114,7 @@ export default class WMS extends React.Component {
         <Col md='6'>
           <LayerList layers={this.state.layers} onChange={this.updateLayer} />
         </Col>
-        <Col md='6' className='scroll-x'>
+        <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>
           <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
         </Col>
       </Row>
