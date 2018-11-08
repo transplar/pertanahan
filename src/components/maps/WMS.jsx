@@ -85,7 +85,9 @@ export default class WMS extends React.Component {
   popupSummary = (html) => {
     html = new DOMParser().parseFromString(html, 'text/html')
     let layerCount = [...html.querySelectorAll('table')].length
-    let objectCount = [...html.querySelectorAll('table tr')].length
+    let objectCount = [...html.querySelectorAll('table tr')]
+      .filter(item => item.querySelector(':not(th)'))
+      .length
     let summary = `${layerCount} Layer, ${objectCount} Objek`
     return summary
   }
