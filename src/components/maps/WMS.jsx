@@ -65,7 +65,7 @@ export default class WMS extends React.Component {
         .map(([key, value]) => `${key}=${value}`)
         .join('&')
 
-      fetch([this.sourceURL, capabilitiesParams].join('&'))
+      fetch([this.sourceURL, capabilitiesParams].join('&'), {mode: 'no-cors'})
         .then(responnse => responnse.text())
         .then(text => {
           let xml = new DOMParser().parseFromString(text, 'text/xml')
