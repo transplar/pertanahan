@@ -1,5 +1,7 @@
 import React from 'react'
+import L from 'leaflet'
 import wms from 'leaflet.wms'
+import { Col, Row } from 'reactstrap'
 import LayerList from '../LayerList'
 
 export default class WMS extends React.Component {
@@ -17,23 +19,44 @@ export default class WMS extends React.Component {
     info_format: 'text/html',
     feature_count: 100
   }
-  wmsSource = wms.source(this.sourceURL, this.wmsConfig)
 
   constructor (props) {
     super(props)
 
     this.state = {
-      layers: []
+      layers: [],
+      info: ''
     }
   }
 
   componentDidMount () {
+    this.initWMSSource()
     let layers = this.getAvailableLayer()
     layers.then(res => {
       this.setState({
         layers: res
       })
     })
+  }
+
+  initWMSSource = () => {
+    wms.Source = wms.Source.extend({
+      'showFeatureInfo': (latlng, info) => {
+        this.setState({
+          info: {
+            latlng: latlng,
+            content: info
+          }
+        })
+        let popup = L.popup()
+          .setLatLng(latlng)
+          .setContent(this.popupSummary(info))
+          .openOn(this.props.map)
+        this.props.map.openPopup(popup)
+      }
+    })
+
+    this.wmsSource = wms.source(this.sourceURL, this.wmsConfig)
   }
 
   getAvailableLayer = () => {
@@ -59,6 +82,16 @@ export default class WMS extends React.Component {
     })
   }
 
+  popupSummary = (html) => {
+    html = new DOMParser().parseFromString(html, 'text/html')
+    let layerCount = [...html.querySelectorAll('table')].length
+    let objectCount = [...html.querySelectorAll('table tr')]
+      .filter(item => item.querySelector(':not(th)'))
+      .length
+    let summary = `${layerCount} Layer, ${objectCount} Objek`
+    return summary
+  }
+
   updateLayer = () => {
     // remove unchecked layer list
     const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
@@ -77,9 +110,14 @@ export default class WMS extends React.Component {
 
   render () {
     return (
-      <div>
-        <LayerList layers={this.state.layers} onChange={this.updateLayer} />
-      </div>
+      <Row className='mt-3'>
+        <Col md='6'>
+          <LayerList layers={this.state.layers} onChange={this.updateLayer} />
+        </Col>
+        <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>
+          <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
+        </Col>
+      </Row>
     )
   }
 }
