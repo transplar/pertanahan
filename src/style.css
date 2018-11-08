@@ -35,3 +35,7 @@ hr {
 .placeholder-white::-moz-placeholder {
   color: #dddddd;
 }
+
+.scroll-x {
+  overflow-x: scroll;
+}
