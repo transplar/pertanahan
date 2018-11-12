@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import BeritaDetail from './components/layout/BeritaDetail'
 import Contact from './components/layout/Contact'
@@ -9,6 +9,7 @@ import InformationPage from './components/layout/InformationPage'
 import LoginPage from './components/layout/LoginPage'
 import Maps from './components/layout/Maps'
 import NotFound from './components/layout/NotFound'
+import Profile from './components/layout/Profile'
 import './style.css'
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <div className='App'>
           <Switch>
             <Route exact path='/' component={Homepage} />
+            <Route path='/profil' component={Profile} />
             <Route path='/:auth(signin|signup)' component={LoginPage} />
             <Route path='/berita/:id(\d+)' component={BeritaDetail} />
             <Route path='/download' component={DownloadPage} />
