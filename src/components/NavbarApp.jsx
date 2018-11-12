@@ -81,15 +81,15 @@ const navigationItems = [
     ]
   },
   {
-    to: '/galery',
+    to: '/gallery',
     text: 'Galeri',
     submenu: [
       {
-        to: '/galery/photo',
+        to: '/gallery/photo',
         text: 'Foto'
       },
       {
-        to: '/galery/video',
+        to: '/gallery/video',
         text: 'Video'
       }
     ]

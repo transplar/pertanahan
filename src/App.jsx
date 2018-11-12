@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import BeritaDetail from './components/layout/BeritaDetail'
 import Contact from './components/layout/Contact'
 import DownloadPage from './components/layout/DownloadPage'
+import Gallery from './components/layout/Gallery'
 import Homepage from './components/layout/Homepage'
 import InformationPage from './components/layout/InformationPage'
 import LoginPage from './components/layout/LoginPage'
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path='/pelayanan' component={InformationPage} />
             <Route path='/pengaduan' component={Pengaduan} />
             <Route path='/statistic' component={Statistic} />
+            <Route path='/gallery' component={Gallery} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
             <Route component={NotFound} />
