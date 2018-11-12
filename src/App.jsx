@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import BeritaDetail from './components/layout/BeritaDetail'
+import Contact from './components/layout/Contact'
 import DownloadPage from './components/layout/DownloadPage'
 import Homepage from './components/layout/Homepage'
 import InformationPage from './components/layout/InformationPage'
@@ -22,6 +23,7 @@ class App extends Component {
             <Route path='/download' component={DownloadPage} />
             <Route path='/pelayanan' component={InformationPage} />
             <Route path='/maps' component={Maps} />
+            <Route path='/contact' component={Contact} />
             <Route component={NotFound} />
           </Switch>
         </div>
