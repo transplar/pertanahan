@@ -4,23 +4,23 @@ import { Col, Container, Row } from 'reactstrap'
 import Header from '../Header'
 import NavbarApp from '../NavbarApp'
 import Footer from '../Footer'
-import contact from '../../data/profile.md'
+import profile from '../../data/profile.md'
 
 export default class Profile extends React.Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      contact: ''
+      profile: ''
     }
   }
 
   componentDidMount = () => {
-    fetch(contact)
+    fetch(profile)
       .then(res => res.text())
       .then(text => {
         this.setState({
-          contact: text
+          profile: text
         })
       })
   }
@@ -32,7 +32,7 @@ export default class Profile extends React.Component {
         <NavbarApp />
         <Row className='bg-white rounded m-0 mt-1'>
           <Col>
-            <ReactMarkdown source={this.state.contact} />
+            <ReactMarkdown source={this.state.profile} />
           </Col>
         </Row>
         <Footer />
