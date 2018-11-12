@@ -49,15 +49,15 @@ const navigationItems = [
     text: 'Pengaduan',
     submenu: [
       {
-        to: '/pengaduan/chat',
+        to: '/pengaduan#chat',
         text: 'Pertanyaan (live Chat)'
       },
       {
-        to: '/pengaduan/email',
+        to: '/pengaduan#email',
         text: 'Kirim Pengaduan'
       },
       {
-        to: '/pengaduan/info',
+        to: '/pengaduan#info',
         text: 'Permohonan Rekomendasi'
       }
     ]
