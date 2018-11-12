@@ -11,6 +11,7 @@ import Maps from './components/layout/Maps'
 import NotFound from './components/layout/NotFound'
 import Pengaduan from './components/layout/Pengaduan'
 import Profile from './components/layout/Profile'
+import Statistic from './components/layout/Statistic'
 import './style.css'
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/download' component={DownloadPage} />
             <Route path='/pelayanan' component={InformationPage} />
             <Route path='/pengaduan' component={Pengaduan} />
+            <Route path='/statistic' component={Statistic} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
             <Route component={NotFound} />
