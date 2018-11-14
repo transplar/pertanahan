@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col } from 'reactstrap'
-import StatistikWidget from './StatistikWidget'
+// import StatistikWidget from './StatistikWidget'
 import TwitterTimeline from './TwitterTimeline'
 
 export default class SideBar extends React.Component {
@@ -8,7 +8,7 @@ export default class SideBar extends React.Component {
     return (
       <Col md='4'>
         <TwitterTimeline />
-        <StatistikWidget />
+        {/* <StatistikWidget /> */}
       </Col>
     )
   }
