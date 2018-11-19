@@ -67,20 +67,6 @@ const navigationItems = [
     text: 'Unduh'
   },
   {
-    to: '/statistic',
-    text: 'Statistik',
-    submenu: [
-      {
-        to: '/statistic/pengaduan',
-        text: 'Statistik Pengaduan'
-      },
-      {
-        to: '/statistik/laporaan',
-        text: 'Laporan Pengaduan'
-      }
-    ]
-  },
-  {
     to: '/gallery',
     text: 'Galeri',
     submenu: [
