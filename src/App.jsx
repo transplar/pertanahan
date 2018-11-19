@@ -28,7 +28,6 @@ class App extends Component {
             <Route path='/download' component={DownloadPage} />
             <Route path='/pelayanan' component={InformationPage} />
             <Route path='/pengaduan' component={Pengaduan} />
-            <Route path='/statistic' component={Statistic} />
             <Route path='/gallery' component={Gallery} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
