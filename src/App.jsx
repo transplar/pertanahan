@@ -12,7 +12,6 @@ import Maps from './components/layout/Maps'
 import NotFound from './components/layout/NotFound'
 import Pengaduan from './components/layout/Pengaduan'
 import Profile from './components/layout/Profile'
-import Statistic from './components/layout/Statistic'
 import './style.css'
 
 class App extends Component {

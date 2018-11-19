@@ -1,3 +1,0 @@
-### Statistic Pengaduan
-
-### Laporan Pengaduan
