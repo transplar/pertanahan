@@ -8,7 +8,6 @@ before_install:
 
 script:
   - yarn build
-  - ./code2pdf.sh
 
 deploy:
   provider: pages
