@@ -6,6 +6,16 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 
 export default class LayerList extends React.Component {
+  state = {
+    disableUpdateButton: true
+  }
+
+  enableUpdateButton = () => {
+    this.setState({
+      disableUpdateButton: !([...document.querySelectorAll('input:checked')].length > 0) ? true : false
+    })
+  }
+
   render () {
     const layer = this.props.layers
       .map(layer => {
@@ -16,6 +26,7 @@ export default class LayerList extends React.Component {
             dense
             >
             <Checkbox
+              onChange={this.enableUpdateButton}
               value={layer.name}
               className='p-0'
               />
@@ -29,7 +40,7 @@ export default class LayerList extends React.Component {
 
     return (
       <div>
-        <Button size='small' variant='contained' color='primary' onClick={this.props.onChange}>Perbarui Peta</Button>
+        <Button size='small' variant='contained' color='primary' onClick={this.props.onChange} disabled={this.state.disableUpdateButton}>Perbarui Peta</Button>
         <List component='nav'>
           {layer}
         </List>
