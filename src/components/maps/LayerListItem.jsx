@@ -12,6 +12,11 @@ export default class LayerListItem extends React.Component {
     open: true
   }
 
+  size = {
+    height: '24px',
+    width: '24px'
+  }
+
   toggleCollapse = () => {
     this.setState({
       open: !this.state.open
@@ -31,17 +36,18 @@ export default class LayerListItem extends React.Component {
                 onChange={this.props.onChange}
                 value={this.props.layer.name}
                 color='primary'
+                style={this.size}
                 />
             }
             label={this.props.layer.title}
             className='m-0'
             />
           <span className='flex-grow-1'></span>
-          <IconButton onClick={this.toggleCollapse}>
+          <IconButton onClick={this.toggleCollapse} style={this.size}>
             {this.state.open ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
         </ListItem>
-        <Collapse in={this.state.open} className='ml-5'>
+        <Collapse in={this.state.open} className='ml-4'>
           <img src={this.props.layer.legendGraphic}
             alt={`Legenda ${this.props.layer.title}`}
             />
