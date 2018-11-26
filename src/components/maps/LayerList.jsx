@@ -10,6 +10,12 @@ export default class LayerList extends React.Component {
     disableUpdateButton: true
   }
 
+  disableUpdateButton = () => {
+    this.setState({
+      disableUpdateButton: true
+    })
+  }
+
   enableUpdateButton = () => {
     this.setState({
       disableUpdateButton: ([...document.querySelectorAll('input:checked')].length === 0) ?
@@ -31,6 +37,9 @@ export default class LayerList extends React.Component {
       .forEach(layer => {
         this.props.wmsSource.getLayer(layer).addTo(this.props.map)
       })
+
+    // disable update button
+    this.disableUpdateButton()
   }
 
   render () {
