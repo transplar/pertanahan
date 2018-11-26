@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 import Checkbox from '@material-ui/core/Checkbox'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -28,9 +29,12 @@ export default class LayerList extends React.Component {
       })
 
     return (
-      <List component='nav'>
-        {layer}
-      </List>
+      <div>
+        <Button size='small' variant='contained' color='primary'>Perbarui Peta</Button>
+        <List component='nav'>
+          {layer}
+        </List>
+      </div>
     )
   }
 }
