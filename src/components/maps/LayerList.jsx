@@ -1,9 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
+import LayerListItem from './LayerListItem'
 
 export default class LayerList extends React.Component {
   state = {
@@ -47,27 +45,7 @@ export default class LayerList extends React.Component {
 
   render () {
     const layer = this.props.layers
-      .map(layer => {
-        return (
-          <ListItem
-            key={layer.name}
-            className='p-0 border-bottom'
-            dense
-            >
-            <FormControlLabel
-              control={
-                <Checkbox
-                  onChange={this.enableUpdateButton}
-                  value={layer.name}
-                  color='primary'
-                  />
-              }
-              label={layer.title}
-              className='m-0'
-              />
-          </ListItem>
-        )
-      })
+      .map(layer => <LayerListItem layer={layer} onChange={this.enableUpdateButton} />)
 
     return (
       <div>
