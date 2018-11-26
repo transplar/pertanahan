@@ -73,7 +73,9 @@ export default class WMS extends React.Component {
             .map(item => {
               return {
                 name: item.querySelector('Name').textContent,
-                title: item.querySelector('Title').textContent
+                title: item.querySelector('Title').textContent,
+                legendGraphic: `${item.querySelector('LegendURL OnlineResource')
+                  .getAttribute('xlink:href')}&LEGEND_OPTIONS=forceLabels:on`
               }
             })
           resolve(layer)

@@ -43,7 +43,7 @@ export default class LayerListItem extends React.Component {
           </IconButton>
         </ListItem>
         <Collapse in={this.state.open} className='ml-5'>
-          {this.props.layer.legendGraphic}
+          <img src={this.props.layer.legendGraphic} alt={`Legenda ${this.props.layer.title}`} />
         </Collapse>
       </div>
     )
