@@ -17,6 +17,22 @@ export default class LayerList extends React.Component {
     })
   }
 
+  updateLayer = () => {
+    // remove unchecked layer list
+    const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
+    unselectedLayer.map(input => input.value)
+      .forEach(layer => {
+        this.props.wmsSource.removeSubLayer(layer)
+      })
+
+    // add selected layer to map
+    const selectedLayer = [...document.querySelectorAll('input:checked')]
+    selectedLayer.map(input => input.value)
+      .forEach(layer => {
+        this.props.wmsSource.getLayer(layer).addTo(this.props.map)
+      })
+  }
+
   render () {
     const layer = this.props.layers
       .map(layer => {
@@ -43,7 +59,7 @@ export default class LayerList extends React.Component {
       <div>
         <Button
           disabled={this.state.disableUpdateButton}
-          onClick={this.props.onChange}
+          onClick={this.updateLayer}
           color='primary'
           size='small'
           variant='contained'

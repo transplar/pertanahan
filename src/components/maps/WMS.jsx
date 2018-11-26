@@ -92,27 +92,11 @@ export default class WMS extends React.Component {
     return summary
   }
 
-  updateLayer = () => {
-    // remove unchecked layer list
-    const unselectedLayer = [...document.querySelectorAll('input:not(:checked)')]
-    unselectedLayer.map(input => input.value)
-      .forEach(layer => {
-        this.wmsSource.removeSubLayer(layer)
-      })
-
-    // add selected layer to map
-    const selectedLayer = [...document.querySelectorAll('input:checked')]
-    selectedLayer.map(input => input.value)
-      .forEach(layer => {
-        this.wmsSource.getLayer(layer).addTo(this.props.map)
-      })
-  }
-
   render () {
     return (
       <Row className='mt-3'>
         <Col md='6'>
-          <LayerList layers={this.state.layers} onChange={this.updateLayer} />
+          <LayerList layers={this.state.layers} wmsSource={this.wmsSource} map={this.props.map} />
         </Col>
         <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>
           <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
