@@ -13,7 +13,6 @@ export default class LayerList extends React.Component {
             key={layer.name}
             className='p-0 border-bottom'
             dense
-            disableRipple
             >
             <Checkbox
               onChange={this.props.onChange}
