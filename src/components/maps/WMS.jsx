@@ -2,7 +2,7 @@ import React from 'react'
 import L from 'leaflet'
 import wms from 'leaflet.wms'
 import { Col, Row } from 'reactstrap'
-import LayerList from '../LayerList'
+import LayerList from './LayerList'
 
 export default class WMS extends React.Component {
   sourceURL = `http://${document.location.hostname}:9090/geoserver/ows?`
