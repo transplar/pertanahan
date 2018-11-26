@@ -45,7 +45,7 @@ export default class LayerList extends React.Component {
 
   render () {
     const layer = this.props.layers
-      .map(layer => <LayerListItem layer={layer} onChange={this.enableUpdateButton} />)
+      .map(layer => <LayerListItem key={layer.name} layer={layer} onChange={this.enableUpdateButton} />)
 
     return (
       <div>

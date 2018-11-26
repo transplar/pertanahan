@@ -22,7 +22,6 @@ export default class LayerListItem extends React.Component {
     return (
       <div className='border-bottom'>
         <ListItem
-          key={this.props.layer.name}
           className='p-0'
           dense
           >
