@@ -12,7 +12,8 @@ export default class LayerList extends React.Component {
 
   enableUpdateButton = () => {
     this.setState({
-      disableUpdateButton: !([...document.querySelectorAll('input:checked')].length > 0) ? true : false
+      disableUpdateButton: ([...document.querySelectorAll('input:checked')].length === 0) ?
+        true : false
     })
   }
 
@@ -40,7 +41,15 @@ export default class LayerList extends React.Component {
 
     return (
       <div>
-        <Button size='small' variant='contained' color='primary' onClick={this.props.onChange} disabled={this.state.disableUpdateButton}>Perbarui Peta</Button>
+        <Button
+          disabled={this.state.disableUpdateButton}
+          onClick={this.props.onChange}
+          color='primary'
+          size='small'
+          variant='contained'
+          >
+          Perbarui Peta
+        </Button>
         <List component='nav'>
           {layer}
         </List>
