@@ -17,9 +17,12 @@ export default class LayerList extends React.Component {
   }
 
   enableUpdateButton = () => {
+    const disable = (
+        [...document.querySelectorAll('input:checked')].length === 0
+        && Object.keys(this.props.wmsSource._subLayers).length === 0
+      ) ? true : false
     this.setState({
-      disableUpdateButton: ([...document.querySelectorAll('input:checked')].length === 0) ?
-        true : false
+      disableUpdateButton: disable
     })
   }
 
