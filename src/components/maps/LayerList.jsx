@@ -16,7 +16,6 @@ export default class LayerList extends React.Component {
             dense
             >
             <Checkbox
-              onChange={this.props.onChange}
               value={layer.name}
               className='p-0'
               />
@@ -30,7 +29,7 @@ export default class LayerList extends React.Component {
 
     return (
       <div>
-        <Button size='small' variant='contained' color='primary'>Perbarui Peta</Button>
+        <Button size='small' variant='contained' color='primary' onClick={this.props.onChange}>Perbarui Peta</Button>
         <List component='nav'>
           {layer}
         </List>
