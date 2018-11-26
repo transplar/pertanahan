@@ -28,10 +28,10 @@ export default class LayerListItem extends React.Component {
           <FormControlLabel
             control={
               <Checkbox
-              onChange={this.props.onChange}
-              value={this.props.layer.name}
-              color='primary'
-              />
+                onChange={this.props.onChange}
+                value={this.props.layer.name}
+                color='primary'
+                />
             }
             label={this.props.layer.title}
             className='m-0'
@@ -42,7 +42,9 @@ export default class LayerListItem extends React.Component {
           </IconButton>
         </ListItem>
         <Collapse in={this.state.open} className='ml-5'>
-          <img src={this.props.layer.legendGraphic} alt={`Legenda ${this.props.layer.title}`} />
+          <img src={this.props.layer.legendGraphic}
+            alt={`Legenda ${this.props.layer.title}`}
+            />
         </Collapse>
       </div>
     )
