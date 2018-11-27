@@ -30,6 +30,7 @@ class App extends Component {
             <Route path='/gallery' component={Gallery} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
+            <Route path='/admin' component={Admin} />
             <Route component={NotFound} />
           </Switch>
         </div>
