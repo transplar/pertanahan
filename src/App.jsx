@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
+import Admin from './components/admin/Admin'
 import BeritaDetail from './components/layout/BeritaDetail'
 import Contact from './components/layout/Contact'
 import DownloadPage from './components/layout/DownloadPage'
