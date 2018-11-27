@@ -68,7 +68,7 @@ class Admin extends React.Component {
         <List>
           {['Item'].map(text => (
             <ListItem button key={text}>
-              <ListItemIcon>
+              <ListItemIcon className='m-0'>
                 <InboxIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
