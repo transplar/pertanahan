@@ -81,26 +81,26 @@ class Admin extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position='fixed' className={classes.appBar}>
           <Toolbar>
             <IconButton
-              color="inherit"
-              aria-label="Open drawer"
+              color='inherit'
+              aria-label='Open drawer'
               onClick={this.handleDrawerToggle}
               className={classes.menuButton}
               >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography variant='title' color='inherit' noWrap>
               Admin Panel
             </Typography>
           </Toolbar>
         </AppBar>
         <nav className={classes.drawer}>
-          <Hidden smUp implementation="css">
+          <Hidden smUp implementation='css'>
             <Drawer
               container={this.props.container}
-              variant="temporary"
+              variant='temporary'
               anchor={theme.direction === 'rtl' ? 'right' : 'left'}
               open={this.state.mobileOpen}
               onClose={this.handleDrawerToggle}
@@ -114,12 +114,12 @@ class Admin extends React.Component {
               {drawer}
             </Drawer>
           </Hidden>
-          <Hidden xsDown implementation="css">
+          <Hidden xsDown implementation='css'>
             <Drawer
               classes={{
                 paper: classes.drawerPaper,
               }}
-              variant="permanent"
+              variant='permanent'
               open
               >
               {drawer}
