@@ -9,7 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import { withStyles } from '@material-ui/core/styles'
 
-const drawerWidth = 240
+const drawerWidth = 280
 
 const styles = theme => ({
   root: {
