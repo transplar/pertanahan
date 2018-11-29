@@ -17,7 +17,14 @@ class NewsEditor extends React.Component {
   }
 
   handleSubmit = event => {
-    console.log(this.state.form)
+    // TODO change RESTfull api endpoint
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.state.form)
+    })
     event.preventDefault()
   }
 
@@ -27,8 +34,6 @@ class NewsEditor extends React.Component {
         onSubmit={this.handleSubmit}
         autoComplete='off'
         style={{maxWidth: '800px'}}
-        action=''
-        method='get'
         >
         <TextField
           fullWidth
