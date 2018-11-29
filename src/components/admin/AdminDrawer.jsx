@@ -6,7 +6,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
+import LocalLibrary from '@material-ui/icons/LocalLibrary'
 import { withStyles } from '@material-ui/core/styles'
 
 const drawerWidth = 280
@@ -34,10 +34,10 @@ class AdminDrawer extends React.Component {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Item'].map(text => (
+          {['Berita'].map(text => (
             <ListItem button key={text}>
               <ListItemIcon className='m-0'>
-                <InboxIcon />
+                <LocalLibrary />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
