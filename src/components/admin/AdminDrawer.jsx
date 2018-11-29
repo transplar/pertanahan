@@ -35,7 +35,7 @@ class AdminDrawer extends React.Component {
         <Divider />
         <List>
           {['Berita'].map(text => (
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={() => this.props.changeTitle(text)}>
               <ListItemIcon className='m-0'>
                 <LocalLibrary />
               </ListItemIcon>

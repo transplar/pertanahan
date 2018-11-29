@@ -34,7 +34,14 @@ const styles = theme => ({
 
 class Admin extends React.Component {
   state = {
+    title: 'Admin Panel',
     mobileOpen: false,
+  }
+
+  changeTitle = title => {
+    this.setState({
+      title: title
+    })
   }
 
   handleDrawerToggle = () => {
@@ -58,7 +65,7 @@ class Admin extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant='title' color='inherit' noWrap>
-              Admin Panel
+              {this.state.title}
             </Typography>
           </Toolbar>
         </AppBar>
@@ -66,6 +73,7 @@ class Admin extends React.Component {
           theme={theme}
           mobileOpen={this.state.mobileOpen}
           handleDrawerToggle={this.handleDrawerToggle}
+          changeTitle={this.changeTitle}
           />
         <main className={classes.content}>
           <div className={classes.toolbar} />
