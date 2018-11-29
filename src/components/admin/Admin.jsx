@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import AdminDrawer, { drawerWidth } from './AdminDrawer'
+import NewsEditor from './news/NewsEditor'
 
 const styles = theme => ({
   root: {
@@ -68,9 +69,7 @@ class Admin extends React.Component {
           />
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...
-          </Typography>
+          <NewsEditor />
         </main>
       </div>
     )
