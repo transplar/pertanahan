@@ -65,8 +65,7 @@ class Admin extends React.Component {
   render() {
     const { classes, theme } = this.props
 
-    return (
-      <div className={classes.root}>
+    const adminComponent = <div className={classes.root}>
         <CssBaseline />
         <AppBar position='fixed' className={classes.appBar}>
           <Toolbar>
@@ -94,7 +93,8 @@ class Admin extends React.Component {
           <NewsEditor />
         </main>
       </div>
-    )
+    const login = <div>login</div>
+    return this.state.isLoggedin ? adminComponent : login
   }
 }
 
