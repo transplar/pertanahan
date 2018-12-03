@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import { baseAPIURL } from '../../../utils/config';
 
 class NewsEditor extends React.Component {
   state = {
@@ -18,11 +19,12 @@ class NewsEditor extends React.Component {
 
   handleSubmit = event => {
     // TODO change RESTfull api endpoint
-    fetch('/', {
+    fetch(`${baseAPIURL}/news`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
+      credentials: 'include',
       body: JSON.stringify(this.state.form)
     })
     event.preventDefault()
