@@ -10,6 +10,28 @@ import {
 import imageSource from '../../images/logo.png'
 
 export default class LoginPage extends React.Component {
+  state = {
+    message: ''
+  }
+
+  handleSubmit = event => {
+    const payload = {
+      username: event.target.username.value,
+      password: event.target.password.value
+    }
+    const url = `${document.location.protocol}//${document.location.hostname}:8081/users/login`
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify(payload)
+    }).then(res => res.json())
+      .then(body => this.setState({message: JSON.stringify(body)}))
+    event.preventDefault()
+  }
+
   render () {
     const login = (this.props.match.params.auth === 'signin') ? true : false
     const title = login ? 'Login' : 'Daftar User Baru'
@@ -31,15 +53,16 @@ export default class LoginPage extends React.Component {
 
     return (
       <Container className='d-flex flex-column align-items-center bg-white my-3 py-2 rounded'>
-        <Form className='mt-md-5'>
+        <Form className='mt-md-5' onSubmit={this.handleSubmit}>
           <div className='text-center mb-4'>
             <img src={imageSource} alt='Logo Jawa Barat' height='72' className='mb-4' />
             <h1 className='h3 mb-3 font-weight-normal'>{title}</h1>
             <h1 className='h4'>Sistem informasi Pertanahan</h1>
             <p>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</p>
           </div>
-          <Input type='text' className='mb-3' placeholder={placeholder.username} required='' autoFocus />
-          <Input type='password' className='mb-3' placeholder={placeholder.password} required='' />
+          <div>{this.state.message}</div>
+          <Input name='username' type='text' className='mb-3' placeholder={placeholder.username} required autoFocus />
+          <Input name='password' type='password' className='mb-3' placeholder={placeholder.password} required />
           {passwordCheck}
           <div className='checbox mb-3'>
             <Button block color='primary'>{title}</Button>
