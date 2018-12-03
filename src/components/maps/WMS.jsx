@@ -71,11 +71,25 @@ export default class WMS extends React.Component {
           let xml = new DOMParser().parseFromString(text, 'text/xml')
           let layer = [...xml.querySelectorAll('Layer[queryable]')]
             .map(item => {
-              return {
-                name: item.querySelector('Name').textContent,
-                title: item.querySelector('Title').textContent,
-                legendGraphic: `${item.querySelector('LegendURL OnlineResource')
+              let legendGraphic
+              const name = item.querySelector('Name').textContent
+              const title = item.querySelector('Title').textContent
+              try {
+                legendGraphic = `${item.querySelector('LegendURL OnlineResource')
                   .getAttribute('xlink:href')}&LEGEND_OPTIONS=forceLabels:on`
+              } catch(error) {
+                legendGraphic = `${this.wmsSource._url}
+                  &SERVICE=WMS
+                  &REQUEST=GetLegendGraphic
+                  &FORMAT=image/png
+                  &LEGEND_OPTIONS=forceLabels:on
+                  &LAYER=${name}`
+                console.log(legendGraphic)
+              }
+              return {
+                name: name,
+                title: title,
+                legendGraphic: legendGraphic
               }
             })
           resolve(layer)
