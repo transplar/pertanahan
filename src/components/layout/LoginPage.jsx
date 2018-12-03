@@ -25,7 +25,7 @@ export default class LoginPage extends React.Component {
       headers: {
         'Content-type': 'application/json'
       },
-      credentials: 'same-origin',
+      credentials: 'include',
       body: JSON.stringify(payload)
     }).then(res => res.json())
       .then(body => this.setState({message: JSON.stringify(body)}))
@@ -61,8 +61,8 @@ export default class LoginPage extends React.Component {
             <p>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</p>
           </div>
           <div>{this.state.message}</div>
-          <Input name='username' type='text' className='mb-3' placeholder={placeholder.username} required='' autoFocus />
-          <Input name='password' type='password' className='mb-3' placeholder={placeholder.password} required='' />
+          <Input name='username' type='text' className='mb-3' placeholder={placeholder.username} required autoFocus />
+          <Input name='password' type='password' className='mb-3' placeholder={placeholder.password} required />
           {passwordCheck}
           <div className='checbox mb-3'>
             <Button block color='primary'>{title}</Button>
