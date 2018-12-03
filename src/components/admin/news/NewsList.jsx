@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -25,6 +26,8 @@ class NewsList extends React.Component {
       </TableRow>
     )
     return(
+      <div>
+      <Button variant='contained' color='primary'>Tulis Berita</Button>
       <Table>
         <TableHead>
           <TableRow>
@@ -35,6 +38,7 @@ class NewsList extends React.Component {
         </TableHead>
         <TableBody>{tableRows}</TableBody>
       </Table>
+      </div>
     )
   }
 }

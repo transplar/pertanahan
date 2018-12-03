@@ -1,7 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import NewsEditor from './news/NewsEditor'
-import NewsList from './news/NewsList'
+import News from './news/News'
 
 const styles = theme => ({
   toolbar: theme.mixins.toolbar,
@@ -18,8 +17,7 @@ class AdminMainContent extends React.Component {
     return(
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <NewsList />
-        <NewsEditor />
+        <News />
       </main>
     )
   }
