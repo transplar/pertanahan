@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import AdminDrawer, { drawerWidth } from './AdminDrawer'
-import NewsEditor from './news/NewsEditor'
 import { baseAPIURL } from '../../utils/config'
+import AdminMainContent from './AdminMainContent'
 
 const styles = theme => ({
   root: {
@@ -25,11 +25,6 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       display: 'none',
     },
-  },
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
   },
 })
 
@@ -88,10 +83,7 @@ class Admin extends React.Component {
           handleDrawerToggle={this.handleDrawerToggle}
           changeTitle={this.changeTitle}
           />
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <NewsEditor />
-        </main>
+        <AdminMainContent />
       </div>
     const login = <div>login</div>
     return this.state.isLoggedin ? adminComponent : login
