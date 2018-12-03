@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import AdminDrawer, { drawerWidth } from './AdminDrawer'
 import NewsEditor from './news/NewsEditor'
+import { baseAPIURL } from '../../utils/config'
 
 const styles = theme => ({
   root: {
@@ -36,6 +37,19 @@ class Admin extends React.Component {
   state = {
     title: 'Admin Panel',
     mobileOpen: false,
+    isLoggedin: false,
+  }
+
+  componentDidMount = () => {
+    fetch(`${baseAPIURL}/users/me`, {
+      credentials: 'include'
+    }).then(response => {
+      if (response.status === 200) {
+        this.setState({
+          isLoggedin: true
+        })
+      }
+    })
   }
 
   changeTitle = title => {
