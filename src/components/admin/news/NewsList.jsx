@@ -27,7 +27,13 @@ class NewsList extends React.Component {
     )
     return(
       <div>
-      <Button variant='contained' color='primary'>Tulis Berita</Button>
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={this.props.handleCreate}
+        >
+        Tulis Berita
+      </Button>
       <Table>
         <TableHead>
           <TableRow>
