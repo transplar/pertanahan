@@ -8,6 +8,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LocalLibrary from '@material-ui/icons/LocalLibrary'
+import ExitToApp from '@material-ui/icons/ExitToApp'
+import Home from '@material-ui/icons/Home'
 import { withStyles } from '@material-ui/core/styles'
 
 const drawerWidth = 280
@@ -34,17 +36,28 @@ class AdminDrawer extends React.Component {
       <Link to='/logout'>
         <ListItem button>
           <ListItemIcon className='m-0'>
-            <LocalLibrary />
+            <ExitToApp />
           </ListItemIcon>
           <ListItemText primary='Logout' />
+        </ListItem>
+      </Link>
+    )
+    const homepage = (
+      <Link to='/'>
+        <ListItem button>
+          <ListItemIcon className='m-0'>
+            <Home />
+          </ListItemIcon>
+          <ListItemText primary='Beranda' />
         </ListItem>
       </Link>
     )
     const drawer = (
       <div>
         <div className={classes.toolbar} />
-        <Divider />
         <List>
+          {homepage}
+          <Divider />
           {['Berita'].map(text => (
             <ListItem button key={text} onClick={() => this.props.changeTitle(text)}>
               <ListItemIcon className='m-0'>
