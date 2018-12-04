@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import MenuIcon from '@material-ui/icons/Menu'
 import AdminDrawer, { drawerWidth } from './AdminDrawer'
 import { baseAPIURL } from '../../utils/config'
+import AdminAppBar from './AdminAppBar'
 import AdminMainContent from './AdminMainContent'
 
 const styles = theme => ({
@@ -36,6 +37,7 @@ class Admin extends React.Component {
     isLoggedin: false,
     mainContent: '',
     redirect: false,
+    toolbar: '',
   }
 
   componentDidMount = () => {
@@ -60,6 +62,10 @@ class Admin extends React.Component {
     })
   }
 
+  changeToolbar = toolbar => {
+    this.setState({toolbar: toolbar})
+  }
+
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }))
   }
@@ -72,32 +78,22 @@ class Admin extends React.Component {
       return <Redirect to='login' />
     }
 
-    const adminComponent = <div className={classes.root}>
+    return (
+      <div className={classes.root}>
         <CssBaseline />
-        <AppBar position='fixed' className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color='inherit'
-              aria-label='Open drawer'
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-              >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant='title' color='inherit' noWrap>
-              {this.state.title}
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <AdminAppBar toolbar={this.state.toolbar} />
         <AdminDrawer
           theme={theme}
           mobileOpen={this.state.mobileOpen}
           handleDrawerToggle={this.handleDrawerToggle}
           changeTitle={this.changeTitle}
           />
-        <AdminMainContent component={this.state.mainContent} />
+        <AdminMainContent
+          changeToolbar={this.changeToolbar}
+          component={this.state.mainContent}
+          />
       </div>
-    return adminComponent
+    )
   }
 }
 
