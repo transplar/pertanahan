@@ -32,6 +32,7 @@ class NewsList extends React.Component {
   state = {
     news: [],
     modalOpen: false,
+    toBeDeleted: null,
   }
 
   componentDidMount = () => {
@@ -39,11 +40,22 @@ class NewsList extends React.Component {
   }
 
   closeModal = () => {
-    this.setState({modalOpen: false})
+    this.setState({modalOpen: false, toBeDeleted: null})
   }
 
   deleteNewsItem = event => {
-    this.setState({modalOpen: true})
+    const url = `${baseAPIURL}/news/${this.state.toBeDeleted}`
+    fetch(url, {
+      method: 'DELETE',
+      credentials: 'include'
+    }).then(response => {
+      this.refreshList()
+      this.setState({modalOpen: false, toBeDeleted: null})
+    })
+  }
+
+  openDeleteModal = event => {
+    this.setState({modalOpen: true, toBeDeleted: event.target.dataset.newsId})
   }
 
   refreshList = () => {
@@ -65,7 +77,7 @@ class NewsList extends React.Component {
               <BorderColor />
             </IconButton>
             <IconButton
-              onClick={this.deleteNewsItem}
+              onClick={this.openDeleteModal}
               className={classes.button}
               data-news-id={news.id}
               color='secondary'
@@ -102,7 +114,7 @@ class NewsList extends React.Component {
           onClose={this.closeModal}
           >
           <div className={classes.paper}>
-            <Button color='secondary'><Delete />Yes</Button>
+            <Button color='secondary' onClick={this.deleteNewsItem}><Delete />Yes</Button>
             <Button onClick={this.closeModal}>Cancel</Button>
           </div>
         </Modal>
