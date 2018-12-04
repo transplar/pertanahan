@@ -13,11 +13,17 @@ const styles = theme => ({
 class AdminMainContent extends React.Component {
   render () {
     const { classes } = this.props
+    let component
+    switch(this.props.component) {
+      case 'news':
+      default:
+        component = <News />
+    }
 
     return(
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <News />
+        {component}
       </main>
     )
   }

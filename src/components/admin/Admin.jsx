@@ -33,6 +33,7 @@ class Admin extends React.Component {
     title: 'Admin Panel',
     mobileOpen: false,
     isLoggedin: false,
+    mainContent: '',
   }
 
   componentDidMount = () => {
@@ -83,7 +84,7 @@ class Admin extends React.Component {
           handleDrawerToggle={this.handleDrawerToggle}
           changeTitle={this.changeTitle}
           />
-        <AdminMainContent />
+        <AdminMainContent component={this.state.mainContent} />
       </div>
     const login = <div>login</div>
     return this.state.isLoggedin ? adminComponent : login
