@@ -31,37 +31,39 @@ class NewsList extends React.Component {
   render () {
     const { classes } = this.props
 
-    const tableRows = this.state.news.map(news => <TableRow key={news.id}>
-        <TableCell>{news.title}</TableCell>
-        <TableCell>{news.writer}</TableCell>
-        <TableCell>{news.lastUpdate}</TableCell>
-        <TableCell>
-          <IconButton color='primary' variant='contained' size='small' aria-label='Edit'><BorderColor /></IconButton>
-          <IconButton color='secondary' size='small' className={classes.button}><Delete fontSize='small' /></IconButton>
-        </TableCell>
-      </TableRow>
+    const tableRows = this.state.news.map(news => (
+        <TableRow key={news.id}>
+          <TableCell>{news.title}</TableCell>
+          <TableCell>{news.writer}</TableCell>
+          <TableCell>{news.lastUpdate}</TableCell>
+          <TableCell>
+            <IconButton color='primary' variant='contained' size='small' aria-label='Edit'><BorderColor /></IconButton>
+            <IconButton color='secondary' size='small' className={classes.button}><Delete fontSize='small' /></IconButton>
+          </TableCell>
+        </TableRow>
+      )
     )
 
     return(
       <div>
-      <Button
-        variant='contained'
-        color='primary'
-        onClick={this.props.handleCreate}
-        >
-        Tulis Berita
-      </Button>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Judul</TableCell>
-            <TableCell>Penulis</TableCell>
-            <TableCell>Terakhir Update</TableCell>
-            <TableCell>Pilihan</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>{tableRows}</TableBody>
-      </Table>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={this.props.handleCreate}
+          >
+          Tulis Berita
+        </Button>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Judul</TableCell>
+              <TableCell>Penulis</TableCell>
+              <TableCell>Terakhir Update</TableCell>
+              <TableCell>Pilihan</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{tableRows}</TableBody>
+        </Table>
       </div>
     )
   }
