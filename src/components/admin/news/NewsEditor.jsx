@@ -1,7 +1,15 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import { baseAPIURL } from '../../../utils/config';
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import { baseAPIURL } from '../../../utils/config'
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  }
+})
 
 class NewsEditor extends React.Component {
   handleSubmit = event => {
@@ -22,6 +30,7 @@ class NewsEditor extends React.Component {
   }
 
   render () {
+    const { classes } = this.props
     return(
       <form
         onSubmit={this.handleSubmit}
@@ -42,10 +51,26 @@ class NewsEditor extends React.Component {
           name='content'
           label='Isi Berita'
           />
-        <Button type='submit' variant='outlined'>Simpan</Button>
+        <Typography align='right'>
+          <Button
+            className={classes.button}
+            type='submit'
+            variant='outlined'
+            >
+            Simpan
+          </Button>
+          <Button
+            className={classes.button}
+            onClick={this.props.backToList}
+            variant='contained'
+            color='secondary'
+            >
+            Batal
+          </Button>
+        </Typography>
       </form>
     )
   }
 }
 
-export default NewsEditor
+export default withStyles(styles)(NewsEditor)

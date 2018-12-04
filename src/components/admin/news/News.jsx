@@ -14,8 +14,14 @@ class News extends React.Component {
     })
   }
 
+  backToList = () => {
+    this.setState({
+      mode: 'list'
+    })
+  }
+
   render () {
-    return this.state.mode === 'list' ? <NewsList handleCreate={this.handleCreate} /> : <NewsEditor editorMode={this.state.editorMode} />
+    return this.state.mode === 'list' ? <NewsList handleCreate={this.handleCreate} /> : <NewsEditor editorMode={this.state.editorMode} backToList={this.backToList} />
   }
 }
 
