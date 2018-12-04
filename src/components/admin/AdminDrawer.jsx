@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 import Divider from '@material-ui/core/Divider'
@@ -7,6 +8,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LocalLibrary from '@material-ui/icons/LocalLibrary'
+import ExitToApp from '@material-ui/icons/ExitToApp'
+import Home from '@material-ui/icons/Home'
 import { withStyles } from '@material-ui/core/styles'
 
 const drawerWidth = 280
@@ -29,11 +32,32 @@ const styles = theme => ({
 class AdminDrawer extends React.Component {
   render () {
     const { classes, theme } = this.props
+    const logoutButton = (
+      <Link to='/logout'>
+        <ListItem button>
+          <ListItemIcon className='m-0'>
+            <ExitToApp />
+          </ListItemIcon>
+          <ListItemText primary='Logout' />
+        </ListItem>
+      </Link>
+    )
+    const homepage = (
+      <Link to='/'>
+        <ListItem button>
+          <ListItemIcon className='m-0'>
+            <Home />
+          </ListItemIcon>
+          <ListItemText primary='Beranda' />
+        </ListItem>
+      </Link>
+    )
     const drawer = (
       <div>
         <div className={classes.toolbar} />
-        <Divider />
         <List>
+          {homepage}
+          <Divider />
           {['Berita'].map(text => (
             <ListItem button key={text} onClick={() => this.props.changeTitle(text)}>
               <ListItemIcon className='m-0'>
@@ -42,6 +66,7 @@ class AdminDrawer extends React.Component {
               <ListItemText primary={text} />
             </ListItem>
           ))}
+          {logoutButton}
         </List>
       </div>
     )
