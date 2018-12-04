@@ -12,6 +12,10 @@ const styles = theme => ({
 })
 
 class NewsEditor extends React.Component {
+  state = {
+    message: ''
+  }
+
   handleSubmit = event => {
     const data = {
       title: event.target.title.value,
@@ -25,12 +29,36 @@ class NewsEditor extends React.Component {
       },
       credentials: 'include',
       body: JSON.stringify(data)
-    })
+    }).then(response => response.json())
+      .then(body => {
+        this.setState({message: body.message})
+        setTimeout(this.props.backToList, 5000)
+      })
     event.preventDefault()
   }
 
   render () {
     const { classes } = this.props
+
+    if (this.state.message) {
+      return (
+        <div>
+          <Typography variant='title' paragraph align='center'>
+            {this.state.message}
+          </Typography>
+          <Typography variant='title' paragraph align='center'>
+            <Button
+              onClick={this.props.backToList}
+              variant='contained'
+              color='primary'
+              >
+              Kembali
+            </Button>
+          </Typography>
+        </div>
+      )
+    }
+
     return(
       <form
         onSubmit={this.handleSubmit}
