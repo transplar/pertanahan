@@ -102,8 +102,8 @@ class NewsList extends React.Component {
           onClose={this.closeModal}
           >
           <div className={classes.paper}>
-            <Button color='primary'>Yes</Button>
-            <Button color='secondary' onClick={this.closeModal}>Cancel</Button>
+            <Button color='secondary'><Delete />Yes</Button>
+            <Button onClick={this.closeModal}>Cancel</Button>
           </div>
         </Modal>
       </div>
