@@ -37,8 +37,12 @@ class NewsList extends React.Component {
           <TableCell>{news.writer}</TableCell>
           <TableCell>{news.lastUpdate}</TableCell>
           <TableCell>
-            <IconButton color='primary' variant='contained' size='small' aria-label='Edit'><BorderColor /></IconButton>
-            <IconButton color='secondary' size='small' className={classes.button}><Delete fontSize='small' /></IconButton>
+            <IconButton color='primary'>
+              <BorderColor />
+            </IconButton>
+            <IconButton color='secondary' className={classes.button}>
+              <Delete />
+            </IconButton>
           </TableCell>
         </TableRow>
       )
