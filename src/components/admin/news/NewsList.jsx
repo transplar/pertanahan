@@ -23,6 +23,10 @@ class NewsList extends React.Component {
   }
 
   componentDidMount = () => {
+    this.refreshList()
+  }
+
+  refreshList = () => {
     fetch(`${baseAPIURL}/news`)
       .then(res => res.json())
       .then(data => this.setState({news: data.items}))
