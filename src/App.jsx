@@ -8,6 +8,7 @@ import DownloadPage from './components/layout/DownloadPage'
 import Gallery from './components/layout/Gallery'
 import Homepage from './components/layout/Homepage'
 import InformationPage from './components/layout/InformationPage'
+import Login from './components/login/Login'
 import LoginPage from './components/layout/LoginPage'
 import Maps from './components/layout/Maps'
 import NotFound from './components/layout/NotFound'
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
             <Route path='/admin' component={Admin} />
+            <Route path='/login' component={Login} />
             <Route component={NotFound} />
           </Switch>
         </div>

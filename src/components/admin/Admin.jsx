@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import IconButton from '@material-ui/core/IconButton'
@@ -34,6 +35,7 @@ class Admin extends React.Component {
     mobileOpen: false,
     isLoggedin: false,
     mainContent: '',
+    redirect: false,
   }
 
   componentDidMount = () => {
@@ -43,6 +45,10 @@ class Admin extends React.Component {
       if (response.status === 200) {
         this.setState({
           isLoggedin: true
+        })
+      } else {
+        this.setState({
+          redirect: true
         })
       }
     })
@@ -60,6 +66,11 @@ class Admin extends React.Component {
 
   render() {
     const { classes, theme } = this.props
+    const { redirect } = this.state
+
+    if (redirect) {
+      return <Redirect to='login' />
+    }
 
     const adminComponent = <div className={classes.root}>
         <CssBaseline />
@@ -86,8 +97,7 @@ class Admin extends React.Component {
           />
         <AdminMainContent component={this.state.mainContent} />
       </div>
-    const login = <div>login</div>
-    return this.state.isLoggedin ? adminComponent : login
+    return adminComponent
   }
 }
 
