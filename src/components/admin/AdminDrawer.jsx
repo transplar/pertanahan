@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Drawer from '@material-ui/core/Drawer'
 import Hidden from '@material-ui/core/Hidden'
 import Divider from '@material-ui/core/Divider'
@@ -29,6 +30,16 @@ const styles = theme => ({
 class AdminDrawer extends React.Component {
   render () {
     const { classes, theme } = this.props
+    const logoutButton = (
+      <Link to='/logout'>
+        <ListItem button>
+          <ListItemIcon className='m-0'>
+            <LocalLibrary />
+          </ListItemIcon>
+          <ListItemText primary='Logout' />
+        </ListItem>
+      </Link>
+    )
     const drawer = (
       <div>
         <div className={classes.toolbar} />
@@ -42,6 +53,7 @@ class AdminDrawer extends React.Component {
               <ListItemText primary={text} />
             </ListItem>
           ))}
+          {logoutButton}
         </List>
       </div>
     )
