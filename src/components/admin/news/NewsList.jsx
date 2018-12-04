@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+import Modal from '@material-ui/core/Modal'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -14,16 +15,35 @@ import { baseAPIURL } from '../../../utils/config'
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
+  },
+  paper: {
+    position: 'absolute',
+    minWidth: theme.spacing.unit * 25,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit,
+    top: '50%',
+    left: '50%',
+    transform: `translate(-50%, -50%)`,
   }
 })
 
 class NewsList extends React.Component {
   state = {
-    news: []
+    news: [],
+    modalOpen: false,
   }
 
   componentDidMount = () => {
     this.refreshList()
+  }
+
+  closeModal = () => {
+    this.setState({modalOpen: false})
+  }
+
+  deleteNewsItem = event => {
+    this.setState({modalOpen: true})
   }
 
   refreshList = () => {
@@ -44,7 +64,12 @@ class NewsList extends React.Component {
             <IconButton color='primary'>
               <BorderColor />
             </IconButton>
-            <IconButton color='secondary' className={classes.button}>
+            <IconButton
+              onClick={this.deleteNewsItem}
+              className={classes.button}
+              data-news-id={news.id}
+              color='secondary'
+              >
               <Delete />
             </IconButton>
           </TableCell>
@@ -72,6 +97,15 @@ class NewsList extends React.Component {
           </TableHead>
           <TableBody>{tableRows}</TableBody>
         </Table>
+        <Modal
+          open={this.state.modalOpen}
+          onClose={this.closeModal}
+          >
+          <div className={classes.paper}>
+            <Button color='primary'>Yes</Button>
+            <Button color='secondary' onClick={this.closeModal}>Cancel</Button>
+          </div>
+        </Modal>
       </div>
     )
   }
