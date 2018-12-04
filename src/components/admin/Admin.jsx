@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import LinearProgress from '@material-ui/core/LinearProgress'
 import { withStyles } from '@material-ui/core/styles'
 import AdminDrawer, { drawerWidth } from './AdminDrawer'
 import { baseAPIURL } from '../../utils/config'
@@ -71,6 +72,10 @@ class Admin extends React.Component {
 
     if (redirect) {
       return <Redirect to='login' />
+    }
+
+    if (!this.state.isLoggedin) {
+      return <LinearProgress />
     }
 
     return (
