@@ -5,7 +5,14 @@ import NewsList from './NewsList'
 class News extends React.Component {
   state = {
     mode: 'list',
-    editorMode: 'create'
+    newsId: null,
+  }
+
+  editNews = newsId => {
+    this.setState({
+      mode: 'edit',
+      newsId: newsId
+    })
   }
 
   handleCreate = () => {
@@ -21,7 +28,12 @@ class News extends React.Component {
   }
 
   render () {
-    return this.state.mode === 'list' ? <NewsList handleCreate={this.handleCreate} /> : <NewsEditor editorMode={this.state.editorMode} backToList={this.backToList} />
+    if (this.state.mode === 'list') {
+      return <NewsList handleCreate={this.handleCreate} editNews={this.editNews} />
+    }
+
+    return <NewsEditor mode={this.state.mode} backToList={this.backToList} newsId={this.state.newsId} />
+    // return this.state.mode === 'list' ? <NewsList handleCreate={this.handleCreate} editNews={this.editNews} /> : <NewsEditor editorMode={this.state.editorMode} backToList={this.backToList} />
   }
 }
 
