@@ -29,11 +29,21 @@ class News extends React.Component {
 
   render () {
     if (this.state.mode === 'list') {
-      return <NewsList handleCreate={this.handleCreate} editNews={this.editNews} />
+      return (
+        <NewsList
+          handleCreate={this.handleCreate}
+          editNews={this.editNews}
+          />
+      )
     }
 
-    return <NewsEditor mode={this.state.mode} backToList={this.backToList} newsId={this.state.newsId} />
-    // return this.state.mode === 'list' ? <NewsList handleCreate={this.handleCreate} editNews={this.editNews} /> : <NewsEditor editorMode={this.state.editorMode} backToList={this.backToList} />
+    return (
+      <NewsEditor
+        mode={this.state.mode}
+        backToList={this.backToList}
+        newsId={this.state.newsId}
+        />
+    )
   }
 }
 
