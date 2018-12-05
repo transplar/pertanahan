@@ -13,7 +13,19 @@ const styles = theme => ({
 
 class NewsEditor extends React.Component {
   state = {
-    message: ''
+    message: '',
+    newsItem: {}
+  }
+
+  componentDidMount = () => {
+    const newsId = this.props.newsId
+    if (newsId) {
+      const url = `${baseAPIURL}/news/${newsId}`
+      fetch(url, {
+        credentials: 'include'
+      }).then(response => response.json())
+        .then(json => this.setState({newsItem: json}))
+    }
   }
 
   handleSubmit = event => {
