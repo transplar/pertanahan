@@ -35,8 +35,10 @@ class NewsEditor extends React.Component {
       content: event.target.content.value
     }
 
+    const method = this.props.mode === 'create' ? 'POST' : 'PATCH'
+
     fetch(`${baseAPIURL}/news`, {
-      method: 'POST',
+      method: method,
       headers: {
         'Content-Type': 'application/json'
       },
