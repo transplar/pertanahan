@@ -14,7 +14,9 @@ const styles = theme => ({
 class NewsEditor extends React.Component {
   state = {
     message: '',
-    newsItem: {}
+    id: '',
+    title: '',
+    content: ''
   }
 
   componentDidMount = () => {
@@ -24,8 +26,20 @@ class NewsEditor extends React.Component {
       fetch(url, {
         credentials: 'include'
       }).then(response => response.json())
-        .then(json => this.setState({newsItem: json}))
+        .then(json => this.setState({
+          id: json.id,
+          title: json.title,
+          content: json.content
+        }))
     }
+  }
+
+  handleChange = event => {
+    const name = event.target.name
+    const value = event.target.value
+    this.setState({
+      [name]: value
+    })
   }
 
   handleSubmit = event => {
@@ -80,13 +94,14 @@ class NewsEditor extends React.Component {
         autoComplete='off'
         style={{maxWidth: '800px'}}
         >
-        <input type='hidden' name='id' value={this.state.newsItem.id} />
+        <input type='hidden' name='id' value={this.state.id} />
         <TextField
           fullWidth
           required
           name='title'
           label='Judul Berita'
-          value={this.state.newsItem.title}
+          value={this.state.title}
+          onChange={this.handleChange}
           InputLabelProps={{shrink: true}}
           />
         <TextField
@@ -96,7 +111,8 @@ class NewsEditor extends React.Component {
           rows={15}
           name='content'
           label='Isi Berita'
-          value={this.state.newsItem.content}
+          value={this.state.content}
+          onChange={this.handleChange}
           InputLabelProps={{shrink: true}}
           />
         <Typography align='right'>
