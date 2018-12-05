@@ -54,6 +54,10 @@ class NewsList extends React.Component {
     })
   }
 
+  editNews = event => {
+    this.props.editNews(event.target.dataset.newsId)
+  }
+
   openDeleteModal = event => {
     this.setState({modalOpen: true, toBeDeleted: event.target.dataset.newsId})
   }
@@ -73,7 +77,7 @@ class NewsList extends React.Component {
           <TableCell>{news.writer}</TableCell>
           <TableCell>{news.lastUpdate}</TableCell>
           <TableCell>
-            <IconButton color='primary'>
+            <IconButton color='primary' data-news-id={news.id} onClick={this.editNews}>
               <BorderColor />
             </IconButton>
             <IconButton
