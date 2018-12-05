@@ -17,7 +17,8 @@ class News extends React.Component {
 
   handleCreate = () => {
     this.setState({
-      mode: 'create'
+      mode: 'create',
+      newsId: null
     })
   }
 
