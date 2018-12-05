@@ -30,6 +30,7 @@ class NewsEditor extends React.Component {
 
   handleSubmit = event => {
     const data = {
+      id: event.target.id.value,
       title: event.target.title.value,
       content: event.target.content.value
     }
