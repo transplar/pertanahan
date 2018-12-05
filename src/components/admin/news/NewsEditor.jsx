@@ -77,11 +77,14 @@ class NewsEditor extends React.Component {
         autoComplete='off'
         style={{maxWidth: '800px'}}
         >
+        <input type='hidden' name='id' value={this.state.newsItem.id} />
         <TextField
           fullWidth
           required
           name='title'
           label='Judul Berita'
+          value={this.state.newsItem.title}
+          InputLabelProps={{shrink: true}}
           />
         <TextField
           required
@@ -90,6 +93,8 @@ class NewsEditor extends React.Component {
           rows={15}
           name='content'
           label='Isi Berita'
+          value={this.state.newsItem.content}
+          InputLabelProps={{shrink: true}}
           />
         <Typography align='right'>
           <Button
