@@ -29,6 +29,14 @@ const styles = theme => ({
   },
 })
 
+const navigationItems = [
+  {
+    path: '/admin/news',
+    icon: <LocalLibrary />,
+    title: 'Berita'
+  }
+]
+
 class AdminDrawer extends React.Component {
   render () {
     const { classes, theme } = this.props
@@ -58,13 +66,15 @@ class AdminDrawer extends React.Component {
         <List>
           {homepage}
           <Divider />
-          {['Berita'].map(text => (
-            <ListItem button key={text} onClick={() => this.props.changeTitle(text)}>
-              <ListItemIcon className='m-0'>
-                <LocalLibrary />
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {navigationItems.map(item => (
+            <Link to={item.path} key={item.path}>
+              <ListItem button onClick={() => this.props.changeTitle(item.title)}>
+                <ListItemIcon className='m-0'>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.title} />
+              </ListItem>
+            </Link>
           ))}
           {logoutButton}
         </List>

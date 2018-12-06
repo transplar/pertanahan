@@ -33,7 +33,7 @@ class App extends Component {
             <Route path='/gallery' component={Gallery} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
-            <Route path='/admin' component={Admin} />
+            <Route path='/admin/:page?' component={Admin} />
             <Route path='/login' component={Login} />
             <Route path='/logout' component={Logout} />
             <Route component={NotFound} />

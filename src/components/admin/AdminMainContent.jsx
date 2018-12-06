@@ -16,8 +16,10 @@ class AdminMainContent extends React.Component {
     let component
     switch(this.props.component) {
       case 'news':
-      default:
         component = <News />
+        break
+      default:
+        component = <div>Dashboard</div>
     }
 
     return(

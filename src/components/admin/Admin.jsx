@@ -31,7 +31,6 @@ class Admin extends React.Component {
     title: 'Admin Panel',
     mobileOpen: false,
     isLoggedin: false,
-    mainContent: '',
     redirect: false,
     toolbar: '',
   }
@@ -90,7 +89,7 @@ class Admin extends React.Component {
           />
         <AdminMainContent
           changeToolbar={this.changeToolbar}
-          component={this.state.mainContent}
+          component={this.props.match.params.page}
           />
       </div>
     )
