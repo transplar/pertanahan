@@ -48,7 +48,8 @@ class NewsEditor extends React.Component {
     fetch(pictshareAPIEndpoint, {
       method: 'post',
       body: formData
-    })
+    }).then(response => response.json())
+      .then(event.target.value = null)
   }
 
   handleSubmit = event => {
