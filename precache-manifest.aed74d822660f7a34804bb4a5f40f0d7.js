@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "./static/media/contact.95b7d5aa.md"
   },
   {
-    "revision": "f7ff6f292b00be8c6c2f",
-    "url": "./static/css/main.9b13a398.chunk.css"
+    "revision": "0b6ec2a60de9b26f645b",
+    "url": "./static/css/main.bd1eb789.chunk.css"
   },
   {
     "revision": "9748f702a1618ac72e50bafc92f663da",
     "url": "./static/media/profile.9748f702.md"
   },
   {
-    "revision": "0781562c4e3bd7ccb36c",
-    "url": "./static/js/1.0781562c.chunk.js"
+    "revision": "c2091a7ebe786f27bef5",
+    "url": "./static/js/1.c2091a7e.chunk.js"
   },
   {
     "revision": "4a686d48d5a089750c49",
@@ -28,8 +28,8 @@ self.__precacheManifest = [
     "url": "./static/media/main_banner.6bf69e0b.png"
   },
   {
-    "revision": "f7ff6f292b00be8c6c2f",
-    "url": "./static/js/main.f7ff6f29.chunk.js"
+    "revision": "0b6ec2a60de9b26f645b",
+    "url": "./static/js/main.0b6ec2a6.chunk.js"
   },
   {
     "revision": "e756ab785a9b45d4e565116698de2b8a",
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "./static/media/pengaduan.d7368625.md"
   },
   {
-    "revision": "0781562c4e3bd7ccb36c",
-    "url": "./static/css/1.b4a9e12c.chunk.css"
+    "revision": "c2091a7ebe786f27bef5",
+    "url": "./static/css/1.2e3705aa.chunk.css"
   },
   {
-    "revision": "8cf6711b70ad4300f9b54d24214158cd",
+    "revision": "4c69037fe61c117562b1e3021ade7b51",
     "url": "./index.html"
   }
 ];
