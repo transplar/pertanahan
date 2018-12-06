@@ -71,7 +71,7 @@ class NewsEditor extends React.Component {
     }).then(response => response.json())
       .then(body => {
         this.setState({message: body.message})
-        setTimeout(this.props.backToList, 5000)
+        setTimeout(this.props.backToList, 2000)
       })
     event.preventDefault()
   }
