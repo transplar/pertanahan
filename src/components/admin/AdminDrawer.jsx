@@ -34,22 +34,17 @@ const navigationItems = [
     path: '/admin/news',
     icon: <LocalLibrary />,
     title: 'Berita'
+  },
+  {
+    path: '/logout',
+    icon: <ExitToApp />,
+    title: 'Logout'
   }
 ]
 
 class AdminDrawer extends React.Component {
   render () {
     const { classes, theme } = this.props
-    const logoutButton = (
-      <Link to='/logout'>
-        <ListItem button>
-          <ListItemIcon className='m-0'>
-            <ExitToApp />
-          </ListItemIcon>
-          <ListItemText primary='Logout' />
-        </ListItem>
-      </Link>
-    )
     const homepage = (
       <Link to='/'>
         <ListItem button>
@@ -76,7 +71,6 @@ class AdminDrawer extends React.Component {
               </ListItem>
             </Link>
           ))}
-          {logoutButton}
         </List>
       </div>
     )
