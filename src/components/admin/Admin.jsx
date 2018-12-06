@@ -70,7 +70,7 @@ class Admin extends React.Component {
     const { redirect } = this.state
 
     if (redirect) {
-      return <Redirect to='login' />
+      return <Redirect to='/login' />
     }
 
     if (!this.state.isLoggedin) {
