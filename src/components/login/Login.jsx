@@ -3,8 +3,10 @@ import { Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import { baseAPIURL } from '../../utils/config'
+import imageSource from '../../images/logo.png'
 
 const styles = theme => ({
   paper: {
@@ -51,6 +53,11 @@ class Login extends React.Component {
 
     return(
       <Paper className={classes.paper}>
+        <Typography align='center'>
+          <img src={imageSource} alt='Logo Jawa Barat' height='124' />
+          <h1>Sistem Informasi Pertanahan</h1>
+          <p>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</p>
+        </Typography>
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <TextField
             fullWidth
@@ -65,7 +72,9 @@ class Login extends React.Component {
             label='Password'
             type='password'
             />
-          <Button type='submit' variant='contained' color='primary'>Login</Button>
+          <Typography align='right'>
+            <Button type='submit' variant='contained' color='primary'>Login</Button>
+          </Typography>
         </form>
       </Paper>
     )
