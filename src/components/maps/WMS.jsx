@@ -25,7 +25,8 @@ export default class WMS extends React.Component {
 
     this.state = {
       layers: [],
-      info: ''
+      info: '',
+      error: '',
     }
   }
 
@@ -92,9 +93,13 @@ export default class WMS extends React.Component {
                 legendGraphic: legendGraphic
               }
             })
+            this.setState({error: ''})
           resolve(layer)
         })
-        .catch(error => reject(error))
+        .catch(error => {
+          this.setState({error: 'Gagal terhubung ke Geoserver'})
+          reject(error)
+        })
     })
   }
 
@@ -116,6 +121,7 @@ export default class WMS extends React.Component {
             layers={this.state.layers}
             wmsSource={this.wmsSource}
             map={this.props.map}
+            error={this.state.error}
             />
         </Col>
         <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>

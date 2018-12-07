@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
+import Typography from '@material-ui/core/Typography'
 import LayerListItem from './LayerListItem'
 
 export default class LayerList extends React.Component {
@@ -47,6 +48,7 @@ export default class LayerList extends React.Component {
     const layer = this.props.layers
       .map(layer => <LayerListItem key={layer.name} layer={layer} onChange={this.enableUpdateButton} />)
 
+    const errorMessage = <Typography variant='headline' color='error'>{this.props.error}</Typography>
     return (
       <div>
         <Button
@@ -60,6 +62,7 @@ export default class LayerList extends React.Component {
         </Button>
         <List component='nav'>
           {layer}
+          {errorMessage}
         </List>
       </div>
     )
