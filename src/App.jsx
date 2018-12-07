@@ -24,7 +24,7 @@ class App extends Component {
         <div className='App'>
           <Switch>
             <Route exact path='/' component={Homepage} />
-            <Route path='/frontpage?' component={Frontpage} />
+            <Route path='/admin/:page?' component={Admin} />
             <Route path='/profil' component={Profile} />
             <Route path='/berita/:id(\d+)' component={BeritaDetail} />
             <Route path='/download' component={DownloadPage} />
@@ -33,9 +33,9 @@ class App extends Component {
             <Route path='/gallery' component={Gallery} />
             <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
-            <Route path='/admin/:page?' component={Admin} />
             <Route path='/login' component={Login} />
             <Route path='/logout' component={Logout} />
+            <Route path='/:frontpage' component={Frontpage} />
             <Route component={NotFound} />
           </Switch>
         </div>
