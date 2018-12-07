@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import LinearProgress from '@material-ui/core/LinearProgress'
 import { baseAPIURL } from '../../utils/config'
 
 class Logout extends React.Component {
@@ -12,9 +13,10 @@ class Logout extends React.Component {
     fetch(url, {
       credentials: 'include'
     }).then(() => {
-        this.setState({
-          redirect: true
-        })
+        this.setState({redirect: true})
+      })
+      .catch(() => {
+        this.setState({redirect: true})
       })
   }
 
@@ -23,7 +25,7 @@ class Logout extends React.Component {
       return <Redirect to='/' />
     }
 
-    return <div></div>
+    return <LinearProgress />
   }
 }
 
