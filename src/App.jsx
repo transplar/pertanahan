@@ -5,6 +5,7 @@ import Admin from './components/admin/Admin'
 import BeritaDetail from './components/layout/BeritaDetail'
 import Contact from './components/layout/Contact'
 import DownloadPage from './components/layout/DownloadPage'
+import Frontpage from './components/frontpage/Frontpage'
 import Gallery from './components/layout/Gallery'
 import Homepage from './components/layout/Homepage'
 import InformationPage from './components/layout/InformationPage'
@@ -23,6 +24,7 @@ class App extends Component {
         <div className='App'>
           <Switch>
             <Route exact path='/' component={Homepage} />
+            <Route path='/frontpage?' component={Frontpage} />
             <Route path='/profil' component={Profile} />
             <Route path='/berita/:id(\d+)' component={BeritaDetail} />
             <Route path='/download' component={DownloadPage} />
