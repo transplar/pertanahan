@@ -7,10 +7,14 @@ import { withStyles } from '@material-ui/core/styles'
 import { baseAPIURL } from '../../utils/config'
 
 const styles = theme => ({
+  paper: {
+    maxWidth: '800px',
+    padding: '2rem',
+    margin: '1.5rem auto',
+  },
   form: {
     maxWidth: '300px',
     margin: '0 auto',
-    padding: '2rem',
   }
 })
 
@@ -46,7 +50,7 @@ class Login extends React.Component {
     }
 
     return(
-      <Paper>
+      <Paper className={classes.paper}>
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <TextField
             fullWidth
