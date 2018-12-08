@@ -25,6 +25,18 @@ class Login extends React.Component {
     redirect: false
   }
 
+  componentDidMount = () => {
+    fetch(`${baseAPIURL}/users/me`, {
+      credentials: 'include'
+    }).then(response => {
+      if (response.status === 200) {
+        this.setState({
+          redirect: true
+        })
+      }
+    })
+  }
+
   handleSubmit = event => {
     const payload = {
       username: event.target.username.value,
