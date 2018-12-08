@@ -57,31 +57,31 @@ class Homepage extends React.Component {
         {
           color: '#029142',
           text: 'PROFIL',
-          link: 'profile',
+          link: '/profile',
           faicon: <FontAwesomeIcon icon={faUserTie} />
         },
         {
           color: '#058c41',
           text: 'PELAYANAN',
-          link: 'layanan',
+          link: '/layanan',
           faicon: <FontAwesomeIcon icon={faUserCircle} />
         },
         {
           color: '#037234',
           text: 'PENGADUAN',
-          link: 'aduan',
+          link: '/aduan',
           faicon: <FontAwesomeIcon icon={faArchway} />
         },
         {
           color: '#066d33',
           text: 'UNDUH',
-          link: 'unduh',
+          link: '/unduh',
           faicon: <FontAwesomeIcon icon={faCloudDownloadAlt} />
         },
         {
           color: '#086832',
           text: 'GALERI',
-          link: 'galeri',
+          link: '/galeri',
           faicon: <FontAwesomeIcon icon={faImages} />
         },
         {
@@ -93,13 +93,13 @@ class Homepage extends React.Component {
         {
           color: '#024921',
           text: 'KONTAK ',
-          link: 'kontak ',
+          link: '/kontak',
           faicon: <FontAwesomeIcon icon={faPhoneSquare} />
         },
         {
           color: '#044420',
           text: 'LOGIN',
-          link: 'login',
+          link: '/login',
           faicon: <FontAwesomeIcon icon={faSignInAlt} />
         },
       ]
