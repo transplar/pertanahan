@@ -11,7 +11,6 @@ import Homepage from './components/layout/Homepage'
 import InformationPage from './components/layout/InformationPage'
 import Login from './components/login/Login'
 import Logout from './components/login/Logout'
-import Maps from './components/layout/Maps'
 import NotFound from './components/layout/NotFound'
 import Pengaduan from './components/layout/Pengaduan'
 import Profile from './components/layout/Profile'
@@ -31,7 +30,6 @@ class App extends Component {
             <Route path='/pelayanan' component={InformationPage} />
             <Route path='/pengaduan' component={Pengaduan} />
             <Route path='/gallery' component={Gallery} />
-            <Route path='/maps' component={Maps} />
             <Route path='/contact' component={Contact} />
             <Route path='/login' component={Login} />
             <Route path='/logout' component={Logout} />

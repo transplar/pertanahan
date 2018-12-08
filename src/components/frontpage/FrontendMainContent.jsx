@@ -15,7 +15,7 @@ class FrontendMainContent extends React.Component {
     let component
 
     switch(page) {
-      case 'map':
+      case 'maps':
         component = <MainMap />
         break
       default:
