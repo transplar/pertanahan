@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
-import MainMap from '../MainMap'
+import Map from './maps/Map'
 
 const styles = theme => ({
   main: {
@@ -16,7 +16,7 @@ class FrontpageMainContent extends React.Component {
 
     switch(page) {
       case 'maps':
-        component = <MainMap />
+        component = <Map />
         break
       default:
         break

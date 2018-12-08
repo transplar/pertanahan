@@ -1,9 +1,9 @@
 import React from 'react'
 import L from 'leaflet'
 import { Container } from 'reactstrap'
-import WMS from './maps/WMS'
+import WMS from './WMS'
 import 'leaflet/dist/leaflet.css'
-import './MainMap.css'
+import './Map.css'
 
 export default class MainMap extends React.Component {
   constructor (props) {
