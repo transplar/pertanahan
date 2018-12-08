@@ -20,6 +20,13 @@ const styles = theme => ({
 })
 
 class Frontpage extends React.Component {
+  state = {
+    title: ''
+  }
+
+  changeTitle = title => {
+    this.setState({title: title})
+  }
   render () {
     const { classes } = this.props
 
@@ -32,11 +39,11 @@ class Frontpage extends React.Component {
               <ArrowBack />
             </IconButton>
             <Typography color='inherit' variant='title'>
-              Title
+              {this.state.title}
             </Typography>
           </Toolbar>
         </AppBar>
-        <FrontpageMainContent page={this.props.match.params.frontpage} />
+        <FrontpageMainContent page={this.props.match.params.frontpage} changeTitle={this.changeTitle} />
       </div>
     )
   }

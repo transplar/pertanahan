@@ -16,7 +16,7 @@ class FrontpageMainContent extends React.Component {
 
     switch(page) {
       case 'maps':
-        component = <Map />
+        component = <Map changeTitle={this.props.changeTitle} />
         break
       default:
         break

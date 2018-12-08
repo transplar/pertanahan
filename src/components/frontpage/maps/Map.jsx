@@ -27,6 +27,7 @@ export default class MainMap extends React.Component {
     osm.addTo(map)
 
     this.setState({map: map})
+    this.props.changeTitle('Informasi Spasial')
   }
 
   render () {
