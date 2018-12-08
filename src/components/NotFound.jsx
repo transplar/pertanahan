@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {
   Container,
 } from 'reactstrap'
-import imageSource from '../../images/logo.png'
+import imageSource from '../images/logo.png'
 
 export default class NotFound extends React.Component {
   render () {

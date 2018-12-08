@@ -11,7 +11,6 @@ import Homepage from './components/homepage/Homepage'
 import InformationPage from './components/layout/InformationPage'
 import Login from './components/login/Login'
 import Logout from './components/login/Logout'
-import NotFound from './components/layout/NotFound'
 import Pengaduan from './components/layout/Pengaduan'
 import Profile from './components/layout/Profile'
 import './style.css'
@@ -34,7 +33,6 @@ class App extends Component {
             <Route path='/login' component={Login} />
             <Route path='/logout' component={Logout} />
             <Route path='/:frontpage' component={Frontpage} />
-            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>

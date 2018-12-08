@@ -27,6 +27,7 @@ class Frontpage extends React.Component {
   changeTitle = title => {
     this.setState({title: title})
   }
+
   render () {
     const { classes } = this.props
 
