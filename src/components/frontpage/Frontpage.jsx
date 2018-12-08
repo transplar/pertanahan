@@ -7,7 +7,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import ArrowBack from '@material-ui/icons/ArrowBack'
-import FrontendMainContent from './FrontendMainContent'
+import FrontpageMainContent from './FrontpageMainContent'
 
 const styles = theme => ({
   grow: {
@@ -36,7 +36,7 @@ class Frontpage extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <FrontendMainContent page={this.props.match.params.frontpage} />
+        <FrontpageMainContent page={this.props.match.params.frontpage} />
       </div>
     )
   }

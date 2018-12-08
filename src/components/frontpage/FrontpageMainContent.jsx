@@ -9,7 +9,7 @@ const styles = theme => ({
   toolbar: theme.mixins.toolbar,
 })
 
-class FrontendMainContent extends React.Component {
+class FrontpageMainContent extends React.Component {
   render () {
     const { classes, page } = this.props
     let component
@@ -31,4 +31,4 @@ class FrontendMainContent extends React.Component {
   }
 }
 
-export default withStyles(styles)(FrontendMainContent)
+export default withStyles(styles)(FrontpageMainContent)
