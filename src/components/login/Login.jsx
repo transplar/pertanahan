@@ -65,7 +65,7 @@ class Login extends React.Component {
 
     return(
       <Paper className={classes.paper}>
-        <Typography align='center'>
+        <Typography align='center' component='div'>
           <img src={imageSource} alt='Logo Jawa Barat' height='124' />
           <h1>Sistem Informasi Pertanahan</h1>
           <p>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</p>
