@@ -9,6 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LocalLibrary from '@material-ui/icons/LocalLibrary'
 import ExitToApp from '@material-ui/icons/ExitToApp'
+import DeveloperBoard from '@material-ui/icons/DeveloperBoard'
 import Home from '@material-ui/icons/Home'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -34,6 +35,11 @@ const navigationItems = [
     path: '/admin/news',
     icon: <LocalLibrary />,
     title: 'Berita'
+  },
+  {
+    path: '/admin/setting',
+    icon: <DeveloperBoard />,
+    title: 'Setting'
   },
   {
     path: '/logout',
