@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Dashboard from './dashboard/Dashboard'
 import News from './news/News'
+import Setting from './setting/Setting'
 
 const styles = theme => ({
   toolbar: theme.mixins.toolbar,
@@ -18,6 +19,9 @@ class AdminMainContent extends React.Component {
     switch(this.props.component) {
       case 'news':
         component = <News />
+        break
+      case 'setting':
+        component = <Setting />
         break
       default:
         component = <Dashboard />
