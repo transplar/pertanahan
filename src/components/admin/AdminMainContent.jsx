@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import Dashboard from './dashboard/Dashboard'
 import News from './news/News'
 
 const styles = theme => ({
@@ -19,7 +20,7 @@ class AdminMainContent extends React.Component {
         component = <News />
         break
       default:
-        component = <div>Dashboard</div>
+        component = <Dashboard />
     }
 
     return(
