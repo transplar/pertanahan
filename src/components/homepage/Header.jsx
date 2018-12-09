@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+
+const styles = theme => ({
+  titleBig: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    }
+  },
+  titleSmall: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    }
+  },
+})
 
 class Header extends Component {
   constructor(props) {
@@ -25,29 +31,20 @@ class Header extends Component {
     })
   }
   render() {
+    const { classes } = this.props
     return (
-      <div>
-        <Navbar expand="md" fixed="true">
-          <NavbarBrand href="/">
-            SISTEM INFORMASI PERTANAHAN
-            </NavbarBrand>
-          <NavbarToggler onClick={this.toggle}>
-            <FontAwesomeIcon icon={faBars} />
-          </NavbarToggler>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/">HOME</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/login">LOGIN</NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+      <AppBar>
+        <Toolbar>
+          <Typography color='inherit' variant='title' className={classes.titleBig}>
+            Sistem Informasi Manajemen Pertanahan - DISPERKIM JABAR
+          </Typography>
+          <Typography color='inherit' variant='title' className={classes.titleSmall}>
+            Simantan Jabar
+          </Typography>
+        </Toolbar>
+      </AppBar>
     )
   }
 }
 
-export default Header
+export default withStyles(styles)(Header)

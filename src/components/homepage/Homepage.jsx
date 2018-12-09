@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+
 import { withStyles } from '@material-ui/core/styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -17,6 +15,7 @@ import {
   faUserCircle,
   faUserTie
 } from '@fortawesome/free-solid-svg-icons'
+import Header from './Header'
 import './styles.scss'
 
 const styles = theme => ({
@@ -112,16 +111,7 @@ class Homepage extends React.Component {
     return (
       <div>
         <CssBaseline />
-        <AppBar>
-          <Toolbar>
-            <Typography color='inherit' variant='title' className={classes.titleBig}>
-              Sistem Informasi Manajemen Pertanahan - DISPERKIM JABAR
-            </Typography>
-            <Typography color='inherit' variant='title' className={classes.titleSmall}>
-              Simantan Jabar
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Header />
         <div className={classes.toolbar}></div>
         <div className={classes.marginToolbar}></div>
         <ul id="hexGrid">
