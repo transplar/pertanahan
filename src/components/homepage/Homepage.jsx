@@ -87,7 +87,7 @@ class Homepage extends React.Component {
         {
           color: '#0c6834',
           text: 'INFORMASI SPASIAL',
-          link: '/informasi',
+          link: '/maps',
           faicon: <FontAwesomeIcon icon={faInfoCircle} />
         },
         {
