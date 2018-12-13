@@ -22,6 +22,9 @@ const styles = theme => ({
   grow: {
     flexGrow: 1,
   },
+  hexgrid: {
+    maxWidth: '1000px',
+  },
   marginToolbar: {
     marginTop: '1rem',
   },
@@ -114,7 +117,7 @@ class Homepage extends React.Component {
         <Header />
         <div className={classes.toolbar}></div>
         <div className={classes.marginToolbar}></div>
-        <ul id="hexGrid">
+        <ul id="hexGrid" className={classes.hexgrid}>
           {this.state.menu.map(list_menu => (
             <li className="hex" key={list_menu.link}>
               <div className="hexIn">
