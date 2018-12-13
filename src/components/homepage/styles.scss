@@ -48,7 +48,7 @@ $hex-size : 180px;
 }
 
 .hexLink {
-  opacity: 0.6;
+  // opacity: 0.6;
   transition: all 0.5s ease;
   cursor: pointer;
   display: block;
@@ -82,8 +82,11 @@ $hex-size : 180px;
   }
   p{
     position: relative;
-    top: 80px;
-    font-size: 15pt;
+    // top: 80px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #38405c;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   }
 }
 
