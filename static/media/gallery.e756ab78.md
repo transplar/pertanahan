@@ -1,3 +1,0 @@
-### Galeri Foto
-
-### Galeri Video
