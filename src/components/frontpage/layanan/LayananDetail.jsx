@@ -15,10 +15,10 @@ const styles = theme => ({
     width: '100%',
   },
   subheading: {
-    padding: '2rem',
+    padding: '1.5rem',
   },
   subheadingContainer: {
-    margin: '0.2rem',
+    margin: '0.2rem 0',
   }
 })
 
