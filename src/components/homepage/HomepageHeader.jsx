@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 })
 
-class Header extends Component {
+class HomepageHeader extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -47,4 +47,4 @@ class Header extends Component {
   }
 }
 
-export default withStyles(styles)(Header)
+export default withStyles(styles)(HomepageHeader)

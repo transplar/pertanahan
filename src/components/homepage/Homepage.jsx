@@ -1,7 +1,7 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
-import Header from './Header'
+import HomepageHeader from './HomepageHeader'
 import Menu from './Menu'
 import './styles.scss'
 
@@ -38,7 +38,7 @@ class Homepage extends React.Component {
     return (
       <div>
         <CssBaseline />
-        <Header />
+        <HomepageHeader />
         <div className={classes.toolbar}></div>
         <div className={classes.marginToolbar}></div>
         <Menu />
