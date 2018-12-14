@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "./static/media/icon_beranda.129a0435.png"
   },
   {
-    "revision": "fc2781d3648c7015f644",
+    "revision": "20fc69c342fe671625cc",
     "url": "./static/css/main.2007a5e0.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "./static/media/logo.efe36345.png"
   },
   {
-    "revision": "fc2781d3648c7015f644",
-    "url": "./static/js/main.fc2781d3.chunk.js"
+    "revision": "20fc69c342fe671625cc",
+    "url": "./static/js/main.20fc69c3.chunk.js"
   },
   {
     "revision": "6bf69e0b519a13ed53680ae201efb8ce",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "./static/css/1.d2d73fe7.chunk.css"
   },
   {
-    "revision": "7522b77751896d5607465bce66c86f89",
+    "revision": "8b34622c2fb5c45b69a44e8b54bce0ad",
     "url": "./index.html"
   }
 ];
