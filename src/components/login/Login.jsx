@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
-import Divider from '@material-ui/core/Divider'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
@@ -109,13 +108,10 @@ class Login extends React.Component {
             type='password'
             />
           <Typography align='right'>
-            <Button type='submit' variant='contained' color='primary' className={classes.marginButton}>Login</Button>
+            <Button type='submit' variant='contained' color='primary'>Login</Button>
+            <Button component={Link} to='/' variant='outlined' className={classes.marginButton}>Kembali Ke Beranda</Button>
           </Typography>
         </form>
-        <Typography align='center'>
-          <Divider />
-          <Button component={Link} to='/' variant='outlined' className={classes.marginButton}>Kembali Ke Beranda</Button>
-        </Typography>
       </Paper>
     )
   }
