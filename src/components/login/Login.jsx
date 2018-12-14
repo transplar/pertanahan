@@ -1,6 +1,7 @@
 import React from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
@@ -20,6 +21,9 @@ const styles = theme => ({
   form: {
     maxWidth: '300px',
     margin: '0 auto',
+  },
+  marginButton: {
+    margin: '1.2rem',
   }
 })
 
@@ -105,9 +109,13 @@ class Login extends React.Component {
             type='password'
             />
           <Typography align='right'>
-            <Button type='submit' variant='contained' color='primary'>Login</Button>
+            <Button type='submit' variant='contained' color='primary' className={classes.marginButton}>Login</Button>
           </Typography>
         </form>
+        <Typography align='center'>
+          <Divider />
+          <Button component={Link} to='/' variant='outlined' className={classes.marginButton}>Kembali Ke Beranda</Button>
+        </Typography>
       </Paper>
     )
   }
