@@ -6,7 +6,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import BookIcon from '@material-ui/icons/Book'
-import StepperProcedure from './StepperProcedure'
+import LayananDetail from './LayananDetail'
 import bidangData from './bidang.json'
 
 export default class Layanan extends React.Component {
@@ -56,11 +56,11 @@ export default class Layanan extends React.Component {
       )
     })
 
-    const stepperProcedure = <StepperProcedure back={this.back} bidang={this.state.bidang} />
+    const layananDetail = <LayananDetail detail={this.state.bidang} back={this.back} />
 
     return (
       <Row className='bg-white rounded' style={{maxWidth: '1000px', margin: '0 auto'}}>
-        {(!this.state.bidang.steps) ? cards : stepperProcedure}
+        {(!this.state.bidang.steps) ? cards : layananDetail}
       </Row>
     )
   }
