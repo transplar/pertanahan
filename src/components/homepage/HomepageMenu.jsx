@@ -21,7 +21,7 @@ const styles = theme =>({
   }
 })
 
-class Menu extends React.Component {
+class HomepageMenu extends React.Component {
   state = {
     menu: [
       {
@@ -110,4 +110,4 @@ class Menu extends React.Component {
   }
 }
 
-export default withStyles(styles)(Menu)
+export default withStyles(styles)(HomepageMenu)
