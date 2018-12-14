@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import BookIcon from '@material-ui/icons/Book'
 import StepperProcedure from './StepperProcedure'
-import bidangData from '../../../data/bidang.json'
+import bidangData from './bidang.json'
 
 export default class Layanan extends React.Component {
   constructor (props) {
