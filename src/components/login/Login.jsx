@@ -67,8 +67,8 @@ class Login extends React.Component {
       <Paper className={classes.paper}>
         <Typography align='center' component='div'>
           <img src={imageSource} alt='Logo Jawa Barat' height='124' />
-          <h1>Sistem Informasi Pertanahan</h1>
-          <p>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</p>
+          <Typography variant='headline'>Sistem Informasi Manajemen Pertanahan</Typography>
+          <Typography variant='subheading'>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</Typography>
         </Typography>
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <TextField
