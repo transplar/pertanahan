@@ -59,7 +59,7 @@ export default class Layanan extends React.Component {
     const stepperProcedure = <StepperProcedure back={this.back} bidang={this.state.bidang} />
 
     return (
-      <Row className='bg-white mx-0 my-1 rounded'>
+      <Row className='bg-white rounded' style={{maxWidth: '1000px', margin: '0 auto'}}>
         {(!this.state.bidang.steps) ? cards : stepperProcedure}
       </Row>
     )
