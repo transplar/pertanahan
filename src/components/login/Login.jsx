@@ -14,6 +14,9 @@ const styles = theme => ({
     padding: '2rem',
     margin: '1.5rem auto',
   },
+  errorMessage: {
+    margin: '2rem',
+  },
   form: {
     maxWidth: '300px',
     margin: '0 auto',
@@ -22,7 +25,8 @@ const styles = theme => ({
 
 class Login extends React.Component {
   state = {
-    redirect: false
+    redirect: false,
+    error: ''
   }
 
   componentDidMount = () => {
@@ -52,15 +56,30 @@ class Login extends React.Component {
       body: JSON.stringify(payload)
     }).then(res => res.json())
       .then(() => this.setState({redirect: true}))
+      .catch(error => {
+        this.setState({error: 'Terjadi kesalahan, silahkan coba lagi atau hubungi admin.'})
+      })
     event.preventDefault()
   }
 
   render () {
     const { classes } = this.props
-    const { redirect } = this.state
+    const { error, redirect } = this.state
+    let errorMessage
 
     if (redirect) {
       return <Redirect to='/admin' />
+    }
+
+    if (error) {
+      errorMessage = <Typography 
+        className={classes.errorMessage}
+        color='error' 
+        align='center' 
+        variant='button' 
+        >
+        {error}
+      </Typography>
     }
 
     return(
@@ -70,6 +89,7 @@ class Login extends React.Component {
           <Typography variant='headline'>Sistem Informasi Manajemen Pertanahan</Typography>
           <Typography variant='subheading'>Dinas Perumahan Dan Permukiman Provinsi Jawa Barat</Typography>
         </Typography>
+        {errorMessage}
         <form className={classes.form} onSubmit={this.handleSubmit}>
           <TextField
             fullWidth
