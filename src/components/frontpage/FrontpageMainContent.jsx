@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import Layanan from './layanan/Layanan'
 import Map from './maps/Map'
 import NotFound from '../NotFound'
 
@@ -16,6 +17,9 @@ class FrontpageMainContent extends React.Component {
     let component
 
     switch(page) {
+      case 'layanan':
+        component = <Layanan changeTitle={this.props.changeTitle} />
+        break
       case 'maps':
         component = <Map changeTitle={this.props.changeTitle} />
         break

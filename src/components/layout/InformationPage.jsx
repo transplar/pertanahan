@@ -3,7 +3,7 @@ import { Container } from 'reactstrap'
 import Footer from '../Footer'
 import Header from '../Header'
 import NavbarApp from '../NavbarApp'
-import InformationList from '../InformasiList'
+// import InformationList from '../InformasiList'
 
 export default class InformationPage extends React.Component {
   render () {
@@ -11,7 +11,7 @@ export default class InformationPage extends React.Component {
       <Container>
         <Header />
         <NavbarApp />
-        <InformationList />
+        {/* <InformationList /> */}
         <Footer />
       </Container>
     );

@@ -7,9 +7,9 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import BookIcon from '@material-ui/icons/Book'
 import StepperProcedure from './StepperProcedure'
-import bidangData from '../data/bidang.json'
+import bidangData from '../../../data/bidang.json'
 
-export default class InformationList extends React.Component {
+export default class Layanan extends React.Component {
   constructor (props) {
     super(props)
 
@@ -18,6 +18,10 @@ export default class InformationList extends React.Component {
       procedure: false,
       bidang: false
     }
+  }
+
+  componentDidMount = () => {
+    this.props.changeTitle('Informasi Pelayanan Publik')
   }
 
   back () {
