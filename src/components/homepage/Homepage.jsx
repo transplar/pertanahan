@@ -18,9 +18,6 @@ const styles = theme => ({
   hexgrid: {
     maxWidth: '1000px',
   },
-  marginToolbar: {
-    marginTop: '1rem',
-  },
   menuButton: {
     marginRight: 20,
   },
@@ -34,7 +31,6 @@ const styles = theme => ({
       display: 'none',
     }
   },
-  toolbar: theme.mixins.toolbar,
 })
 
 class Homepage extends React.Component {
@@ -45,8 +41,6 @@ class Homepage extends React.Component {
       <div className={classes.background}>
         <CssBaseline />
         <HomepageHeader />
-        <div className={classes.toolbar}></div>
-        <div className={classes.marginToolbar}></div>
         <HomepageMenu />
       </div>
     )

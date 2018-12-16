@@ -3,8 +3,18 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import imageLogo from './assets/logo_text.png'
 
 const styles = theme => ({
+  marginToolbar: {
+    marginTop: '1rem',
+  },
+  imageLogo: {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+    margin: '1rem 0 3rem 0',
+  },
   titleBig: {
     [theme.breakpoints.down('sm')]: {
       display: 'none',
@@ -13,8 +23,9 @@ const styles = theme => ({
   titleSmall: {
     [theme.breakpoints.up('md')]: {
       display: 'none',
-    }
+    },
   },
+  toolbar: theme.mixins.toolbar,
 })
 
 class HomepageHeader extends Component {
@@ -33,16 +44,20 @@ class HomepageHeader extends Component {
   render() {
     const { classes } = this.props
     return (
-      <AppBar>
-        <Toolbar>
-          <Typography color='inherit' variant='title' className={classes.titleBig}>
-            Sistem Informasi Manajemen Pertanahan - DISPERKIM JABAR
-          </Typography>
-          <Typography color='inherit' variant='title' className={classes.titleSmall}>
-            Simantan Jabar
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <div>
+        <AppBar className={classes.titleSmall}>
+          <Toolbar>
+            <Typography color='inherit' variant='title'>
+              Simantan Jabar
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div className={classes.toolbar}></div>
+        <div className={classes.marginToolbar}></div>
+        <Typography align='center'>
+          <img src={imageLogo} alt='' className={classes.imageLogo}/>
+        </Typography>
+      </div>
     )
   }
 }
