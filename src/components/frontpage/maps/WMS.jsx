@@ -2,9 +2,16 @@ import React from 'react'
 import L from 'leaflet'
 import wms from 'leaflet.wms'
 import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
 import LayerList from './LayerList'
 
-export default class WMS extends React.Component {
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3,
+  },
+})
+
+class WMS extends React.Component {
   sourceURL = `http://${document.location.hostname}:9090/geoserver/ows?`
   capabilitiesConfig = {
     request: 'GetCapabilities',
@@ -114,8 +121,10 @@ export default class WMS extends React.Component {
   }
 
   render () {
+    const { classes } = this.props
+
     return (
-      <Grid container>
+      <Grid container className={classes.root}>
         <Grid item md={6}>
           <LayerList
             layers={this.state.layers}
@@ -131,3 +140,5 @@ export default class WMS extends React.Component {
     )
   }
 }
+
+export default withStyles(styles)(WMS)
