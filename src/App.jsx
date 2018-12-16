@@ -6,6 +6,7 @@ import Frontpage from './components/frontpage/Frontpage'
 import Homepage from './components/homepage/Homepage'
 import Login from './components/login/Login'
 import Logout from './components/login/Logout'
+import WelcomeModal from './components/WelcomeModal'
 import './style.css'
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path='/logout' component={Logout} />
             <Route path='/:frontpage' component={Frontpage} />
           </Switch>
+          <WelcomeModal />
         </div>
       </Router>
     )
