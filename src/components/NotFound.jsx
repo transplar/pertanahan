@@ -21,7 +21,7 @@ class NotFound extends React.Component {
     const { classes } = this.props
     return (
       <Paper className={classes.root}>
-        <Typography align='center'>
+        <Typography align='center' component='div'>
           <img src={imageSource} alt='Logo Jawa Barat' className={classes.imageLogo} />
           <h1>Halaman Tidak Ditemukan</h1>
           <footer>
