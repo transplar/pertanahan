@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Layanan from './layanan/Layanan'
 import Map from './maps/Map'
 import NotFound from '../NotFound'
+import Unduh from './unduh/Unduh'
 
 const styles = theme => ({
   main: {
@@ -13,7 +14,7 @@ const styles = theme => ({
 
 class FrontpageMainContent extends React.Component {
   render () {
-    const { classes, page } = this.props
+    const { changeTitle, classes, page } = this.props
     let component
 
     switch(page) {
@@ -22,6 +23,9 @@ class FrontpageMainContent extends React.Component {
         break
       case 'maps':
         component = <Map changeTitle={this.props.changeTitle} />
+        break
+      case 'unduh':
+        component = <Unduh changeTitle={changeTitle} />
         break
       default:
         component = <NotFound />
