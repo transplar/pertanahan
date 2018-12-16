@@ -13,8 +13,13 @@ const styles = () => ({
 })
 
 class Unduh extends React.Component {
+  componentDidMount = () => {
+    this.props.changeTitle('Unduh Dokumen')
+  }
+
   render () {
     const { classes } = this.props
+
     return (
       <div className={`${classes.width} bg-white my-1 rounded`}>
         <List
