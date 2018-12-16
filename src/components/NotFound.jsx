@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
@@ -24,7 +25,7 @@ class NotFound extends React.Component {
           <img src={imageSource} alt='Logo Jawa Barat' className={classes.imageLogo} />
           <h1>Halaman Tidak Ditemukan</h1>
           <footer>
-            &copy; 2018, <Link to='/'>Kembali ke Beranda</Link>
+            &copy; 2018, <Button color='primary' component={Link} to='/'>Kembali ke Beranda</Button>
           </footer>
         </Typography>
       </Paper>
