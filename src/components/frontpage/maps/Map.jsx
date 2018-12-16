@@ -1,6 +1,6 @@
 import React from 'react'
 import L from 'leaflet'
-import { Container } from 'reactstrap'
+import Grid from '@material-ui/core/Grid'
 import WMS from './WMS'
 import 'leaflet/dist/leaflet.css'
 import './Map.css'
@@ -32,10 +32,10 @@ export default class MainMap extends React.Component {
 
   render () {
     return (
-      <Container className='bg-white my-1 py-1 rounded'>
+      <Grid container>
         <div id='leaflet-map'></div>
         <WMS map={this.state.map}/>
-      </Container>
+      </Grid>
     )
   }
 }

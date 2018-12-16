@@ -1,7 +1,7 @@
 import React from 'react'
 import L from 'leaflet'
 import wms from 'leaflet.wms'
-import { Col, Row } from 'reactstrap'
+import Grid from '@material-ui/core/Grid'
 import LayerList from './LayerList'
 
 export default class WMS extends React.Component {
@@ -115,19 +115,19 @@ export default class WMS extends React.Component {
 
   render () {
     return (
-      <Row className='mt-3'>
-        <Col md='6'>
+      <Grid container>
+        <Grid item md={6}>
           <LayerList
             layers={this.state.layers}
             wmsSource={this.wmsSource}
             map={this.props.map}
             error={this.state.error}
             />
-        </Col>
-        <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>
+        </Grid>
+        <Grid item md={6}>
           <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     )
   }
 }
