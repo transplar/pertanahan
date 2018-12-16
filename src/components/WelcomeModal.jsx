@@ -1,24 +1,30 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 import Cookie from 'js-cookie'
 import * as text from '../data/term.md'
 
-export default class WelcomeModal extends React.Component {
+class WelcomeModal extends React.Component {
   constructor (props) {
     super(props)
 
     this.toggle = this.toggle.bind(this)
     this.state = {
       message: '',
-      modal: true
+      open: true,
+      scroll: 'paper'
     }
   }
 
   componentWillMount () {
     if (Cookie.get('agree') === 'yes') {
       this.setState({
-        modal: false
+        open: false
       })
     } else {
       Cookie.set('agree', 'no', {expires: 1})
@@ -36,22 +42,27 @@ export default class WelcomeModal extends React.Component {
 
   toggle () {
     this.setState({
-      modal: !this.state.modal
+      open: !this.state.open
     })
     Cookie.set('agree', 'yes', {expires: 7})
   }
 
   render () {
+    const { open, scroll } = this.state
     return (
-      <Modal isOpen={this.state.modal} backdrop='static' className='modal-lg'>
-        <ModalHeader className='text-primary'>PENJELASAN DAN KETENTUAN</ModalHeader>
-        <ModalBody>
-          <ReactMarkdown source={this.state.message} />
-        </ModalBody>
-        <ModalFooter>
-          <Button color='primary' onClick={this.toggle}>Saya memahami dan menyetujui ketentuan di atas</Button>
-        </ModalFooter>
-      </Modal>
+      <Dialog open={open} scroll={scroll}>
+        <DialogTitle>PENJELASAN DAN KETENTUAN</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <ReactMarkdown source={this.state.message} />
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button color='primary' onClick={this.toggle} variant='outlined'>Saya memahami dan menyetujui ketentuan di atas</Button>
+        </DialogActions>
+      </Dialog>
     )
   }
 }
+
+export default WelcomeModal
