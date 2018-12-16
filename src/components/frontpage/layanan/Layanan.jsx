@@ -1,15 +1,27 @@
 import React from 'react'
-import { Col, Row } from 'reactstrap'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
+import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 import BookIcon from '@material-ui/icons/Book'
 import LayananDetail from './LayananDetail'
 import bidangData from './bidang.json'
 
-export default class Layanan extends React.Component {
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    maxWidth: 1200,
+    margin: '0 auto',
+  },
+  gridItem: {
+    flexGrow: 1,
+  }
+})
+
+class Layanan extends React.Component {
   constructor (props) {
     super(props)
 
@@ -29,9 +41,10 @@ export default class Layanan extends React.Component {
   }
 
   render () {
+    const { classes } = this.props
     const cards = bidangData.map((bidang, index) => {
       return (
-        <Col sm='6' md='6' lg='4' className='p-2 my-2' key={index}>
+        <Grid item sm='6' md='6' lg='4' className={classes.gridItem} key={index}>
           <Card className='d-flex flex-column' style={{ height: '100%' }}>
             <CardContent className='flex-grow-1'>
               <Typography variant='title' style={{fontWeight: '400'}}>
@@ -52,16 +65,18 @@ export default class Layanan extends React.Component {
               </Button>
             </CardActions>
           </Card>
-        </Col>
+        </Grid>
       )
     })
 
     const layananDetail = <LayananDetail detail={this.state.bidang} back={this.back} />
 
     return (
-      <Row className='bg-white rounded' style={{maxWidth: '1000px', margin: '0 auto'}}>
+      <Grid container spacing={8} className={classes.root}>
         {(!this.state.bidang.steps) ? cards : layananDetail}
-      </Row>
+      </Grid>
     )
   }
 }
+
+export default withStyles(styles)(Layanan)
