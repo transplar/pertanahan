@@ -1,10 +1,17 @@
 import React from 'react'
 import L from 'leaflet'
 import wms from 'leaflet.wms'
-import { Col, Row } from 'reactstrap'
+import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
 import LayerList from './LayerList'
 
-export default class WMS extends React.Component {
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3,
+  },
+})
+
+class WMS extends React.Component {
   sourceURL = `http://${document.location.hostname}:9090/geoserver/ows?`
   capabilitiesConfig = {
     request: 'GetCapabilities',
@@ -114,20 +121,24 @@ export default class WMS extends React.Component {
   }
 
   render () {
+    const { classes } = this.props
+
     return (
-      <Row className='mt-3'>
-        <Col md='6'>
+      <Grid container className={classes.root}>
+        <Grid item md={6}>
           <LayerList
             layers={this.state.layers}
             wmsSource={this.wmsSource}
             map={this.props.map}
             error={this.state.error}
             />
-        </Col>
-        <Col md='6' className='scroll-x' style={{maxHeight: '80vh'}}>
+        </Grid>
+        <Grid item md={6}>
           <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
-        </Col>
-      </Row>
+        </Grid>
+      </Grid>
     )
   }
 }
+
+export default withStyles(styles)(WMS)

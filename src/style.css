@@ -8,6 +8,10 @@ body {
   background: var(--body-background-color);
 }
 
+a {
+  text-decoration: none;
+}
+
 hr {
   height: 1px;
   background-color: var(--main-color);
