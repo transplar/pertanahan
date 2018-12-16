@@ -1,11 +1,19 @@
 import React from 'react'
 import L from 'leaflet'
 import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
 import WMS from './WMS'
 import 'leaflet/dist/leaflet.css'
 import './Map.css'
 
-export default class MainMap extends React.Component {
+const styles = theme => ({
+  root: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+  }
+})
+
+class Map extends React.Component {
   constructor (props) {
     super(props)
 
@@ -31,11 +39,14 @@ export default class MainMap extends React.Component {
   }
 
   render () {
+    const { classes } = this.props
     return (
-      <Grid container>
+      <Grid container className={classes.root}>
         <div id='leaflet-map'></div>
         <WMS map={this.state.map}/>
       </Grid>
     )
   }
 }
+
+export default withStyles(styles)(Map)
