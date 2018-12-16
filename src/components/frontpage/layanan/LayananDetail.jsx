@@ -26,6 +26,10 @@ class LayananDetail extends React.Component {
   render() {
     const { classes, detail } = this.props
 
+    const subtitle = !detail.subtitle ? '' : <Paper className={classes.subheadingContainer}>
+        <Typography variant='subheading' className={classes.subheading}>{detail.subtitle}</Typography>
+      </Paper>
+
     const steps = detail.steps.map((step, index) => (
       <ExpansionPanel key={index}>
         <ExpansionPanelSummary>
@@ -53,9 +57,7 @@ class LayananDetail extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Paper className={classes.subheadingContainer}>
-          <Typography variant='subheading' className={classes.subheading}>{detail.subtitle}</Typography>
-        </Paper>
+        {subtitle}
         {steps}
       </div>
     )
