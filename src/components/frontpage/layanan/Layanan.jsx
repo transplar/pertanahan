@@ -44,7 +44,7 @@ class Layanan extends React.Component {
     const { classes } = this.props
     const cards = bidangData.map((bidang, index) => {
       return (
-        <Grid item sm='6' md='6' lg='4' className={classes.gridItem} key={index}>
+        <Grid item sm={6} md={6} lg={4} className={classes.gridItem} key={index}>
           <Card className='d-flex flex-column' style={{ height: '100%' }}>
             <CardContent className='flex-grow-1'>
               <Typography variant='title' style={{fontWeight: '400'}}>
