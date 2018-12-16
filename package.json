@@ -16,9 +16,7 @@
     "react-lorem-component": "^0.13.0",
     "react-markdown": "^4.0.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0",
-    "react-social-icons": "^3.0.0",
-    "react-twitter-widgets": "^1.7.1"
+    "react-scripts": "^2.0"
   },
   "scripts": {
     "start": "react-scripts start",
