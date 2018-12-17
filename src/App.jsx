@@ -18,7 +18,7 @@ class App extends Component {
             <Route path='/admin/:page?' component={Admin} />
             <Route path='/login' component={Login} />
             <Route path='/logout' component={Logout} />
-            <Route path='/:frontpage' component={Frontpage} />
+            <Route path='/:frontpage/:id?' component={Frontpage} />
           </Switch>
           <WelcomeModal />
         </div>
