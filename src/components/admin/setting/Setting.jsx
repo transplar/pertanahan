@@ -29,6 +29,7 @@ class Setting extends React.Component {
             <Tab label='Profil'></Tab>
             <Tab label='Aduan'></Tab>
             <Tab label='Kontak'></Tab>
+            <Tab label='Ketentuan'></Tab>
           </Tabs>
         </AppBar>
         <div>Content</div>
