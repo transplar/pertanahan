@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import IconButton from '@material-ui/core/IconButton'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import ArrowBack from '@material-ui/icons/ArrowBack'
 import ReactMarkdown from 'react-markdown'
 import Disqus from 'disqus-react'
 import { baseAPIURL } from '../../../utils/config';
@@ -61,7 +64,7 @@ class BeritaDetail extends React.Component {
         <Grid>
           <Paper className={classes.paper}>
             <Typography variant='title' color='textSecondary'>
-              {berita.title}
+              <IconButton component={Link} to='/berita'><ArrowBack /></IconButton>{berita.title}
             </Typography>
             <small>{(new Date(berita.lastUpdate)).toLocaleDateString('id-ID', dateOptions)}</small>
             <Typography component='div'>
