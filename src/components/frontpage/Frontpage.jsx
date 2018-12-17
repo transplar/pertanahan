@@ -29,7 +29,7 @@ class Frontpage extends React.Component {
   }
 
   render () {
-    const { classes } = this.props
+    const { classes, match } = this.props
 
     return(
       <div>
@@ -44,7 +44,7 @@ class Frontpage extends React.Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <FrontpageMainContent page={this.props.match.params.frontpage} changeTitle={this.changeTitle} />
+        <FrontpageMainContent match={match} page={this.props.match.params.frontpage} changeTitle={this.changeTitle} />
       </div>
     )
   }

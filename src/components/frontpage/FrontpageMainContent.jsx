@@ -15,12 +15,12 @@ const styles = theme => ({
 
 class FrontpageMainContent extends React.Component {
   render () {
-    const { changeTitle, classes, page } = this.props
+    const { changeTitle, classes, page, match } = this.props
     let component
 
     switch(page) {
       case 'berita':
-        component = <Berita changeTitle={changeTitle} />
+        component = <Berita changeTitle={changeTitle} match={match} />
         break
       case 'layanan':
         component = <Layanan changeTitle={this.props.changeTitle} />
