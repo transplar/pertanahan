@@ -15,7 +15,7 @@ class HomepageMenu extends React.Component {
       {
         color: '#009543',
         text: 'BERANDA',
-        link: '/',
+        link: '/berita',
         icon: icon.beranda,
       },
       {
