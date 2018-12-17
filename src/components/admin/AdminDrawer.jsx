@@ -7,10 +7,11 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import LocalLibrary from '@material-ui/icons/LocalLibrary'
-import ExitToApp from '@material-ui/icons/ExitToApp'
+import Dashboard from '@material-ui/icons/Dashboard'
 import DeveloperBoard from '@material-ui/icons/DeveloperBoard'
+import ExitToApp from '@material-ui/icons/ExitToApp'
 import Home from '@material-ui/icons/Home'
+import LocalLibrary from '@material-ui/icons/LocalLibrary'
 import { withStyles } from '@material-ui/core/styles'
 
 const drawerWidth = 280
@@ -31,6 +32,11 @@ const styles = theme => ({
 })
 
 const navigationItems = [
+  {
+    path: '/admin',
+    icon: <Dashboard />,
+    title: 'Dashboard'
+  },
   {
     path: '/admin/news',
     icon: <LocalLibrary />,
