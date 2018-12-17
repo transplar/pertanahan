@@ -9,7 +9,8 @@ import { withStyles } from '@material-ui/core/styles'
 import ArrowBack from '@material-ui/icons/ArrowBack'
 import ReactMarkdown from 'react-markdown'
 import Disqus from 'disqus-react'
-import { baseAPIURL } from '../../../utils/config';
+import { baseAPIURL } from '../../../utils/config'
+import './style.css'
 
 const styles = theme => ({
   root: {
@@ -18,6 +19,9 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 3,
+  },
+  date: {
+    marginLeft: theme.spacing.unit * 6,
   },
 })
 
@@ -66,7 +70,9 @@ class BeritaDetail extends React.Component {
             <Typography variant='title' color='textSecondary'>
               <IconButton component={Link} to='/berita'><ArrowBack /></IconButton>{berita.title}
             </Typography>
-            <small>{(new Date(berita.lastUpdate)).toLocaleDateString('id-ID', dateOptions)}</small>
+            <Typography variant='caption' className={classes.date}>
+              {(new Date(berita.lastUpdate)).toLocaleDateString('id-ID', dateOptions)}
+            </Typography>
             <Typography component='div'>
               <ReactMarkdown source={berita.content} />
             </Typography>
