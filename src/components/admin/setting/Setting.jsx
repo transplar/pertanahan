@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import { withStyles } from '@material-ui/core/styles'
+import SettingForm from './SettingForm'
 
 const styles = theme => ({
   root: {
@@ -32,7 +33,10 @@ class Setting extends React.Component {
             <Tab label='Ketentuan'></Tab>
           </Tabs>
         </AppBar>
-        <div>Content</div>
+        {value === 0 && <SettingForm name='profile' />}
+        {value === 1 && <SettingForm name='aduan' />}
+        {value === 2 && <SettingForm name='contact' />}
+        {value === 3 && <SettingForm name='welcome' />}
       </div>
     )
   }
