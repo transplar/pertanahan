@@ -1,22 +1,5 @@
 import React from 'react'
-import loremIpsum from 'lorem-ipsum'
-import Lorem from 'react-lorem-component'
 import { Link } from 'react-router-dom'
-import randomDateFrom from '../utils/random-date-from'
-
-const style = {
-  boxShadow: '0px 1px 3px #251f1e'
-}
-
-let berita = []
-
-for (let i = 0; i < 10; i++) {
-  berita.push({
-    title: loremIpsum(),
-    date: randomDateFrom('2010'),
-    content: <Lorem count='1' />
-  })
-}
 
 class Berita extends React.Component {
   render () {
