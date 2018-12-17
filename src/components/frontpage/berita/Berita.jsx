@@ -18,7 +18,7 @@ for (let i = 0; i < 10; i++) {
   })
 }
 
-export default class BeritaList extends React.Component {
+class Berita extends React.Component {
   render () {
     const beritaComponent = berita.map((berita, index) => {
       return (
@@ -41,3 +41,5 @@ export default class BeritaList extends React.Component {
     )
   }
 }
+
+export default Berita
