@@ -11,7 +11,7 @@ class Berita extends React.Component {
     error: false,
   }
 
-  componentDidMount = () => {
+  componentDidMount () {
     const url = `${baseAPIURL}/news`
     fetch(url)
       .then(response => response.json())
@@ -46,14 +46,17 @@ class Berita extends React.Component {
 
     const beritaComponent = berita.items.map((berita, index) => {
       return (
-        <div key={index}>
-          <h5>
-            <Link to={'/berita/' + index} className='text-success'>{berita.title}</Link>
-          </h5>
+        <div key={berita.id}>
+          <Typography variant='title' color='textSecondary'>
+            <Link to={'/berita/' + berita.id}>{berita.title}</Link>
+          </Typography>
           <small>{berita.lastUpdate.toLocaleString()}</small>
-          {berita.content}
-          <Link to={'/berita/' + index} className='float-right mr-5'>Selengkapnya ...</Link>
-          <div className='clearfix'></div>
+          <Typography paragraph>
+            {berita.content}
+          </Typography>
+          <Typography align='right'>
+            <Link to={'/berita/' + index} className='float-right mr-5'>Selengkapnya ...</Link>
+          </Typography>
         </div>
       )
     })
