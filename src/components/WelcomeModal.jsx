@@ -6,8 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Cookie from 'js-cookie'
-import * as text from '../data/term.md'
+import { baseAPIURL } from '../utils/config'
 
 class WelcomeModal extends React.Component {
   constructor (props) {
@@ -30,11 +31,12 @@ class WelcomeModal extends React.Component {
       Cookie.set('agree', 'no', {expires: 1})
     }
 
-    fetch(text)
-      .then(response => response.text())
-      .then(text => {
+    const url = `${baseAPIURL}/config/welcome`
+    fetch(url)
+      .then(response => response.json())
+      .then(json => {
         this.setState({
-          message: text
+          message: json
         })
       })
 
@@ -48,13 +50,21 @@ class WelcomeModal extends React.Component {
   }
 
   render () {
-    const { open, scroll } = this.state
+    const { open, scroll, message } = this.state
+    let messageComponent
+
+    if (!message) {
+      messageComponent = <CircularProgress />
+    } else {
+      messageComponent = <ReactMarkdown source={message.config.content} />
+    }
+
     return (
       <Dialog open={open} scroll={scroll}>
         <DialogTitle>PENJELASAN DAN KETENTUAN</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <ReactMarkdown source={this.state.message} />
+            {messageComponent}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
