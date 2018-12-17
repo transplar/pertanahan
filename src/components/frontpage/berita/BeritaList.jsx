@@ -64,6 +64,17 @@ class BeritaList extends React.Component {
       </Typography>
     }
 
+    if (berita.items.length === 0) {
+      return <Typography
+        className={classes.grow}
+        variant='title'
+        align='center'
+        color='error'
+        >
+        Tidak ada berita yang bisa ditampilkan
+      </Typography>
+    }
+
     const list = berita.items.map(berita => <Grid item sm={12} key={berita.id}>
         <Paper className={classes.grow}>
           <Typography variant='title' color='textSecondary'>
