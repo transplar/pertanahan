@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles'
 import ArrowBack from '@material-ui/icons/ArrowBack'
 import ReactMarkdown from 'react-markdown'
 import Disqus from 'disqus-react'
+import NotFound from '../../NotFound'
 import { baseAPIURL } from '../../../utils/config'
 import './style.css'
 
@@ -48,6 +49,10 @@ class BeritaDetail extends React.Component {
 
     if (error) {
       return <Typography align='center' color='error' variant='title'>{error}</Typography>
+    }
+
+    if (berita.length === 0) {
+      return <NotFound />
     }
 
     const dateOptions = {
