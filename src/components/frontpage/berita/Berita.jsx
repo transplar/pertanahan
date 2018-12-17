@@ -1,4 +1,5 @@
 import React from 'react'
+import BeritaDetail from './BeritaDetail'
 import BeritaList from './BeritaList'
 
 class Berita extends React.Component {
@@ -9,7 +10,7 @@ class Berita extends React.Component {
   render () {
     const { match } = this.props
 
-    return !match.params.id ? <BeritaList /> : ''
+    return !match.params.id ? <BeritaList /> : <BeritaDetail match={match} />
   }
 }
 
