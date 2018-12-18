@@ -4,6 +4,7 @@ import Berita from './berita/Berita'
 import Layanan from './layanan/Layanan'
 import Map from './maps/Map'
 import NotFound from '../NotFound'
+import Profil from './profil/Profil'
 import Unduh from './unduh/Unduh'
 
 const styles = theme => ({
@@ -27,6 +28,9 @@ class FrontpageMainContent extends React.Component {
         break
       case 'maps':
         component = <Map changeTitle={this.props.changeTitle} />
+        break
+      case 'profile':
+        component = <Profil changeTitle={changeTitle} />
         break
       case 'unduh':
         component = <Unduh changeTitle={changeTitle} />
