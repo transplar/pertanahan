@@ -9,6 +9,16 @@ const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 3,
   },
+  caption: {
+    fontWeight: 'bolder',
+  },
+  table: {
+    borderCollapse: 'collapse',
+  },
+  td: {
+    border: '1px solid rgba(0,0,0,0.5)',
+    padding: theme.spacing.unit * 0.5,
+  }
 })
 
 class WMS extends React.Component {
@@ -33,6 +43,7 @@ class WMS extends React.Component {
     this.state = {
       layers: [],
       info: '',
+      detail: [],
       error: '',
     }
   }
@@ -45,6 +56,28 @@ class WMS extends React.Component {
         layers: res
       })
     })
+  }
+
+  detailInfo = (html) => {
+    if (html === undefined) {
+      return
+    }
+    html = new DOMParser().parseFromString(html, 'text/html')
+    let tables = [...html.querySelectorAll('table')]
+    let detail = []
+    tables.map(table => {
+      const caption = table.querySelector('caption').textContent
+      const column = [...table.querySelectorAll('th')].map(column => column.textContent)
+      const row = table.querySelector('tr:nth-child(2)')
+      const value = [...row.querySelectorAll('td')].map(column => column.textContent)
+      detail.push({
+        caption: caption,
+        columns: column,
+        value: value
+      })
+      return table
+    })
+    this.setState({detail: detail})
   }
 
   initWMSSource = () => {
@@ -61,6 +94,7 @@ class WMS extends React.Component {
           .setContent(this.popupSummary(info))
           .openOn(this.props.map)
         this.props.map.openPopup(popup)
+        this.detailInfo(info)
       }
     })
 
@@ -92,7 +126,6 @@ class WMS extends React.Component {
                   &FORMAT=image/png
                   &LEGEND_OPTIONS=forceLabels:on
                   &LAYER=${name}`
-                console.log(legendGraphic)
               }
               return {
                 name: name,
@@ -122,6 +155,19 @@ class WMS extends React.Component {
 
   render () {
     const { classes } = this.props
+    const { detail } = this.state
+
+    const info = detail.map(item => {
+      let row = []
+      row.push(<tr key={item.caption} className={classes.caption}><td colSpan={2}>{item.caption}</td></tr>)
+      for (let index = 1; index < item.columns.length; index++) {
+        row.push(<tr key={index}>
+          <td className={`${classes.td} ${classes.caption}`}>{item.columns[index]}</td>
+          <td className={classes.td}>{item.value[index]}</td>
+        </tr>)
+      }
+      return row
+    })
 
     return (
       <Grid container className={classes.root}>
@@ -134,7 +180,12 @@ class WMS extends React.Component {
             />
         </Grid>
         <Grid item md={6}>
-          <span dangerouslySetInnerHTML={{__html: this.state.info.content}} />
+          <table className={classes.table}>
+            <tbody>
+              {info}
+            </tbody>
+          </table>
+          {/* <span dangerouslySetInnerHTML={{__html: this.state.info.content}} /> */}
         </Grid>
       </Grid>
     )
