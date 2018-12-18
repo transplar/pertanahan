@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Aduan from './profil/Aduan'
 import Berita from './berita/Berita'
+import Galeri from './galeri/Galeri'
 import Kontak from './profil/Kontak'
 import Layanan from './layanan/Layanan'
 import Map from './maps/Map'
@@ -27,6 +28,9 @@ class FrontpageMainContent extends React.Component {
         break
       case 'berita':
         component = <Berita changeTitle={changeTitle} match={match} />
+        break
+      case 'galeri':
+        component = <Galeri changeTitle={changeTitle} />
         break
       case 'kontak':
         component = <Kontak changeTitle={changeTitle} />
