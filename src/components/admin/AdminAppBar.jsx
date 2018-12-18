@@ -28,17 +28,12 @@ const styles = theme => ({
 class AdminAppBar extends React.Component {
   state = {
     title: 'Admin Panel',
-    mobileOpen: false,
   }
 
   changeTitle = title => {
     this.setState({
       title: title
     })
-  }
-
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }))
   }
 
   render() {
@@ -48,7 +43,7 @@ class AdminAppBar extends React.Component {
         <IconButton
           color='inherit'
           aria-label='Open drawer'
-          onClick={this.handleDrawerToggle}
+          onClick={this.props.handleDrawerToggle}
           className={classes.menuButton}
           >
           <MenuIcon />
