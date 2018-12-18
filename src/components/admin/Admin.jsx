@@ -80,7 +80,7 @@ class Admin extends React.Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AdminAppBar toolbar={this.state.toolbar} />
+        <AdminAppBar toolbar={this.state.toolbar} handleDrawerToggle={this.handleDrawerToggle} />
         <AdminDrawer
           theme={theme}
           mobileOpen={this.state.mobileOpen}
