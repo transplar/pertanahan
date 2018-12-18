@@ -7,6 +7,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import CameraAlt from '@material-ui/icons/CameraAlt'
 import Dashboard from '@material-ui/icons/Dashboard'
 import DeveloperBoard from '@material-ui/icons/DeveloperBoard'
 import ExitToApp from '@material-ui/icons/ExitToApp'
@@ -41,6 +42,11 @@ const navigationItems = [
     path: '/admin/news',
     icon: <LocalLibrary />,
     title: 'Berita'
+  },
+  {
+    path: '/admin/gallery',
+    icon: <CameraAlt />,
+    title: 'Galeri'
   },
   {
     path: '/admin/setting',

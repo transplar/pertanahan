@@ -1,6 +1,7 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Dashboard from './dashboard/Dashboard'
+import Gallery from './gallery/Gallery'
 import News from './news/News'
 import Setting from './setting/Setting'
 
@@ -17,6 +18,9 @@ class AdminMainContent extends React.Component {
     const { classes } = this.props
     let component
     switch(this.props.component) {
+      case 'gallery':
+        component = <Gallery />
+        break
       case 'news':
         component = <News />
         break
