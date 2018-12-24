@@ -7,6 +7,7 @@ import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
+import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import BorderColor from '@material-ui/icons/BorderColor'
 import Delete from '@material-ui/icons/Delete'
@@ -118,6 +119,7 @@ class NewsList extends React.Component {
           onClose={this.closeModal}
           >
           <div className={classes.paper}>
+            <Typography variant='headline'>Yakin ingin menghapus?</Typography>
             <Button color='secondary' onClick={this.deleteNewsItem}><Delete />Yes</Button>
             <Button onClick={this.closeModal}>Cancel</Button>
           </div>
