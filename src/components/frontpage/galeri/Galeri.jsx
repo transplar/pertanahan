@@ -48,7 +48,7 @@ class Galeri extends React.Component {
       <Paper className={classes.root}>
         <Typography color='error' variant='title' align='center'>{error}</Typography>
         <GridList cellHeight={240} cols={cols}>
-          {gallery.map(item => <GridListTile>
+          {gallery.map(item => <GridListTile key={item.id}>
               <img src={item.url} alt='kitten' />
               <GridListTileBar title={item.caption} />
             </GridListTile>

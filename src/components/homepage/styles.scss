@@ -180,11 +180,11 @@ $hex-size : 180px;
     padding-bottom: 5.5%;
   }
   .hex {
-    width: 25%;
+    width: 20%;
     /* = 100 / 4 */
-    &:nth-child(7n+5) {
+    &:nth-child(9n+6) {
       /* first hexagon of even rows */
-      margin-left: 12.5%;
+      margin-left: 10%;
       /* = width of .hex / 2  to indent even rows */
     }
   }

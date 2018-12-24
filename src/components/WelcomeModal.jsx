@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Typography from '@material-ui/core/Typography'
 import Cookie from 'js-cookie'
 import { baseAPIURL } from '../utils/config'
 
@@ -18,7 +19,8 @@ class WelcomeModal extends React.Component {
     this.state = {
       message: '',
       open: true,
-      scroll: 'paper'
+      scroll: 'paper',
+      error: ''
     }
   }
 
@@ -39,7 +41,7 @@ class WelcomeModal extends React.Component {
           message: json
         })
       })
-
+      .catch(error => this.setState({error: error.toString()}))
   }
 
   toggle () {
@@ -50,25 +52,29 @@ class WelcomeModal extends React.Component {
   }
 
   render () {
-    const { open, scroll, message } = this.state
-    let messageComponent
+    const { open, scroll, message, error } = this.state
+    let messageComponent, disabled
 
     if (!message) {
-      messageComponent = <CircularProgress />
+      messageComponent = <Typography align='center' component='div'><CircularProgress /></Typography>
     } else {
       messageComponent = <ReactMarkdown source={message.config.content} />
+    }
+    if (error) {
+      messageComponent = <Typography color='error' variant='headline'>{error}</Typography>
+      disabled = true
     }
 
     return (
       <Dialog open={open} scroll={scroll}>
         <DialogTitle>PENJELASAN DAN KETENTUAN</DialogTitle>
         <DialogContent>
+          {messageComponent}
           <DialogContentText>
-            {messageComponent}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button color='primary' onClick={this.toggle} variant='outlined'>Saya memahami dan menyetujui ketentuan di atas</Button>
+          <Button color='primary' onClick={this.toggle} variant='outlined' disabled={disabled}>Saya memahami dan menyetujui ketentuan di atas</Button>
         </DialogActions>
       </Dialog>
     )

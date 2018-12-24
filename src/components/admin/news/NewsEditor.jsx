@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import { baseAPIURL, pictshareAPIEndpoint } from '../../../utils/config'
+import { baseAPIURL } from '../../../utils/config'
 
 const styles = theme => ({
   button: {
@@ -43,10 +43,12 @@ class NewsEditor extends React.Component {
   }
 
   handleImageUpload = event => {
+    const url = `${baseAPIURL}/upload`
     let formData = new FormData()
-    formData.append('postimage', event.target.files[0])
-    fetch(pictshareAPIEndpoint, {
+    formData.append('file', event.target.files[0])
+    fetch(url, {
       method: 'post',
+      credentials: 'include',
       body: formData
     }).then(response => response.json())
       .then(event.target.value = null)
