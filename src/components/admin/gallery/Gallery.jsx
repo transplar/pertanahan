@@ -42,9 +42,13 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { gallery } = this.state
+    const { gallery, error } = this.state
     const { classes } = this.props
     return <Grid container spacing={8}>
+      <Grid item sm={12}>
+        <Button variant='outlined' color='primary'>Unggah Foto</Button>
+        {error ? <Typography color='error' variant='headline'>{error}</Typography> : ''}
+      </Grid>
       {gallery.map(item => {
         return <Grid item md={3} key={item.id}>
           <Card>
