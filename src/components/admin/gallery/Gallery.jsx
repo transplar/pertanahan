@@ -11,6 +11,7 @@ import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 import { withStyles } from '@material-ui/core/styles'
 import { baseAPIURL } from '../../../utils/config'
+import GalleryUpload from './GalleryUpload'
 
 const styles = theme => ({
   root: {
@@ -30,7 +31,8 @@ const styles = theme => ({
 class Gallery extends React.Component {
   state = {
     gallery: [],
-    error: ''
+    error: '',
+    upload: false
   }
 
   componentDidMount() {
@@ -41,13 +43,22 @@ class Gallery extends React.Component {
       .catch(error => this.setState({ error: error.toString() }))
   }
 
+  uploadFormHandler = () => {
+    this.setState({upload: !this.state.upload})
+  }
+
+  closeUploadForm = () => {
+    this.setState({upload: false})
+  }
+
   render() {
-    const { gallery, error } = this.state
+    const { gallery, error, upload } = this.state
     const { classes } = this.props
     return <Grid container spacing={8}>
       <Grid item sm={12}>
-        <Button variant='outlined' color='primary'>Unggah Foto</Button>
+        <Button variant='outlined' color='primary' onClick={this.uploadFormHandler}>Unggah Foto</Button>
         {error ? <Typography color='error' variant='headline'>{error}</Typography> : ''}
+        {upload ? <GalleryUpload close={this.closeUploadForm} /> : ''}
       </Grid>
       {gallery.map(item => {
         return <Grid item md={3} key={item.id}>
