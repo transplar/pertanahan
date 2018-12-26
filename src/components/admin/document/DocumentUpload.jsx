@@ -79,8 +79,8 @@ class DocumentUpload extends React.Component {
             <FormControlLable value='panduan' label='Panduan' control={<Radio />} />
             <FormControlLable value='publikasi' label='Publikasi' control={<Radio />} />
           </RadioGroup>
-          <TextField fullWidth name='filename' label='Nama File' value={filename} />
-          <TextField fullWidth name='url' label='Url' readOnly value={url} />
+          <TextField fullWidth name='filename' label='Nama File' value={filename} required />
+          <TextField fullWidth name='url' label='Url' readOnly value={url} required />
           <input type='file' onChange={this.handleFileUpload} />
           <Typography>
             <Button type='submit'>Simpan</Button>
