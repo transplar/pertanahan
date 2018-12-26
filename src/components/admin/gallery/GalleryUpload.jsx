@@ -79,6 +79,7 @@ class GalleryUpload extends React.Component {
       body: JSON.stringify(data)
     }).then(response => response.json())
       .then(() => {
+        this.props.reset()
         this.props.reload()
         this.props.close()
       })

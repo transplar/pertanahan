@@ -50,7 +50,7 @@ class Gallery extends React.Component {
 
   uploadFormHandler = () => {
     if (this.state.upload === true) {
-      this.setState({toBeEdited: null})
+      this.resetForm()
     }
     this.setState({upload: !this.state.upload})
   }
@@ -75,6 +75,10 @@ class Gallery extends React.Component {
       .catch(error => this.setState({ error: error.toString() }))
   }
 
+  resetForm = () => {
+    this.setState({toBeEdited: null})
+  }
+
   render() {
     const { gallery, error, upload, openModal, toBeDeleted, toBeEdited } = this.state
     const { classes } = this.props
@@ -82,7 +86,7 @@ class Gallery extends React.Component {
       <Grid item sm={12}>
         <Button variant='outlined' color='primary' onClick={this.uploadFormHandler}>Unggah Foto</Button>
         {error ? <Typography color='error' variant='headline'>{error}</Typography> : ''}
-        {upload ? <GalleryUpload close={this.closeUploadForm} reload={this.reload} item={toBeEdited} /> : ''}
+        {upload ? <GalleryUpload close={this.closeUploadForm} reload={this.reload} item={toBeEdited} reset={this.resetForm} /> : ''}
       </Grid>
       {gallery.map(item => {
         return <Grid item md={3} key={item.id}>
