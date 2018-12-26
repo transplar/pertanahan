@@ -44,6 +44,19 @@ class DocumentUpload extends React.Component {
   }
 
   handleSubmit = event => {
+    const data = {
+      url: event.target.url.value,
+      filename: event.target.filename.value,
+      document_type: event.target.document_type.value
+    }
+    const url = `${baseAPIURL}/document`
+    fetch(url, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(data)
+    }).then(response => response.json())
+      .then(json => console.log(json))
+      .catch(error => console.log(error))
     event.preventDefault()
   }
 
