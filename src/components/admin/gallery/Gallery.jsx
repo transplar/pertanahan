@@ -99,7 +99,7 @@ class Gallery extends React.Component {
           </Card>
         </Grid>
       })}
-      {toBeDeleted ? <GalleryDelete close={this.closeModal} open={openModal} item={toBeDeleted} /> : ''}
+      {toBeDeleted ? <GalleryDelete close={this.closeModal} reload={this.reload} open={openModal} item={toBeDeleted} /> : ''}
     </Grid>
   }
 }
