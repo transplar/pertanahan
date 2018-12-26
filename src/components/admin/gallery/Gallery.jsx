@@ -36,11 +36,7 @@ class Gallery extends React.Component {
   }
 
   componentDidMount() {
-    const url = `${baseAPIURL}/gallery`
-    fetch(url)
-      .then(response => response.json())
-      .then(json => this.setState({ gallery: json.items }))
-      .catch(error => this.setState({ error: error.toString() }))
+    this.reload()
   }
 
   uploadFormHandler = () => {
@@ -51,6 +47,14 @@ class Gallery extends React.Component {
     this.setState({upload: false})
   }
 
+  reload = () => {
+    const url = `${baseAPIURL}/gallery`
+    fetch(url)
+      .then(response => response.json())
+      .then(json => this.setState({ gallery: json.items }))
+      .catch(error => this.setState({ error: error.toString() }))
+  }
+
   render() {
     const { gallery, error, upload } = this.state
     const { classes } = this.props
@@ -58,7 +62,7 @@ class Gallery extends React.Component {
       <Grid item sm={12}>
         <Button variant='outlined' color='primary' onClick={this.uploadFormHandler}>Unggah Foto</Button>
         {error ? <Typography color='error' variant='headline'>{error}</Typography> : ''}
-        {upload ? <GalleryUpload close={this.closeUploadForm} /> : ''}
+        {upload ? <GalleryUpload close={this.closeUploadForm} reload={this.reload} /> : ''}
       </Grid>
       {gallery.map(item => {
         return <Grid item md={3} key={item.id}>

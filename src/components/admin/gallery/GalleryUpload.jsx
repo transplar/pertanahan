@@ -61,7 +61,10 @@ class GalleryUpload extends React.Component {
       method: 'POST',
       body: JSON.stringify(data)
     }).then(response => response.json())
-      .then(this.props.reload())
+      .then(() => {
+        this.props.reload()
+        this.props.close()
+      })
     event.preventDefault()
   }
 
