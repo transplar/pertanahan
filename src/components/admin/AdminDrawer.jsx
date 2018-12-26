@@ -11,6 +11,7 @@ import CameraAlt from '@material-ui/icons/CameraAlt'
 import Dashboard from '@material-ui/icons/Dashboard'
 import DeveloperBoard from '@material-ui/icons/DeveloperBoard'
 import ExitToApp from '@material-ui/icons/ExitToApp'
+import Folder from '@material-ui/icons/Folder'
 import Home from '@material-ui/icons/Home'
 import LocalLibrary from '@material-ui/icons/LocalLibrary'
 import Lock from '@material-ui/icons/Lock'
@@ -48,6 +49,11 @@ const navigationItems = [
     path: '/admin/gallery',
     icon: <CameraAlt />,
     title: 'Galeri'
+  },
+  {
+    path: '/admin/document',
+    icon: <Folder />,
+    title: 'Dokumen'
   },
   {
     path: '/admin/setting',
