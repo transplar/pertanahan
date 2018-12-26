@@ -35,6 +35,7 @@ class Unduh extends React.Component {
     const landasan = documents.filter(item => item.documentType === 'publikasi')
     const panduan = documents.filter(item => item.documentType === 'panduan')
     const laporan = documents.filter(item => item.documentType === 'laporan')
+    const lainnya = documents.filter(item => item.documentType === '')
 
     return (
       <div className={`${classes.width} bg-white my-1 rounded`}>
@@ -44,6 +45,7 @@ class Unduh extends React.Component {
           <UnduhListItems items={landasan} title='Landasan Hukum' />
           <UnduhListItems items={panduan} title='Buku Panduan' />
           <UnduhListItems items={laporan} title='Laporan Tahunan' />
+          <UnduhListItems items={lainnya} title='Lainnya' />
         </List>
       </div>
     )
