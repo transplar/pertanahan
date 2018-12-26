@@ -38,7 +38,7 @@ class DocumentUpload extends React.Component {
       body: formData
     }).then(response => response.json())
       .then(json => {
-        this.setState({url: json.url, filename: json.file.file.name})
+        this.setState({ url: json.url, filename: json.file.file.name })
       })
     event.target.value = null
   }
@@ -57,6 +57,11 @@ class DocumentUpload extends React.Component {
     }).then(response => response.json())
       .then(json => console.log(json))
       .catch(error => console.log(error))
+    this.setState({
+      url: '',
+      document_type: '',
+      filename: ''
+    })
     event.preventDefault()
   }
 
@@ -70,7 +75,7 @@ class DocumentUpload extends React.Component {
           <RadioGroup name='document_type' value={document_type} onChange={this.handleChange}>
             <FormControlLable value='laporan' label='Laporan' control={<Radio />} />
             <FormControlLable value='panduan' label='Panduan' control={<Radio />} />
-            <FormControlLable value='publikasi' label='Publikasi'  control={<Radio />}/>
+            <FormControlLable value='publikasi' label='Publikasi' control={<Radio />} />
           </RadioGroup>
           <TextField fullWidth name='filename' label='Nama File' value={filename} />
           <TextField fullWidth name='url' label='Url' readOnly value={url} />
