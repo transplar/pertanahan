@@ -72,7 +72,7 @@ class GalleryUpload extends React.Component {
       event_date: event.target.date.value,
     }
     const url = `${baseAPIURL}/gallery`
-    const method = this.item === null ? 'POST' : 'PATCH'
+    const method = this.state.item === null ? 'POST' : 'PATCH'
     fetch(url, {
       credentials: 'include',
       method: method,
