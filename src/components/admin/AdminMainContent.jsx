@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import AdminChangePassword from './AdminChangePassword'
 import Dashboard from './dashboard/Dashboard'
+import Document from './document/Document'
 import Gallery from './gallery/Gallery'
 import News from './news/News'
 import Setting from './setting/Setting'
@@ -21,6 +22,9 @@ class AdminMainContent extends React.Component {
     switch(this.props.component) {
       case 'changepassword':
         component = <AdminChangePassword />
+        break
+      case 'document':
+        component = <Document />
         break
       case 'gallery':
         component = <Gallery />
