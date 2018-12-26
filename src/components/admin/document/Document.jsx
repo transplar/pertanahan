@@ -1,6 +1,8 @@
 import React from 'react'
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import DocumentUpload from './DocumentUpload'
 import { baseAPIURL } from '../../../utils/config'
 
 const styles = theme => ({
@@ -13,11 +15,16 @@ class Document extends React.Component {
   state = {
     documents: [],
     message: '',
-    error: false
+    error: false,
+    uploadForm: false
   }
 
   componentDidMount () {
     this.reload()
+  }
+
+  uploadDocument = () => {
+    this.setState({uploadForm: true})
   }
 
   reload = () => {
@@ -38,12 +45,16 @@ class Document extends React.Component {
 
   render () {
     const { classes } = this.props
-    const { message } = this.state
+    const { message, uploadForm } = this.state
     return(
       <div className={classes.root}>
         <Typography variant='headline' color='error'>
           {message}
         </Typography>
+        <Typography>
+          <Button variant='outlined' color='primary' onClick={this.uploadDocument}>Upload Dokumen</Button>
+        </Typography>
+        {uploadForm ? <DocumentUpload /> : ''}
       </div>
     )
   }
