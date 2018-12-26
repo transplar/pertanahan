@@ -55,7 +55,13 @@ class GalleryUpload extends React.Component {
       caption: event.target.caption.value,
       event_date: event.target.date.value,
     }
-    console.log(data)
+    const url = `${baseAPIURL}/gallery`
+    fetch(url, {
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify(data)
+    }).then(response => response.json())
+      .then(this.props.reload())
     event.preventDefault()
   }
 
