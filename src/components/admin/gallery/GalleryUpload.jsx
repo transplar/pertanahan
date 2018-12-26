@@ -1,9 +1,11 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
 import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
+import { baseAPIURL } from '../../../utils/config'
 
 const styles = theme => ({
   root: {
@@ -20,8 +22,46 @@ const styles = theme => ({
 })
 
 class GalleryUpload extends React.Component {
+  state = {
+    url: '',
+    caption: '',
+    date: ''
+  }
+
+  handleImageUpload = event => {
+    const url = `${baseAPIURL}/upload`
+    let formData = new FormData()
+    formData.append('file', event.target.files[0])
+    fetch(url, {
+      method: 'post',
+      credentials: 'include',
+      body: formData
+    }).then(response => response.json())
+      .then(json => {
+        this.setState({url: json.url})
+      })
+  }
+
+  handleInputChange = event => {
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit = event => {
+    const data = {
+      url: event.target.url.value,
+      caption: event.target.caption.value,
+      event_date: event.target.date.value,
+    }
+    console.log(data)
+    event.preventDefault()
+  }
+
   render () {
     const { classes, close } = this.props
+    const { url, date, caption } = this.state
     return (
       <Paper className={classes.root}>
         <form
@@ -29,13 +69,29 @@ class GalleryUpload extends React.Component {
           autoComplete='off'
           style={{ maxWidth: '800px' }}
         >
-          <img src='http://placekitten.com/1000/1000' alt='' className={classes.image} />
+          <img src={url} alt='' className={classes.image} />
+          <Input
+            required
+            fullWidth
+            readOnly
+            name='url'
+            value={url}
+          />
+          <Input
+            fullWidth
+            name='date'
+            type='date'
+            onChange={this.handleInputChange}
+            value={date}
+          />
           <TextField
             required
             fullWidth
             multiline
             rows={5}
-            name='content'
+            value={caption}
+            onChange={this.handleInputChange}
+            name='caption'
             label='Deskripsi'
             InputLabelProps={{ shrink: true }}
           />
