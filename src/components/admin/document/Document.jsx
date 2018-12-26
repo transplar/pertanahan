@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import DocumentUpload from './DocumentUpload'
 import { baseAPIURL } from '../../../utils/config'
+import DocumentList from './DocumentList'
 
 const styles = theme => ({
   root: {
@@ -45,7 +46,7 @@ class Document extends React.Component {
 
   render () {
     const { classes } = this.props
-    const { message, uploadForm } = this.state
+    const { documents, message, uploadForm } = this.state
     return(
       <div className={classes.root}>
         <Typography variant='headline' color='error'>
@@ -55,6 +56,7 @@ class Document extends React.Component {
           <Button variant='outlined' color='primary' onClick={this.uploadDocument}>Upload Dokumen</Button>
         </Typography>
         {uploadForm ? <DocumentUpload /> : ''}
+        <DocumentList documents={documents} />
       </div>
     )
   }
