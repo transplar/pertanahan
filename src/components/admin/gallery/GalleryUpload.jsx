@@ -25,7 +25,20 @@ class GalleryUpload extends React.Component {
   state = {
     url: '',
     caption: '',
-    date: ''
+    date: '',
+    item: null,
+  }
+
+  componentDidMount () {
+    const { item } = this.props
+    this.setState({item: item})
+    if (item !== null) {
+      this.setState({
+        caption: item.caption,
+        date: new Date(item.eventDate).toISOString().split('T')[0],
+        url: item.url
+      })
+    }
   }
 
   handleImageUpload = event => {

@@ -36,13 +36,22 @@ class Gallery extends React.Component {
     upload: false,
     openModal: false,
     toBeDeleted: null,
+    toBeEdited: null,
   }
 
   componentDidMount() {
     this.reload()
   }
 
+  editItem = (item) => {
+    this.setState({toBeEdited: item})
+    this.uploadFormHandler()
+  }
+
   uploadFormHandler = () => {
+    if (this.state.upload === true) {
+      this.setState({toBeEdited: null})
+    }
     this.setState({upload: !this.state.upload})
   }
 
@@ -67,13 +76,13 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { gallery, error, upload, openModal, toBeDeleted } = this.state
+    const { gallery, error, upload, openModal, toBeDeleted, toBeEdited } = this.state
     const { classes } = this.props
     return <Grid container spacing={8}>
       <Grid item sm={12}>
         <Button variant='outlined' color='primary' onClick={this.uploadFormHandler}>Unggah Foto</Button>
         {error ? <Typography color='error' variant='headline'>{error}</Typography> : ''}
-        {upload ? <GalleryUpload close={this.closeUploadForm} reload={this.reload} /> : ''}
+        {upload ? <GalleryUpload close={this.closeUploadForm} reload={this.reload} item={toBeEdited} /> : ''}
       </Grid>
       {gallery.map(item => {
         return <Grid item md={3} key={item.id}>
@@ -87,7 +96,7 @@ class Gallery extends React.Component {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size='small' color='primary'>
+              <Button size='small' color='primary' onClick={() => this.editItem(item)}>
                 <Edit />
                 Edit
               </Button>
