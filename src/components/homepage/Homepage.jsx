@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { withStyles } from '@material-ui/core/styles'
 import HomepageHeader from './HomepageHeader'
 import HomepageMenu from './HomepageMenu'
+import HomepageFooter from './HomepageFooter'
 import bg from './assets/bg_body.jpg'
 import './styles.scss'
 
@@ -42,6 +43,7 @@ class Homepage extends React.Component {
         <CssBaseline />
         <HomepageHeader />
         <HomepageMenu />
+        <HomepageFooter />
       </div>
     )
   }
