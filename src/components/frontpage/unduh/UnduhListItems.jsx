@@ -29,12 +29,12 @@ export default class DownloadListItems extends React.Component {
 
   render () {
     const listItem = this.props.items.map(item => (
-      <div key={item}>
+      <div key={item.id}>
         <ListItem button>
           <ListItemIcon>
             <InsertDriveFileIcon />
           </ListItemIcon>
-          <ListItemText inset primary={item} />
+          <ListItemText inset><a href={item.url}>{item.filename}</a></ListItemText>
         </ListItem>
         <Divider inset />
       </div>
