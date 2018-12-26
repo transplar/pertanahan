@@ -13,6 +13,7 @@ import DeveloperBoard from '@material-ui/icons/DeveloperBoard'
 import ExitToApp from '@material-ui/icons/ExitToApp'
 import Home from '@material-ui/icons/Home'
 import LocalLibrary from '@material-ui/icons/LocalLibrary'
+import Lock from '@material-ui/icons/Lock'
 import { withStyles } from '@material-ui/core/styles'
 
 const drawerWidth = 280
@@ -52,6 +53,11 @@ const navigationItems = [
     path: '/admin/setting',
     icon: <DeveloperBoard />,
     title: 'Setting'
+  },
+  {
+    path: '/admin/changepassword',
+    icon: <Lock />,
+    title: 'Ganti Password'
   },
   {
     path: '/logout',
