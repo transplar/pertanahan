@@ -13,7 +13,7 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
-    margin: '1rem 0 3rem 0',
+    margin: theme.spacing.unit,
   },
   titleBig: {
     [theme.breakpoints.down('sm')]: {
