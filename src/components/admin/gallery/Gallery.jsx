@@ -12,6 +12,7 @@ import Edit from '@material-ui/icons/Edit'
 import { withStyles } from '@material-ui/core/styles'
 import { baseAPIURL } from '../../../utils/config'
 import GalleryUpload from './GalleryUpload'
+import GalleryDelete from './GalleryDelete'
 
 const styles = theme => ({
   root: {
@@ -32,7 +33,9 @@ class Gallery extends React.Component {
   state = {
     gallery: [],
     error: '',
-    upload: false
+    upload: false,
+    openModal: false,
+    toBeDeleted: null,
   }
 
   componentDidMount() {
@@ -41,6 +44,14 @@ class Gallery extends React.Component {
 
   uploadFormHandler = () => {
     this.setState({upload: !this.state.upload})
+  }
+
+  closeModal = () => {
+    this.setState({openModal: false})
+  }
+
+  openModal = (item) => {
+    this.setState({openModal: true, toBeDeleted: item})
   }
 
   closeUploadForm = () => {
@@ -56,7 +67,7 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { gallery, error, upload } = this.state
+    const { gallery, error, upload, openModal, toBeDeleted } = this.state
     const { classes } = this.props
     return <Grid container spacing={8}>
       <Grid item sm={12}>
@@ -80,7 +91,7 @@ class Gallery extends React.Component {
                 <Edit />
                 Edit
               </Button>
-              <Button size='small' color='secondary'>
+              <Button size='small' color='secondary' onClick={() => this.openModal(item)}>
                 <Delete />
                 Delete
               </Button>
@@ -88,6 +99,7 @@ class Gallery extends React.Component {
           </Card>
         </Grid>
       })}
+      {toBeDeleted ? <GalleryDelete close={this.closeModal} open={openModal} item={toBeDeleted} /> : ''}
     </Grid>
   }
 }
