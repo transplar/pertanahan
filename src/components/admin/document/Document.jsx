@@ -24,6 +24,10 @@ class Document extends React.Component {
     this.reload()
   }
 
+  closeForm = () => {
+    this.setState({uploadForm: false})
+  }
+
   uploadDocument = () => {
     this.setState({uploadForm: true})
   }
@@ -55,7 +59,7 @@ class Document extends React.Component {
         <Typography>
           <Button variant='outlined' color='primary' onClick={this.uploadDocument}>Upload Dokumen</Button>
         </Typography>
-        {uploadForm ? <DocumentUpload /> : ''}
+        {uploadForm ? <DocumentUpload close={this.closeForm} reload={this.reload} /> : ''}
         <DocumentList documents={documents} />
       </div>
     )

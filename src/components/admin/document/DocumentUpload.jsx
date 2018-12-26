@@ -62,6 +62,8 @@ class DocumentUpload extends React.Component {
       document_type: '',
       filename: ''
     })
+    this.props.reload()
+    this.props.close()
     event.preventDefault()
   }
 
