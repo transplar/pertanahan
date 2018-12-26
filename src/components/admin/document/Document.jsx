@@ -60,7 +60,7 @@ class Document extends React.Component {
           <Button variant='outlined' color='primary' onClick={this.uploadDocument}>Upload Dokumen</Button>
         </Typography>
         {uploadForm ? <DocumentUpload close={this.closeForm} reload={this.reload} /> : ''}
-        <DocumentList documents={documents} />
+        <DocumentList documents={documents} reload={this.reload} />
       </div>
     )
   }
