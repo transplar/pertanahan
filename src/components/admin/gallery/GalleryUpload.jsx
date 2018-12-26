@@ -23,6 +23,7 @@ const styles = theme => ({
 
 class GalleryUpload extends React.Component {
   state = {
+    id: '',
     url: '',
     caption: '',
     date: '',
@@ -34,6 +35,7 @@ class GalleryUpload extends React.Component {
     this.setState({item: item})
     if (item !== null) {
       this.setState({
+        id: item.id,
         caption: item.caption,
         date: new Date(item.eventDate).toISOString().split('T')[0],
         url: item.url
@@ -64,14 +66,16 @@ class GalleryUpload extends React.Component {
 
   handleSubmit = event => {
     const data = {
+      id: event.target.id.value,
       url: event.target.url.value,
       caption: event.target.caption.value,
       event_date: event.target.date.value,
     }
     const url = `${baseAPIURL}/gallery`
+    const method = this.item === null ? 'POST' : 'PATCH'
     fetch(url, {
       credentials: 'include',
-      method: 'POST',
+      method: method,
       body: JSON.stringify(data)
     }).then(response => response.json())
       .then(() => {
@@ -83,7 +87,7 @@ class GalleryUpload extends React.Component {
 
   render () {
     const { classes, close } = this.props
-    const { url, date, caption } = this.state
+    const { url, date, caption, id } = this.state
     return (
       <Paper className={classes.root}>
         <form
@@ -92,6 +96,7 @@ class GalleryUpload extends React.Component {
           style={{ maxWidth: '800px' }}
         >
           <img src={url} alt='' className={classes.image} />
+          <input type='hidden' name='id' value={id} />
           <Input
             required
             fullWidth
